@@ -39,12 +39,12 @@ const bodyClass = path === "/" ? "w3-animate-left" : "w3-animate-top";
   {isProjectPage ? (
     <link
 	  rel="stylesheet"
-	  href={`${import.meta.env.BASE_URL}assets/css/PROJECTS.css`}
+	  href={`${import.meta.env.BASE_URL}assets/css/project.css`}
 	>
   ) : (
     <link
 	  rel="stylesheet"
-	  href={`${import.meta.env.BASE_URL}assets/css/styleS.css`}
+	  href={`${import.meta.env.BASE_URL}assets/css/styles.css`}
 	>
   )}
 </head>
@@ -57,7 +57,7 @@ const bodyClass = path === "/" ? "w3-animate-left" : "w3-animate-top";
 
   {isProjectPage ? (
 	<script is:inline
-	  src={`${import.meta.env.BASE_URL}assets/js/PROJECT.js`}
+	  src={`${import.meta.env.BASE_URL}assets/js/project.js`}
 	></script>
   ) : (   
 	<script is:inline
