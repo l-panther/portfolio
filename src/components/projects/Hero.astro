@@ -1,0 +1,25 @@
+---
+import type { Project } from '../../types/projects';
+
+const { project } = Astro.props as { project: Project };
+---
+
+<section class="case-hero">
+  <div class="case-hero-grid">
+    <div>
+      <div class="eyebrow reveal">Case Study</div>
+      <h1 class="reveal" style="--d:.05s"><span class="accent">{project.title}</span> {project.subtitle}</h1>
+      <p class="reveal" style="--d:.1s">{project.description}</p>
+      <div class="hero-actions reveal" style="--d:.15s">
+        <a href="#visual-design" class="btn btn-fill">View Design</a>
+        <a href="#outcome" class="btn btn-outline">View Outcome</a>
+      </div>
+    </div>
+    <div class="stack-mock reveal zoom" style="--d:.2s">
+      <div class="card back">
+        <img src={`/assets/images/projects/case-study/hero/${project.image}.png`}
+          alt={project.title} style="object-position:top;">
+      </div>
+    </div>
+  </div>
+</section>

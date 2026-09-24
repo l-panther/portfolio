@@ -1,0 +1,66 @@
+---
+import type { Project } from '../../types/projects';
+
+import CristianSVG from '../Design/CristianSVG.astro';
+import DiabetesSVG from '../Design/DiabetesSVG.astro';
+import EfexacademySVG from '../Design/EfexacademySVG.astro';
+import EmblemSVG from '../Design/EmblemSVG.astro';
+import HairdresserSVG from '../Design/HairdresserSVG.astro';
+import MarketingSVG from '../Design/MarketingSVG.astro';
+import SladeSVG from '../Design/SladeSVG.astro';
+import SoulfulSVG from '../Design/SoulfulSVG.astro';
+import WindowCleanerSVG from '../Design/WindowCleanerSVG.astro';
+
+const { project } = Astro.props as { project: Project };
+
+const svgMap = {
+  cristian: CristianSVG,
+  diabetes: DiabetesSVG,
+  efexacademy: EfexacademySVG,
+  emblem: EmblemSVG,
+  hairdresser: HairdresserSVG,
+  marketing: MarketingSVG,
+  slade: SladeSVG,
+  soulful: SoulfulSVG,
+  window_cleaner: WindowCleanerSVG 
+};
+
+const DesignSVG =
+  svgMap[project.designSvg as keyof typeof svgMap];
+---
+
+<section class="visual-design" id="visual-design">
+  <div class="vd-grid">
+    <div>
+      <h2 class="reveal">Visual <span>Design</span></h2>
+      {project.design.map((item, index) => (
+        <p 
+            class="reveal" 
+            style={`--d:${index * 0.05}s`}
+        >
+            {item}
+        </p>
+        ))}
+
+      {project.designPoints.map((point, index) => (
+        <div 
+          class="principle reveal" 
+          style={`--d:${0.15 + index * 0.05}s`}
+          >
+          <div class="num">
+              {String(index + 1).padStart(2, '0')}
+          </div>
+
+          <div>
+              <h3>{point.title}</h3>
+              <p>{point.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="vd-visual reveal zoom" style="--d:.15s">
+      {DesignSVG && <DesignSVG />}
+    </div>
+  </div>
+</section>

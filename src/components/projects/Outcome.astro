@@ -1,0 +1,55 @@
+---
+import type { Project } from '../../types/projects';
+
+const { project } = Astro.props as { project: Project };
+---
+
+<section class="split-sec" id="outcome">
+  <div class="split-grid">
+    <div class="reveal">
+      <h2>Technology <span class="accent">Used</span></h2>
+       {project.development.map((develop) => (
+        <p>
+          {develop}
+        </p>
+    ))}
+    <p style="margin-top:20px;font-weight:600;color:var(--ink);">The core stack includes:</p>
+      <div class="stack-icons">
+        {project.technologies.map((technology) => (
+          <div class="chip">
+            <img
+              src={`/assets/images/technologies/${technology}.png`}
+              alt={`${technology} logo`}
+              title={`${technology} logo`}
+              aria-label={`${technology} logo`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="outcome-col reveal" style="--d:.1s">
+
+      <h2>The <span class="accent">Outcome</span></h2>
+       {project.outcome.map((output) => (
+        <p>
+            {output}
+        </p>
+       ))}
+      <div class="outcome-actions">
+        {project.link && (
+            <a href={project.link} target="_blank" class="btn btn-fill">
+              Live Site
+            </a>
+          )}
+
+          {project.github ? (
+            <a href={project.github} target="_blank" class="btn secondary">
+              GitHub
+            </a>
+          ) : (
+            <span class="btn btn-disabled">No GitHub</span>
+          )}
+      </div>
+    </div>
+  </div>
+</section>

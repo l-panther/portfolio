@@ -1,0 +1,44 @@
+---
+import { COMPANY_NAME, COMPANY_SLOGAN } from '../lib/config.js';
+---
+
+<!doctype html>
+<html lang="en-GB">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{COMPANY_NAME} | {COMPANY_SLOGAN}</title>
+  <meta name="description" content="Discover the portfolio of Leroy Russell, a skilled solo developer offering custom web, mobile, and software development services. Tailored digital solutions to bring your ideas to life." />
+  <meta name="keywords" content="Solo Web Developer, Freelance Developer, Mobile App Development, Custom Software Solutions, Web Design, Mobile Development, Full-Stack Development, Software Development, App Development, Digital Solutions" />
+  <meta name="author" content="Leroy Russell">
+
+  <!-- SEO -->
+  <meta property="og:title" content={COMPANY_NAME} />
+  <meta property="og:description" content="Custom web, mobile, and software development services." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/images/logo/logo.png" />
+
+  <!-- W3.CSS and Custom Styles -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/logo/logo.ico">
+  <link rel="icon" href="/assets/images/logo/logo.ico">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="/assets/css/normalize.css">
+  <link rel="stylesheet" href="/assets/css/project.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
+<body class="w3-animate-top
+">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+	<!-- Skip Link for Accessibility -->
+  <slot />
+
+  <!-- JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> <!-- Jquery -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+</body>
+</html>

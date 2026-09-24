@@ -1,0 +1,250 @@
+
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-intro reveal">
+        <span class="hero-hi">Hi, I'm Leroy</span>
+        <span class="hero-role">Designer <i></i> Developer <i></i> Visual Creator</span>
+      </div>
+
+      <h1 class="reveal" style="--d:.05s">
+        Building Better <span class="glow-blue">Web Experiences</span>
+      </h1>
+
+      <p class="reveal" style="--d:.1s">
+        I work across digital and physical mediums, blending design,
+        development, and visual art to create interactive experiences,
+        3D visuals, and responsive web applications.
+      </p>
+      <div class="hero-actions reveal" style="--d:.15s">
+        <a href="#projects" class="btn btn-fill">My Projects</a>
+        <a href="#about" class="btn btn-outline">About Me</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal zoom" style="--d:.2s">
+      <div class="developer-hero">
+
+        <!-- Main artwork -->
+        <img
+          src="/assets/images/hero/man-and-desk.png"
+          class="hero-layer hero-main"
+          alt="Developer working at a desk"
+        >
+
+        <!-- Floating interfaces -->
+        <img
+          src="/assets/images/hero/browser-ui.png"
+          class="hero-layer ui ui-1"
+          alt=""
+        >
+
+        <img
+          src="/assets/images/hero/idea-ui.png"
+          class="hero-layer ui ui-2"
+          alt=""
+        >
+
+        <img
+          src="/assets/images/hero/upload-ui.png"
+          class="hero-layer ui ui-3"
+          alt=""
+        > 
+
+        <img
+          src="/assets/images/hero/code-ui.png"
+          class="hero-layer ui ui-4"
+          alt=""
+        >
+
+        <img
+          src="/assets/images/hero/chart-ui.png"
+          class="hero-layer ui ui-5"
+          alt=""
+        > 
+
+        <img
+          src="/assets/images/hero/user-ui.png"
+          class="hero-layer ui ui-6"
+          alt=""
+        >
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  .hero h1,
+  .hero-text h2,
+  .hero-text p,
+  .button-group {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .hero h1 { animation-delay: 0.1s; }
+  .hero-text h2 { animation-delay: 0.2s; }
+  .hero-text p  { animation-delay: 0.3s; }
+  .button-group { animation-delay: 0.4s; }
+
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.typing-text {
+  border-right: 2px solid transparent;
+  padding-right: 6px;
+}
+
+
+.developer-hero {
+  position: relative;
+  width: min(100%, 900px);
+  aspect-ratio: 1 / 1;
+  margin-inline: auto;
+}
+
+.hero-layer {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  pointer-events: none;
+}
+
+/* -------------------------
+   MAIN IMAGE
+-------------------------- */
+
+.hero-main {
+  z-index: 1;
+}
+
+
+/* -------------------------
+   UI ELEMENTS
+-------------------------- */
+
+.ui {
+  z-index: 2;
+
+  filter:
+    drop-shadow(0 0 3px rgba(47, 103, 152, 0.35))
+    drop-shadow(0 0 7px rgba(47, 103, 152, 0.15));
+
+  animation:
+    uiFloat 5s ease-in-out infinite,
+    uiGlow 4s ease-in-out infinite;
+}
+
+
+/* Make every card move differently */
+
+.ui-1 {
+  animation-delay: -0.5s;
+}
+
+.ui-2 {
+  animation-delay: -1.3s;
+  animation-duration: 5.8s, 4.5s;
+}
+
+.ui-3 {
+  animation-delay: -2.1s;
+  animation-duration: 6.2s, 5s;
+}
+
+.ui-4 {
+  animation-delay: -3s;
+  animation-duration: 5.4s, 4.2s;
+}
+
+.ui-5 {
+  animation-delay: -1.7s;
+  animation-duration: 6.5s, 4.8s;
+}
+
+.ui-6 {
+  animation-delay: -2.8s;
+  animation-duration: 5.7s, 5.2s;
+}
+
+.ui-7 {
+  animation-delay: -0.9s;
+  animation-duration: 6.3s, 4.6s;
+}
+
+.ui-8 {
+  animation-delay: -3.4s;
+  animation-duration: 5.5s, 5s;
+}
+
+.ui-9 {
+  animation-delay: -2.3s;
+  animation-duration: 6s, 4.4s;
+}
+
+
+/* -------------------------
+   FLOAT
+-------------------------- */
+
+@keyframes uiFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+}
+
+
+/* -------------------------
+   SUBTLE #2f6798 GLOW
+-------------------------- */
+
+@keyframes uiGlow {
+
+  0%,
+  100% {
+    filter:
+      drop-shadow(0 0 3px rgba(47, 103, 152, 0.30))
+      drop-shadow(0 0 6px rgba(47, 103, 152, 0.12));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 5px rgba(47, 103, 152, 0.48))
+      drop-shadow(0 0 10px rgba(47, 103, 152, 0.22));
+  }
+}
+
+@media (max-width: 768px) {
+  .developer-hero {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .developer-hero {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+</style>

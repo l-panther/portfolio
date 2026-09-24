@@ -1,0 +1,111 @@
+<svg viewBox="0 0 560 460" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+  <linearGradient id="mob-blue" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#5b86d6"/>
+  <stop offset="1" stop-color="#274a8c"/>
+  </linearGradient>
+
+  <linearGradient id="mob-orange" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#e79a4a"/>
+  <stop offset="1" stop-color="#c9762c"/>
+  </linearGradient>
+
+  <filter id="mob-soft" x="-40%" y="-40%" width="180%" height="180%">
+  <feGaussianBlur stdDeviation="20"/>
+  </filter>
+  </defs>
+
+  <!-- background glow -->
+  <ellipse
+    cx="280"
+    cy="235"
+    rx="185"
+    ry="180"
+    fill="#3d6fca"
+    opacity=".18"
+    filter="url(#mob-soft)"
+  />
+
+  <!-- rear phone -->
+  <g transform="rotate(-9 200 235)">
+  <rect x="125" y="72" width="155" height="315" rx="28"
+    fill="#0e2140"
+    stroke="rgba(255,255,255,.15)"/>
+
+  <rect x="137" y="88" width="131" height="283" rx="19" fill="#132a52"/>
+
+  <rect x="174" y="96" width="56" height="6" rx="3" fill="#334b71"/>
+
+  <rect x="151" y="126" width="103" height="96" rx="13" fill="url(#mob-blue)"/>
+
+  <rect x="151" y="238" width="48" height="48" rx="10" fill="#1b3560"/>
+  <rect x="206" y="238" width="48" height="48" rx="10" fill="url(#mob-orange)"/>
+
+  <rect x="151" y="300" width="103" height="9" rx="4.5" fill="#334b71"/>
+  <rect x="151" y="320" width="78" height="7" rx="3.5" fill="#334b71"/>
+  </g>
+
+  <!-- front phone -->
+  <g transform="rotate(7 340 220)">
+  <rect x="280" y="48" width="165" height="332" rx="30"
+      fill="#0b1931"
+      stroke="rgba(255,255,255,.18)"/>
+
+  <rect x="293" y="65" width="139" height="298" rx="20" fill="#132a52"/>
+
+  <rect x="330" y="74" width="64" height="6" rx="3" fill="#334b71"/>
+
+  <!-- header -->
+  <circle cx="315" cy="112" r="13" fill="url(#mob-orange)"/>
+  <rect x="337" y="104" width="68" height="7" rx="3.5" fill="#fff" opacity=".8"/>
+  <rect x="337" y="117" width="48" height="5" rx="2.5" fill="#6b7aa0"/>
+
+  <!-- content -->
+  <rect x="307" y="150" width="111" height="100" rx="14" fill="url(#mob-blue)"/>
+
+  <rect x="307" y="266" width="52" height="66" rx="11" fill="#1b3560"/>
+  <rect x="366" y="266" width="52" height="66" rx="11" fill="#1b3560"/>
+
+  <!-- nav -->
+  <rect x="316" y="344" width="86" height="5" rx="2.5" fill="#334b71"/>
+  </g>
+
+  <!-- floating UI -->
+  <rect x="58" y="178" width="112" height="56" rx="12"
+    fill="#132a52"
+    stroke="rgba(255,255,255,.12)"/>
+
+  <circle cx="80" cy="206" r="10" fill="#3d6fca"/>
+  <rect x="98" y="196" width="50" height="6" rx="3" fill="#fff" opacity=".7"/>
+  <rect x="98" y="210" width="34" height="5" rx="2.5" fill="#6b7aa0"/>
+
+  <!-- callout -->
+  <circle cx="470" cy="115" r="15"
+    fill="#0e2140"
+    stroke="#3d6fca"
+    stroke-width="1.6"/>
+
+  <text x="470" y="120"
+    text-anchor="middle"
+    font-family="Poppins"
+    font-size="12"
+    font-weight="700"
+    fill="#fff">01</text>
+
+  <line x1="455" y1="115" x2="430" y2="115"
+    stroke="rgba(255,255,255,.35)"
+    stroke-width="1.4"
+    stroke-dasharray="3 4"/>
+
+  <circle cx="78" cy="304" r="15"
+    fill="#0e2140"
+    stroke="#3d6fca"
+    stroke-width="1.6"/>
+
+  <text x="78" y="309"
+    text-anchor="middle"
+    font-family="Poppins"
+    font-size="12"
+    font-weight="700"
+    fill="#fff">02</text>
+</svg>

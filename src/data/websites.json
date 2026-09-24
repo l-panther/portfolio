@@ -1,0 +1,482 @@
+[
+  {
+    "id": 1,
+    "title": "Cristian Salas",
+    "subtitle": "Creative Portfolio",
+    "image": "cristian",
+    "slug": "cristian",
+
+    "description": "A responsive creative portfolio designed to showcase visual projects, photography, advertising work, and video content within a focused digital presentation.",
+
+    "statement": "A dark, minimal portfolio that gives visual and video work prominence while keeping navigation and supporting content deliberately restrained.",
+
+    "problem": [
+      "The portfolio needed to bring different forms of creative work together within a single identity without making the interface compete with the projects being presented.",
+      "Still imagery, project work, and video content also required different presentation formats while remaining visually consistent across the wider portfolio."
+    ],
+
+    "solution": [
+      "The portfolio was organised into focused areas for featured work, archived video projects, personal information, and contact details, supported by a simple navigation structure.",
+      "A restrained interface, large media areas, and consistent visual styling allow different types of creative work to be presented without introducing unnecessary interface complexity."
+    ],
+
+    "design": [
+      "The visual direction uses a near-black interface with muted typography and restrained red accents, creating a minimal backdrop that allows photography, project imagery, and video content to remain prominent. Navigation and interface elements are deliberately understated, with red used selectively for active states, headings, controls, and key actions.",
+      "Large media areas define the main portfolio presentation, while the archive introduces a structured grid for video projects. Consistent spacing, simple framing, and repeated navigation treatment connect the different pages and create a cohesive visual identity without distracting from the work."
+    ],
+
+    "designPoints": [
+      {
+        "title": "Minimal visual identity",
+        "text": "Uses a dark interface, restrained typography, and selective red accents to create a distinctive but unobtrusive portfolio identity."
+      },
+      {
+        "title": "Media-led portfolio",
+        "text": "Gives imagery and video generous presentation space so creative work remains the primary focus."
+      },
+      {
+        "title": "Clear content structure",
+        "text": "Organises featured work, archived videos, personal information, and contact details into focused sections with consistent navigation."
+      }
+    ],
+
+    "designSvg": "cristian",
+
+    "development": [
+      "The portfolio was developed with responsive front-end layouts for visual content, video archives, supporting information, and contact details.",
+      "Reusable interface patterns maintain consistent navigation and presentation across pages, while responsive styling adapts media and content layouts for different screen sizes."
+    ],
+
+    "technologies": ["HTML", "CSS", "JavaScript", "Ionic", "Krita"],
+
+    "outcome": [
+      "The completed portfolio provides a cohesive digital showcase for different forms of creative work while maintaining a distinctive visual identity across its pages.",
+      "The restrained interface keeps attention on the projects themselves, while the dedicated archive provides a clear space for presenting video work alongside the wider portfolio."
+    ],
+
+    "link": "#",
+    "github": null,
+    "delay": 0.4
+  },
+
+  {
+    "id": 2,
+    "title": "Diabetes",
+    "subtitle": "Information Platform",
+    "image": "diabetes",
+    "slug": "diabetes",
+
+    "description": "An accessible diabetes information platform combining clear health guidance with an interactive tool that helps users understand potential risk factors.",
+
+    "statement": "A clear and approachable health-information experience designed to make diabetes guidance and interactive risk information easier to understand.",
+
+    "problem": [
+      "Health information websites can quickly become overwhelming when large amounts of text, terminology, and interactive content are presented without a clear hierarchy.",
+      "The challenge was to organise diabetes information and the interactive assessment in a way that remained approachable, readable, and easy to use across different devices."
+    ],
+
+    "solution": [
+      "The content was divided into clearly defined sections so users can move between general information, symptoms, prevention, management guidance, and the interactive assessment without unnecessary complexity.",
+      "The assessment uses straightforward inputs and clear feedback, while responsive layouts ensure that information remains readable and controls remain easy to use on smaller screens."
+    ],
+
+    "design": [
+      "The visual design uses a calm health-focused palette with deep teal, soft green, and light neutral surfaces. Strong headings and generous spacing establish a clear hierarchy, while bordered cards divide diabetes information into manageable sections without making the page feel visually dense.",
+      "The interactive BMI assessment is given a distinct visual treatment so it remains separate from the surrounding educational content, with results presented as clear feedback. Across the wider page, information cards, health guidance, and supporting content follow a consistent visual system that adapts naturally to smaller screens."
+    ],
+
+    "designPoints": [
+      {
+        "title": "Focused assessment",
+        "text": "Gives the interactive BMI assessment a distinct visual area so users can immediately identify where to begin."
+      },
+      {
+        "title": "Clear result feedback",
+        "text": "Presents assessment results in a simple visual format that separates the outcome from supporting health information."
+      },
+      {
+        "title": "Structured health content",
+        "text": "Breaks detailed health information into clearly defined cards and sections to make content easier to scan."
+      }
+    ],
+
+    "designSvg": "diabetes",
+
+    "development": [
+      "The platform was developed using lightweight front-end technologies to maintain fast loading and responsive behaviour.",
+      "JavaScript handles the interactive assessment and calculations, while semantic HTML and responsive CSS provide a structured and accessible foundation."
+    ],
+
+    "technologies": ["HTML", "CSS", "JavaScript", "Bootstrap", "Krita"],
+
+    "outcome": [
+      "The finished platform presents diabetes information in a clearer and more approachable format while providing an interactive way for users to explore potential risk factors.",
+      "The project demonstrates how thoughtful information hierarchy and focused interaction design can make health-related content easier to navigate."
+    ],
+
+    "link": "#",
+    "github": null,
+    "delay": 0.4
+  },
+
+  {
+    "id": 3,
+    "title": "Efexacademy",
+    "subtitle": "Redesign",
+    "image": "efexacademy",
+    "slug": "efexacademy",
+
+    "description": "A responsive redesign for an advertising display company specialising in roller banners, exhibition graphics, and promotional display products.",
+
+    "statement": "A modernised product-focused website that improves usability while retaining the established visual identity of the original brand.",
+
+    "problem": [
+      "The original website was not well adapted to modern screen sizes and its content structure made the range of advertising and display products difficult to explore.",
+      "The redesign also needed to respect the existing identity rather than replacing it with an unrelated visual style."
+    ],
+
+    "solution": [
+      "The site was reorganised around clearer product categories, stronger calls to action, and a responsive content structure.",
+      "Existing brand characteristics were retained while spacing, navigation, hierarchy, and mobile behaviour were updated to create a more contemporary experience."
+    ],
+
+    "design": [
+      "The redesigned interface retains the distinctive olive-green brand colour and uses red and yellow accents to create contrast around navigation and calls to action. Large product imagery gives roller banners and exhibition displays immediate visual prominence.",
+      "The layout is organised around a clear navigation structure and broad content sections that separate products, supporting information, and calls to action. On smaller screens, navigation and content are simplified into a stacked layout while maintaining the same visual identity."
+    ],
+
+    "designPoints": [
+      {
+        "title": "Clear navigation hierarchy",
+        "text": "Uses a structured side navigation and distinct content areas to make the product range easier to explore."
+      },
+      {
+        "title": "Product-led hero",
+        "text": "Places advertising displays prominently within the hero to communicate the company's services immediately."
+      },
+      {
+        "title": "Adaptable content structure",
+        "text": "Reorganises navigation and content into simpler stacked sections as the layout moves to smaller screens."
+      }
+    ],
+
+    "designSvg": "efexacademy",
+
+    "development": [
+      "The site was rebuilt using responsive front-end techniques with flexible sections that adapt across desktop, tablet, and mobile layouts.",
+      "CSS and JavaScript provide responsive navigation and interface behaviour while Bootstrap supports the underlying layout system."
+    ],
+
+    "technologies": ["HTML", "CSS", "JavaScript", "Bootstrap", "Blender", "Krita"],
+
+    "outcome": [
+      "The redesign creates a clearer and more contemporary presentation of the company's advertising products while retaining its recognisable visual identity.",
+      "The project demonstrates how an existing website can be modernised through responsive structure and stronger hierarchy without requiring a complete rebrand."
+    ],
+
+    "link": "#",
+    "github": null,
+    "delay": 0.4
+  },
+
+  {
+    "id": 4,
+    "title": "Emblem Books",
+    "subtitle": "Promotional Website",
+    "image": "emblem-books",
+    "slug": "emblem-books",
+
+    "description": "A responsive promotional website for an independent bookseller specialising in classic fiction, first editions, signed copies, and antiquarian books.",
+
+    "statement": "An editorial-inspired bookselling website that combines traditional literary character with a clean contemporary interface.",
+
+    "problem": [
+      "The website needed to communicate the specialist character of the bookseller while still feeling approachable to visitors browsing collections online.",
+      "A large amount of information about books, collections, services, and the business needed to be organised without making the interface feel dense or dated."
+    ],
+
+    "solution": [
+      "The content was organised into clearly separated editorial sections with prominent featured books, supporting information, and straightforward calls to action.",
+      "A responsive layout allows the same hierarchy to work across desktop and mobile while preserving the character of the brand."
+    ],
+
+    "design": [
+      "The visual direction draws on traditional publishing and printed book design, combining a warm cream background with deep green sections, serif typography, fine rules, and carefully presented book imagery. The restrained visual language gives the site a literary character while keeping the interface clean and contemporary.",
+      "Across the collection, investment, about, and supporting pages, content is organised through reusable editorial blocks, cards, columns, and feature sections. This creates consistency between different types of content while allowing each page to retain its own purpose and hierarchy."
+    ],
+
+    "designPoints": [
+      {
+        "title": "Bold hero imagery",
+        "text": "Uses large, carefully composed book imagery to establish the specialist collection and create an immediate visual focal point."
+      },
+      {
+        "title": "Modular content structure",
+        "text": "Uses reusable cards, columns, and content blocks to organise different types of information across the site."
+      },
+      {
+        "title": "Consistent visual system",
+        "text": "Carries the same typography, spacing, colour palette, and interface styling across each page to create a cohesive experience."
+      }
+    ],
+
+    "designSvg": "emblem",
+
+    "development": [
+      "The website was developed with responsive HTML and CSS layouts designed around reusable content sections.",
+      "JavaScript supports interactive elements while Bootstrap assists with responsive behaviour and consistent layout across devices."
+    ],
+
+    "technologies": ["HTML", "CSS", "JavaScript", "Bootstrap", "Krita"],
+
+    "outcome": [
+      "The finished website provides the bookseller with a distinctive digital presence that reflects the traditional character of its collection while remaining modern and responsive.",
+      "The project demonstrates how typography, colour, and layout can establish a strong identity without relying on excessive interface decoration."
+    ],
+
+    "link": "#",
+    "github": null,
+    "delay": 0.4
+  },
+
+  {
+    "id": 5,
+    "title": "Hair Dresser",
+    "subtitle": "Website Redesign",
+    "image": "parees-taylor",
+    "slug": "parees-taylor",
+
+    "description": "A responsive redesign of the Parees Taylor Hair website, created to modernise the presentation of the business and make its services, location, and contact information easier to explore.",
+
+    "statement": "A cleaner, more contemporary hairdresser website that gives hairstyle imagery greater prominence while organising services and practical information into a clearer single-page experience.",
+
+    "problem": [
+      "The original website needed a more contemporary and structured way to present the salon, its services, pricing, location, and contact information.",
+      "With several different types of content competing for attention, the challenge was to establish a clearer hierarchy while keeping the experience simple and appropriate for a small hairdressing business."
+    ],
+
+    "solution": [
+      "The content was reorganised into a clear single-page structure, moving visitors from the introductory hero and salon information through services, pricing, stylist information, location, and contact.",
+      "Distinct sections, service cards, prominent hairstyle photography, and consistent spacing create a stronger visual hierarchy while keeping practical information easy to scan."
+    ],
+
+    "design": [
+      "The redesign uses a light, understated visual style that allows hairstyle photography and the existing Parees identity to remain the main visual focus. Soft neutral backgrounds, dark typography, muted accent colours, and generous spacing give the page a cleaner and more contemporary appearance.",
+      "The page is structured as a sequence of clearly differentiated content areas. A large image-led hero introduces the salon, while service benefits, pricing cards, stylist information, location, and contact sections progressively provide the information a potential customer is likely to need."
+    ],
+
+    "designPoints": [
+      {
+        "title": "Image-led introduction",
+        "text": "Uses prominent hairstyle photography in the hero to establish the salon and its visual character immediately."
+      },
+      {
+        "title": "Structured service content",
+        "text": "Separates services and pricing into clearly defined cards that make the salon's offering easier to scan."
+      },
+      {
+        "title": "Clear content journey",
+        "text": "Organises salon information, services, location, and contact into a simple sequence down the single-page layout."
+      }
+    ],
+
+    "designSvg": "hairdresser",
+
+    "development": [
+      "The website was rebuilt using HTML, CSS, JavaScript, and Bootstrap to create a responsive single-page layout.",
+      "Reusable layout patterns and responsive behaviour allow the hero, service cards, informational sections, map, and contact form to adapt across different screen sizes."
+    ],
+
+    "technologies": ["HTML", "CSS", "JavaScript", "Bootstrap", "Krita"],
+
+    "outcome": [
+      "The redesign gives Parees Taylor Hair a clearer and more contemporary online presentation while keeping the character of the existing business visible.",
+      "Services, pricing, salon information, location, and contact details are now presented within a more coherent visual journey that is easier for visitors to scan and understand."
+    ],
+
+    "link": "#",
+    "github": null,
+    "delay": 0.4
+  },
+
+  {
+    "id": 6,
+    "title": "Slade Gardens",
+    "subtitle": "Community Website",
+    "image": "slade-gardens",
+    "slug": "slade-gardens",
+
+    "description": "A responsive community website for Slade Gardens Adventure Playground, bringing together information about activities, opening times, facilities, venue hire, donations, and community services.",
+
+    "statement": "A welcoming and accessible community website designed to make essential information easy for families, visitors, and supporters to find.",
+
+    "problem": [
+      "Slade Gardens serves families, children, volunteers, community partners, and supporters, creating a need to present a wide range of information without making the website difficult to navigate.",
+      "Important information such as opening times, activities, donations, venue hire, and contact details also needed to remain easy to access on mobile devices."
+    ],
+
+    "solution": [
+      "The website was organised around clear navigation and distinct content sections, allowing visitors to quickly identify the information most relevant to them.",
+      "Responsive layouts, prominent calls to action, and reusable components create a consistent experience across the site while allowing community-focused imagery to remain prominent."
+    ],
+
+    "design": [
+      "The visual design uses Slade Gardens' established green identity throughout the navigation, buttons, borders, and supporting interface elements, with orange accents drawing attention to important actions. Large photographs of children and community activities give the site an immediate sense of energy, participation, and community.",
+      
+      "Content is divided into clear sections and supporting interfaces so that opening information, activities, donations, venue hire, and other important content can be identified quickly. Consistent spacing, visual hierarchy, and prominent actions help keep a large amount of community information approachable across the site."
+    ],
+
+    "designPoints": [
+      {
+        "title": "Community-led imagery",
+        "text": "Uses large activity photography to immediately communicate the welcoming, active character of Slade Gardens."
+      },
+      {
+        "title": "Clear content structure",
+        "text": "Uses distinct sections and supporting cards to organise community information into easily identifiable content."
+      },
+      {
+        "title": "Accessible actions",
+        "text": "Uses clearly differentiated buttons and interface elements to make important actions easy to identify."
+      }
+    ],
+
+    "designSvg": "slade",
+
+    "development": [
+      "The site was developed with Vue and Nuxt using reusable components for navigation, content sections, calls to action, maps, forms, and supporting interface elements.",
+      "Responsive CSS and Bootstrap provide layout behaviour across screen sizes, while additional JavaScript supports interactive elements such as navigation, statistics, cookie controls, and other interface components."
+    ],
+
+    "technologies": ["HTML", "CSS", "JavaScript", "Vue", "Nuxt", "Krita"],
+
+    "outcome": [
+      "The completed website gives Slade Gardens a clearer and more accessible digital presence while reflecting the energy and community focus of the organisation.",
+      "Visitors can reach important information more quickly across desktop and mobile, while reusable components make the website easier to maintain and expand."
+    ],
+
+    "link": "#",
+    "github": null,
+    "delay": 0.4
+  },
+
+  {
+    "id": 7,
+    "title": "Soulful Cellar",
+    "subtitle": "Digital Promo Flyer",
+    "image": "soulful-cellar",
+    "slug": "soulful-cellar",
+
+    "description": "A single-page digital promotional flyer for Soulful Cellar, designed to capture the atmosphere of the venue through music, imagery, bold typography, and nightlife-focused messaging.",
+
+    "statement": "An immersive web-based promo piece that combines event-style visuals, audio, and venue photography to communicate the character of Soulful Cellar.",
+
+    "problem": [
+      "The venue needed a digital promotional piece that could communicate its atmosphere and personality more effectively than a conventional static flyer.",
+      "The challenge was to create something visually immediate and memorable that could promote the venue, music, and private-hire offering without relying on a traditional multi-page website structure."
+    ],
+
+    "solution": [
+      "A single-page web flyer was created using bold promotional typography, dark atmospheric styling, integrated audio, and large venue photography.",
+      "The layout was designed as a continuous visual journey, moving from the main promotional message into venue imagery, hire information, music identity, and supporting social content."
+    ],
+
+    "design": [
+      "The visual direction takes inspiration from nightlife posters and event flyers, using a near-black background, deep burgundy gradients, illuminated red highlights, and large condensed typography to create a strong promotional presence.",
+      "Rather than using conventional website navigation, the page relies on vertical visual flow. Audio controls, photography, oversized headings, and section transitions work together to create an immersive promotional composition that feels closer to a digital poster than a standard website."
+    ],
+
+    "designPoints": [
+      {
+        "title": "Integrated media",
+        "text": "Combines audio and venue photography to create a more immersive promotional experience."
+      },
+      {
+        "title": "Atmospheric dark palette",
+        "text": "Uses black, burgundy, and illuminated red tones to reflect the nightlife character of the venue."
+      },
+      {
+        "title": "Poster-inspired typography",
+        "text": "Uses large condensed headings and bold promotional text to give the page the energy of an event flyer."
+      }
+    ],
+
+    "designSvg": "soulful",
+
+    "development": [
+      "The promotional page was built using lightweight front-end technologies, with JavaScript supporting the integrated audio player and interactive elements.",
+      "Responsive CSS adapts the single-page composition across screen sizes while preserving the strong typography, imagery, and visual atmosphere."
+    ],
+
+    "technologies": ["HTML", "CSS", "JavaScript", "Krita"],
+
+    "outcome": [
+      "The finished piece works as an online promotional flyer rather than a traditional website, giving Soulful Cellar a distinctive digital format for communicating its atmosphere and venue offering.",
+      "The project demonstrates how web technologies can be used to extend the idea of a printed event flyer into an interactive, media-rich promotional experience."
+    ],
+
+    "link": "#",
+    "github": null,
+    "delay": 0.4
+  },
+
+  {
+    "id": 8,
+    "title": "Window Cleaner",
+    "subtitle": "Promotional Website",
+    "image": "window-cleaner",
+    "slug": "window-cleaner",
+
+    "description": "A responsive promotional website for a window-cleaning service, designed to present services clearly, build trust, and encourage customer enquiries.",
+
+    "statement": "A clean, service-focused marketing website that combines strong visual hierarchy, clear calls to action, and responsive design to support customer enquiries.",
+
+    "problem": [
+      "The business needed an online presence that could clearly communicate its window-cleaning services while presenting a professional and trustworthy image to potential customers.",
+      "The website also needed to guide visitors towards making an enquiry quickly, particularly on mobile devices where users are more likely to scan content and look for immediate contact options."
+    ],
+
+    "solution": [
+      "A promotional website was created around clear service messaging, strong visual imagery, and prominent enquiry actions that help visitors understand the business quickly.",
+      "The content was structured into focused sections with responsive layouts, allowing services, supporting information, and calls to action to remain easy to access across desktop and mobile devices."
+    ],
+
+    "design": [
+      "The visual direction uses a fresh service-oriented palette with blue tones that reinforce associations with water, glass, and cleanliness. Large window-cleaning imagery establishes the purpose of the business immediately, while light backgrounds keep the interface open and approachable.",
+      "Content is organised into clearly defined sections and cards with consistent spacing, rounded details, and prominent calls to action. On mobile, the layout becomes a simple vertical flow with service information and enquiry actions prioritised for quick access."
+    ],
+
+    "designPoints": [
+      {
+        "title": "Clean visual palette",
+        "text": "Uses fresh blue tones and light surfaces to reinforce the window-cleaning service visually."
+      },
+      {
+        "title": "Service-first hierarchy",
+        "text": "Places key services and supporting information prominently so visitors can understand the business quickly."
+      },
+      {
+        "title": "Enquiry-focused actions",
+        "text": "Keeps quote and contact actions clear and easy to reach across desktop and mobile."
+      }
+    ],
+
+    "designSvg": "window_cleaner",
+
+    "development": [
+      "The website was developed using responsive HTML, CSS, and JavaScript with PHP supporting server-side functionality.",
+      "Flexible layouts allow service sections and calls to action to reorganise across screen sizes while maintaining consistent presentation."
+    ],
+
+    "technologies": ["HTML", "CSS", "JavaScript", "PHP", "Krita"],
+
+    "outcome": [
+      "The finished website gives the business a clear and professional promotional presence that communicates its services effectively.",
+      "The combination of service-focused content, responsive design, and prominent calls to action provides visitors with a direct route from browsing to making an enquiry."
+    ],
+
+    "link": "#",
+    "github": null,
+    "delay": 0.4
+  }
+]

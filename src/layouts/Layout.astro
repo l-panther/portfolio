@@ -1,0 +1,60 @@
+---
+import { COMPANY_NAME, COMPANY_SLOGAN } from '../lib/config.js';
+const isProjectPage = Astro.url.pathname.startsWith("/projects");
+const path = Astro.url.pathname;
+const bodyClass = path === "/" ? "w3-animate-left" : "w3-animate-top";
+---
+
+<!doctype html>
+<html lang="en-GB">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{COMPANY_NAME} | {COMPANY_SLOGAN}</title>
+  <meta name="description" content="Discover the portfolio of Leroy Russell, a skilled solo developer offering custom web, mobile, and software development services. Tailored digital solutions to bring your ideas to life." />
+  <meta name="keywords" content="Solo Web Developer, Freelance Developer, Mobile App Development, Custom Software Solutions, Web Design, Mobile Development, Full-Stack Development, Software Development, App Development, Digital Solutions" />
+  <meta name="author" content="Leroy Russell">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- SEO -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={COMPANY_NAME} />
+  <meta property="og:description" content="Custom web, mobile, and software development services" />
+  <meta property="og:image" content="/assets/images/logo/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{COMPANY_NAME}" />
+  <meta name="twitter:description" content="Custom web, mobile, and software development services" />
+  <meta name="twitter:image" content="/assets/images/logo/logo.png" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-logo.png">
+
+  <!-- W3.CSS and Custom Styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="/assets/css/normalize.css"/>
+
+  {isProjectPage ? (
+    <link rel="stylesheet" href="/assets/css/project.css" />
+  ) : (
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  )}
+ 
+</head>
+
+<body class={bodyClass}>
+
+  <div class="backdrop" id="backdrop"></div>
+
+  <slot />
+
+  {isProjectPage ? (
+     <script is:inline src="/assets/js/project.js"></script> 
+  ) : (
+     <script is:inline src="/assets/js/main.js"></script> 
+  )}
+  
+</body>
+</html>

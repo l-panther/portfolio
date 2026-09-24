@@ -1,0 +1,33 @@
+---
+import type { Project } from '../../types/projects';
+
+const { project } = Astro.props as { project: Project };
+---
+
+<section class="stat-sec">
+  <div class="wrap">
+    <h2 class="reveal">The <span class="accent">Problem</span></h2>
+    {project.problem.map((issue, index) => (
+    <p 
+        class="reveal" 
+        style={`--d:${index * 0.05}s`}
+    >
+        {issue}
+    </p>
+    ))}
+  </div>
+</section>
+
+<section class="stat-sec" style="padding-top:0;">
+  <div class="wrap">
+    <h2 class="reveal">The <span class="accent">Solution</span></h2>
+    {project.solution.map((solve, index) => (
+    <p 
+        class="reveal" 
+        style={`--d:${index * 0.05}s`}
+    >
+        {solve}
+    </p>
+    ))}
+  </div>
+</section>

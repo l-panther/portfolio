@@ -1,0 +1,96 @@
+[
+	{
+    "id": 1,
+    "title": "Housing",
+    "subtitle": "For Students",
+    "image": "housing",
+    "slug": "housing",
+    "description": "This website provides valuable information about diabetes, including symptoms, prevention, and management tips. It features an interactive test that calculates the user's risk based on personal health data.",
+    "statement": "A simple and accessible BMI calculator designed to provide quick health insights with minimal effort.",
+    "problem": [
+      "Many online BMI tools are cluttered with unnecessary information, forcing users to navigate through multiple steps to complete what should be a simple task. This creates friction and discourages users from engaging with the tool, especially those looking for quick answers.",
+      "Additionally, a lack of mobile optimisation makes these tools difficult to use on smaller screens. Poor input design and unclear feedback further reduce usability, making it harder for users to trust and understand the results."
+    ],
+    "solution": [
+      "The solution was to create a focused BMI calculator that prioritises simplicity and speed. The interface allows users to input their data quickly and receive immediate results without unnecessary steps or distractions.",
+      "By reducing complexity and improving clarity, the tool ensures a smooth experience across all devices. The design and functionality work together to provide a straightforward and accessible way for users to gain basic health insights."
+    ],
+    "design": [
+      "The design focuses on clarity and ease of use, ensuring that users can complete the task without confusion. A minimal layout removes distractions and keeps the user’s attention on the core functionality.",
+      "Strong contrast, clear typography, and well-spaced input fields help guide the user through the process, while responsive design ensures the experience remains consistent across all screen sizes."
+    ],
+    "designPoints": [
+      {
+        "title": "Clear information hierarchy",
+        "text": "Prioritises key health information so users can quickly understand risk and guidance."
+      },
+      {
+        "title": "Minimal interface",
+        "text": "Removes distractions to keep focus on the calculator and results."
+      },
+      {
+        "title": "Responsive input design",
+        "text": "Ensures usability across mobile and desktop devices with consistent spacing and layout."
+      }
+    ],
+    "development": [
+      "The application was built using lightweight front-end technologies to ensure fast performance and responsiveness. JavaScript handles the BMI calculation logic in real time, allowing users to receive immediate results without page reloads.",
+      "The structure and styling were implemented using semantic HTML and CSS, with a focus on responsive design to ensure usability across mobile, tablet, and desktop devices."
+    ],
+    "technologies": ["HTML5", "CSS3", "JavaScript", "Materialize", "Laravel" ],
+    "outcome": [
+      "The final product delivers a fast and intuitive user experience, making it easy for users to calculate and understand their BMI without unnecessary complexity. The simplified interface improves accessibility, particularly for mobile users who benefit from quick interactions.",
+      "The project demonstrates the importance of reducing friction in user interfaces, showing how small, focused tools can provide real value when designed with clarity and usability in mind."
+    ],
+    "link": "#",
+    "github": null,
+    "delay": "--d:0.00s"
+  },
+		{
+    "id": 1,
+    "title": "Cookbook",
+    "subtitle": "With Favourite Recipes",
+    "image": "cookbook",
+    "slug": "cookbook",
+    "description": "This website provides valuable information about diabetes, including symptoms, prevention, and management tips. It features an interactive test that calculates the user's risk based on personal health data.",
+    "statement": "A simple and accessible BMI calculator designed to provide quick health insights with minimal effort.",
+    "problem": [
+      "Many online BMI tools are cluttered with unnecessary information, forcing users to navigate through multiple steps to complete what should be a simple task. This creates friction and discourages users from engaging with the tool, especially those looking for quick answers.",
+      "Additionally, a lack of mobile optimisation makes these tools difficult to use on smaller screens. Poor input design and unclear feedback further reduce usability, making it harder for users to trust and understand the results."
+    ],
+    "solution": [
+      "The solution was to create a focused BMI calculator that prioritises simplicity and speed. The interface allows users to input their data quickly and receive immediate results without unnecessary steps or distractions.",
+      "By reducing complexity and improving clarity, the tool ensures a smooth experience across all devices. The design and functionality work together to provide a straightforward and accessible way for users to gain basic health insights."
+    ],
+    "design": [
+      "The design focuses on clarity and ease of use, ensuring that users can complete the task without confusion. A minimal layout removes distractions and keeps the user’s attention on the core functionality.",
+      "Strong contrast, clear typography, and well-spaced input fields help guide the user through the process, while responsive design ensures the experience remains consistent across all screen sizes."
+    ],
+    "designPoints": [
+      {
+        "title": "Clear information hierarchy",
+        "text": "Prioritises key health information so users can quickly understand risk and guidance."
+      },
+      {
+        "title": "Minimal interface",
+        "text": "Removes distractions to keep focus on the calculator and results."
+      },
+      {
+        "title": "Responsive input design",
+        "text": "Ensures usability across mobile and desktop devices with consistent spacing and layout."
+      }
+    ],
+    "development": [
+      "The application was built using lightweight front-end technologies to ensure fast performance and responsiveness. JavaScript handles the BMI calculation logic in real time, allowing users to receive immediate results without page reloads.",
+      "The structure and styling were implemented using semantic HTML and CSS, with a focus on responsive design to ensure usability across mobile, tablet, and desktop devices."
+    ],
+    "technologies": ["HTML5", "CSS3", "JavaScript", "Materialize", "Astro" ],
+    "outcome": [
+      "The final product delivers a fast and intuitive user experience, making it easy for users to calculate and understand their BMI without unnecessary complexity. The simplified interface improves accessibility, particularly for mobile users who benefit from quick interactions.",
+      "The project demonstrates the importance of reducing friction in user interfaces, showing how small, focused tools can provide real value when designed with clarity and usability in mind."
+    ],
+    "link": "#",
+    "github": null,
+    "delay": "--d:0.00s"
+  }
+]

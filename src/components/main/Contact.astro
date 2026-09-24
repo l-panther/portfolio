@@ -1,0 +1,19 @@
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left reveal left">
+      <h2>Let's <span class="glow-blue">Work</span> Together</h2>
+      <p>I'm open to freelance work, collaborations, or full-time roles. If you have an idea or project, let's talk.</p>
+      <ul class="contact-links">
+        <li><span class="ic">&#9993;</span> hello@example.com</li>
+        <li><span class="ic">&#128188;</span> LinkedIn</li>
+        <li><span class="ic">&lt;/&gt;</span> GitHub</li>
+      </ul>
+    </div>
+    <form class="reveal right" style="--d:.1s" onsubmit="event.preventDefault(); this.reset(); const b=this.querySelector('.btn'); const t=b.textContent; b.textContent='Message Sent'; setTimeout(()=>b.textContent=t,2200);">
+      <div class="field"><label>Name</label><input type="text" required placeholder=""></div>
+      <div class="field"><label>Email</label><input type="email" required placeholder=""></div>
+      <div class="field"><label>Message</label><textarea rows="3" required></textarea></div>
+      <button type="submit" class="btn btn-fill">Send Message</button>
+    </form>
+  </div>
+</section>

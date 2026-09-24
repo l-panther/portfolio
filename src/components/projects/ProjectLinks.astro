@@ -1,0 +1,40 @@
+---
+import type { Project } from '../../types/projects';
+
+const {
+  project,
+  prevProject,
+  nextProject,
+} = Astro.props as {
+  project: Project;
+  prevProject: Project | null;
+  nextProject: Project | null;
+};
+---
+<section class="next-project">
+  <div class="wrap">
+
+    {prevProject && (
+      <a
+        href={`/projects/${prevProject.slug}`}
+        class="next-link reveal"
+        data-direction="prev"
+      >
+        <span>&larr;</span>
+        {prevProject.title}
+      </a>
+    )}
+
+    {nextProject && (
+      <a
+        href={`/projects/${nextProject.slug}`}
+        class="next-link reveal"
+        data-direction="next"
+      >
+        {nextProject.title}
+         <span>&rarr;</span>
+      </a>
+    )}
+
+  </div>
+</section>

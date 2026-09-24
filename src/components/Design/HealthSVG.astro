@@ -1,0 +1,114 @@
+<svg viewBox="0 0 560 460" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="healthBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5b86d6"/>
+      <stop offset="1" stop-color="#274a8c"/>
+    </linearGradient>
+
+    <filter id="healthGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+  </defs>
+
+  <!-- glow -->
+  <ellipse
+    cx="280" cy="230" rx="210" ry="170"
+    fill="#3d6fca" opacity=".16"
+    filter="url(#healthGlow)"
+  />
+
+  <!-- main dashboard -->
+  <rect
+    x="80" y="55" width="400" height="330" rx="18"
+    fill="#0e2140"
+    stroke="rgba(255,255,255,.12)"
+  />
+
+  <!-- sidebar -->
+  <rect
+    x="80" y="55" width="86" height="330" rx="18"
+    fill="#132a52"
+  />
+
+  <rect x="100" y="82" width="46" height="8" rx="4" fill="#5b86d6"/>
+
+  <g fill="#6b7aa0">
+    <rect x="100" y="125" width="42" height="6" rx="3"/>
+    <rect x="100" y="153" width="32" height="6" rx="3"/>
+    <rect x="100" y="181" width="38" height="6" rx="3"/>
+    <rect x="100" y="209" width="30" height="6" rx="3"/>
+  </g>
+
+  <!-- heading -->
+  <rect x="192" y="82" width="112" height="10" rx="5" fill="#fff" opacity=".88"/>
+  <rect x="192" y="103" width="150" height="6" rx="3" fill="#6b7aa0"/>
+
+  <!-- BMI card -->
+  <rect
+    x="192" y="136" width="154" height="196" rx="14"
+    fill="#132a52"
+    stroke="rgba(255,255,255,.1)"
+  />
+
+  <rect x="212" y="157" width="74" height="8" rx="4" fill="#fff" opacity=".8"/>
+
+  <!-- inputs -->
+  <rect x="212" y="187" width="114" height="34" rx="8" fill="#0e2140"/>
+  <rect x="224" y="200" width="42" height="6" rx="3" fill="#6b7aa0"/>
+
+  <rect x="212" y="231" width="114" height="34" rx="8" fill="#0e2140"/>
+  <rect x="224" y="244" width="52" height="6" rx="3" fill="#6b7aa0"/>
+
+  <rect x="212" y="281" width="114" height="32" rx="9" fill="url(#healthBlue)"/>
+
+  <!-- result card -->
+  <rect
+    x="366" y="136" width="88" height="118" rx="14"
+    fill="url(#healthBlue)"
+  />
+
+  <circle
+    cx="410" cy="182" r="27"
+    fill="none"
+    stroke="#fff"
+    stroke-width="7"
+    opacity=".28"
+  />
+
+  <path
+    d="M410 155 A27 27 0 0 1 435 192"
+    fill="none"
+    stroke="#fff"
+    stroke-width="7"
+    stroke-linecap="round"
+  />
+
+  <text
+    x="410" y="188"
+    text-anchor="middle"
+    font-family="Poppins"
+    font-size="16"
+    font-weight="700"
+    fill="#fff"
+  >22.4</text>
+
+  <!-- stats -->
+  <rect x="366" y="272" width="88" height="60" rx="12" fill="#132a52"/>
+
+  <rect x="380" y="288" width="36" height="6" rx="3" fill="#6b7aa0"/>
+  <rect x="380" y="304" width="55" height="9" rx="4" fill="#fff" opacity=".8"/>
+
+  <!-- pulse -->
+  <path
+    d="M178 354 L208 354 L218 336 L232 372 L247 345 L258 354 L306 354"
+    fill="none"
+    stroke="#e79a4a"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- callout -->
+  <circle cx="470" cy="182" r="15" fill="#0e2140" stroke="#3d6fca" stroke-width="1.6"/>
+  <text x="470" y="187" text-anchor="middle" font-family="Poppins" font-size="12" font-weight="700" fill="#fff">01</text>
+</svg>

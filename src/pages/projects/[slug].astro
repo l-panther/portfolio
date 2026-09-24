@@ -1,0 +1,73 @@
+---
+import { getAllProjects } from '../../utils/projects';
+import Layout from '../../layouts/Layout.astro';
+
+import Header from '../../components/projects/Header.astro';
+import Hero from '../../components/projects/Hero.astro';
+import Problem from '../../components/projects/Problem.astro';
+import Design from '../../components/projects/Design.astro';
+import Outcome from '../../components/projects/Outcome.astro';
+import ProjectLinks from '../../components/projects/ProjectLinks.astro';
+import Footer from '../../components/projects/Footer.astro';
+
+import type { Project } from '../../types/projects';
+
+export async function getStaticPaths() {
+  const projects = getAllProjects();
+
+  return projects
+    .filter((p) => p.slug)
+    .map((project) => ({
+      params: { slug: project.slug }
+    }));
+}
+
+const { slug } = Astro.params;
+
+const allProjects = getAllProjects() as Project[];
+
+const project = allProjects.find((p) => p.slug === slug);
+
+if (!project) {
+  return Astro.redirect('/#portfolio');
+}
+
+const currentIndex = allProjects.findIndex(
+  (p) => p.slug === slug
+);
+
+const prevProject =
+  currentIndex > 0 
+    ? allProjects[currentIndex - 1] 
+    : null;
+
+const nextProject =
+  currentIndex < allProjects.length - 1
+    ? allProjects[currentIndex + 1]
+    : null;
+
+const hasGithub = !!project.github;
+---
+
+<Layout>
+
+  <Header project={project} />
+
+  <Hero project={project} />
+
+  <Problem project={project} />
+
+  <Design project={project} />
+
+  <Outcome project={project} />
+
+  <ProjectLinks 
+    project={project}
+    prevProject={prevProject}
+    nextProject={nextProject}
+  />
+
+  <Footer 
+    project={project} />
+
+</Layout>

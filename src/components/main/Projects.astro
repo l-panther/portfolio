@@ -1,0 +1,82 @@
+---
+import websites from '../../data/websites.json';
+import mobile from '../../data/mobile.json';
+import software from '../../data/software.json';
+
+const allProjects = [...websites];
+---
+
+<section class="projects" id="projects">
+  <div class="wrap">
+   <div class="sec-head">
+  <span class="eyebrow">Selected Work</span>
+
+  <h2 class="reveal">
+    Featured Web <span class="glow-blue">Projects</span>
+  </h2>
+
+  <p class="reveal" style="--d:.06s">
+    A curated collection of web development work focused on building <strong>responsive, high-performing, and visually refined websites</strong>.
+    I incorporate <strong>3D modelling and digital artwork</strong> to elevate
+    the overall look and feel, creating more engaging and polished user
+    experiences. Each project reflects a balance between <strong>usability, performance, and thoughtful design</strong>.
+  </p>
+</div>
+
+    <div class="proj-grid">
+
+       {allProjects.length === 0 ? (
+        <p class="center-align">Projects coming soon</p>
+      ) : (
+        allProjects.map((item) => (
+          
+         <div class="proj-card reveal" style={item.delay}>
+            <div class="proj-thumb">
+              <a
+                href={`/projects/${item.slug}`}
+                class="project-link"
+                data-direction="enter"
+              >
+                <div class="image">
+                  <img src={`/assets/images/projects/screenshots/${item.image}.webp`} alt={item.title} />
+                </div>
+
+                <h4>{item.title}</h4>
+              </a>
+            </div>
+         </div>
+    
+        ))
+      )}
+    </div>
+
+  </div>
+</section>
+<style>
+  .hero-text h1,
+  .hero-text h2,
+  .hero-text p,
+  .button-group {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .hero-text h1 { animation-delay: 0.1s; }
+  .hero-text h2 { animation-delay: 0.2s; }
+  .hero-text p  { animation-delay: 0.3s; }
+  .button-group { animation-delay: 0.4s; }
+
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.typing-text {
+  border-right: 2px solid transparent;
+  padding-right: 6px;
+}
+</style>
