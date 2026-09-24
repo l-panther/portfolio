@@ -6,4 +6,3 @@ export default defineConfig({
   site: 'https://l-panther.github.io',
   base: '/portfolio',
 });
-});
