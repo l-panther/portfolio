@@ -18,7 +18,7 @@ const { project } = Astro.props as { project: Project };
         {project.technologies.map((technology) => (
           <div class="chip">
             <img
-              src={`/assets/images/technologies/${technology}.png`}
+              src={`${import.meta.env.BASE_URL}assets/images/technologies/${technology}.png`}
               alt={`${technology} logo`}
               title={`${technology} logo`}
               aria-label={`${technology} logo`}
