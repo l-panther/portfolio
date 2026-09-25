@@ -3,6 +3,7 @@ import websites from '../../data/websites.json';
 import mobile from '../../data/mobile.json';
 import software from '../../data/software.json';
 
+const base = import.meta.env.BASE_URL;
 const allProjects = [...websites];
 ---
 
@@ -30,21 +31,24 @@ const allProjects = [...websites];
       ) : (
         allProjects.map((item) => (
           
-         <div class="proj-card reveal" style={item.delay}>
-            <div class="proj-thumb">
-              <a
-                href={`/projects/${item.slug}`}
-                class="project-link"
-                data-direction="enter"
-              >
-                <div class="image">
-                  <img src={`/assets/images/projects/screenshots/${item.image}.webp`} alt={item.title} />
-                </div>
-
-                <h4>{item.title}</h4>
-              </a>
+      <div class="proj-card reveal" style={item.delay}>
+        <div class="proj-thumb">
+          <a
+            href={`${base}projects/${item.slug}`}
+            class="project-link"
+            data-direction="enter"
+          >
+            <div class="image">
+              <img
+                src={`${base}assets/images/projects/screenshots/${item.image}.webp`}
+                alt={item.title}
+              />
             </div>
-         </div>
+      
+            <h4>{item.title}</h4>
+          </a>
+        </div>
+      </div>
     
         ))
       )}
