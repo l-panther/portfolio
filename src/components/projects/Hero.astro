@@ -17,8 +17,10 @@ const { project } = Astro.props as { project: Project };
     </div>
     <div class="stack-mock reveal zoom" style="--d:.2s">
       <div class="card back">
-        <img src={`/assets/images/projects/case-study/hero/${project.image}.png`}
-          alt={project.title} style="object-position:top;">
+        <img
+          src={`${import.meta.env.BASE_URL}assets/images/hero/man-and-desk.png`}
+          alt="{project.title} style="object-position:top;""
+        >
       </div>
     </div>
   </div>
