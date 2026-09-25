@@ -1,6 +1,7 @@
 ---
 import type { Project } from '../../types/projects';
 
+const base = import.meta.env.BASE_URL;
 const {
   project,
   prevProject,
@@ -16,7 +17,7 @@ const {
 
     {prevProject && (
       <a
-        href={`/projects/${prevProject.slug}`}
+        href={`${base}projects/${prevProject.slug}`}
         class="next-link reveal"
         data-direction="prev"
       >
@@ -27,12 +28,12 @@ const {
 
     {nextProject && (
       <a
-        href={`/projects/${nextProject.slug}`}
+        href={`${base}projects/${nextProject.slug}`}
         class="next-link reveal"
         data-direction="next"
       >
         {nextProject.title}
-         <span>&rarr;</span>
+        <span>&rarr;</span>
       </a>
     )}
 
