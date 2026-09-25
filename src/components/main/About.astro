@@ -32,51 +32,20 @@ import { COMPANY_NAME} from '../../lib/config.js';
     </div>
 
     <div class="about-photo reveal right" style="--d:.1s">
-      <img
-        src={`${import.meta.env.BASE_URL}assets/images/main/desk.png`}
-        alt="Home workspace desk setup"
-      >
+      <picture>
+        <source
+          media="(max-width: 860px)"
+          srcset=src={`${import.meta.env.BASE_URL}assets/images/main/about-mobile.png`}
+        >
+
+        <img
+          src={`${import.meta.env.BASE_URL}assets/images/main/about-desktop.png`}
+          alt="Creative workspace representing web development, visual design and painting"
+          loading="lazy"
+          decoding="async"
+        >
+      </picture>
     </div>
   </div>
 </section>
 
-<!--
-<section class="about" id="about">
-  <div class="about-grid">
-
-    <div class="about-visual reveal">
-      <img
-        src="/assets/images/main/desk.png"
-        alt="Creative tools representing design, development and visual art"
-      >
-    </div>
-
-    <div class="about-content reveal">
-
-      <span class="section-eyebrow">
-        A Little About Me
-      </span>
-
-      <h2>
-        Creativity Across
-        <span class="glow-blue">Two Worlds</span>
-      </h2>
-
-      <p>
-        By day, I work as a painting and decorating professional,
-        transforming interior spaces through colour, texture, and
-        careful attention to detail.
-      </p>
-
-      <p>
-        Beyond my professional work, I explore creativity through
-        3D modelling, web development, and visual design. I enjoy
-        turning ideas into tangible experiences—from responsive
-        websites and interactive interfaces to digital artwork and
-        rendered 3D concepts.
-      </p>
-
-    </div>
-
-  </div>
-</section>-->
