@@ -18,7 +18,7 @@ const bodyClass = relativePath === "/" ? "w3-animate-left" : "w3-animate-top";
   <title>{COMPANY_NAME} | {COMPANY_SLOGAN}</title>
   <meta name="description" content="Discover the portfolio of Leroy Russell, a skilled solo developer offering custom web, mobile, and software development services. Tailored digital solutions to bring your ideas to life." />
   <meta name="keywords" content="Solo Web Developer, Freelance Developer, Mobile App Development, Custom Software Solutions, Web Design, Mobile Development, Full-Stack Development, Software Development, App Development, Digital Solutions" />
-  <meta name="author" content="Leroy Russell">
+  <meta name="author" content="eroy Russell">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -39,7 +39,10 @@ const bodyClass = relativePath === "/" ? "w3-animate-left" : "w3-animate-top";
   <!-- W3.CSS and Custom Styles -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="/assets/css/normalize.css"/>
+  <link
+	  rel="stylesheet"
+	  href={`${import.meta.env.BASE_URL}assets/css/normalize.css`}
+	/>
 
   {isProjectPage ? (
     <link
