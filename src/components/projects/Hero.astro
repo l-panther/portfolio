@@ -8,19 +8,28 @@ const { project } = Astro.props as { project: Project };
   <div class="case-hero-grid">
     <div>
       <div class="eyebrow reveal">Case Study</div>
-      <h1 class="reveal" style="--d:.05s"><span class="accent">{project.title}</span> {project.subtitle}</h1>
-      <p class="reveal" style="--d:.1s">{project.description}</p>
+
+      <h1 class="reveal" style="--d:.05s">
+        <span class="accent">{project.title}</span> {project.subtitle}
+      </h1>
+
+      <p class="reveal" style="--d:.1s">
+        {project.description}
+      </p>
+
       <div class="hero-actions reveal" style="--d:.15s">
         <a href="#visual-design" class="btn btn-fill">View Design</a>
         <a href="#outcome" class="btn btn-outline">View Outcome</a>
       </div>
     </div>
+
     <div class="stack-mock reveal zoom" style="--d:.2s">
       <div class="card back">
         <img
-          src={`${import.meta.env.BASE_URL}assets/images/hero/man-and-desk.png`}
-          alt="{project.title} style="object-position:top;""
-        >
+          src={`${import.meta.env.BASE_URL}assets/images/projects/hero/${project.image}.webp`}
+          alt={project.title}
+          style="object-position: top;"
+        />
       </div>
     </div>
   </div>
