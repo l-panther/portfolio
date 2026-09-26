@@ -54,8 +54,8 @@
       "The restrained interface keeps attention on the projects themselves, while the dedicated archive provides a clear space for presenting video work alongside the wider portfolio."
     ],
 
-    "link": "https://l-panther.github.io/car-repair/",
-    "github": null,
+    "link": "https://l-panther.github.io/cristian-salas/",
+    "github": "https://github.com/l-panther/cristian-salas.git",
     "delay": 0.4
   },
 
@@ -114,8 +114,8 @@
       "The project demonstrates how thoughtful information hierarchy and focused interaction design can make health-related content easier to navigate."
     ],
 
-    "link": "#",
-    "github": null,
+    "link": "https://l-panther.github.io/diabetes/",
+    "github": "https://github.com/l-panther/diabetes.git",
     "delay": 0.4
   },
 
@@ -175,7 +175,7 @@
     ],
 
     "link": "#",
-    "github": null,
+    "github": "https://github.com/l-panther/efexacademy.git",
     "delay": 0.4
   },
 
@@ -295,7 +295,7 @@
     ],
 
     "link": "#",
-    "github": null,
+    "github": "https://github.com/l-panther/parees-taylor.git",
     "delay": 0.4
   },
 
@@ -356,7 +356,7 @@
     ],
 
     "link": "#",
-    "github": null,
+    "github": "https://github.com/l-panther/slade-gardens.git",
     "delay": 0.4
   },
 
@@ -416,7 +416,7 @@
     ],
 
     "link": "#",
-    "github": null,
+    "github": "https://github.com/l-panther/soulful-cellar.git",
     "delay": 0.4
   },
 
@@ -476,7 +476,7 @@
     ],
 
     "link": "#",
-    "github": null,
+    "github": "https://github.com/l-panther/window-cleaner.git",
     "delay": 0.4
   }
 ]
