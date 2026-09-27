@@ -242,6 +242,10 @@ const base = import.meta.env.BASE_URL;
   }
 }
 
+/* -------------------------
+   TABLET
+-------------------------- */
+
 @media (max-width: 768px) {
   .developer-hero {
     width: 100%;
@@ -250,10 +254,31 @@ const base = import.meta.env.BASE_URL;
   }
 }
 
+
+/* -------------------------
+   MOBILE
+-------------------------- */
+
 @media (max-width: 480px) {
+
   .developer-hero {
     width: 100%;
     max-width: 420px;
+    aspect-ratio: 1 / 1;
+
+    /* Pull artwork upwards */
+    margin-top: -45px;
+  }
+
+  /* Hide floating UI cards */
+  .developer-hero .ui {
+    display: none;
+  }
+
+  /* Keep only man + desk */
+  .hero-main {
+    display: block;
+    z-index: 1;
   }
 }
 </style>
