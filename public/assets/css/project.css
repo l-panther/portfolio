@@ -264,7 +264,7 @@ header {
 
 .btn-outline {
   background: transparent;
-  border-color: #c7cede;
+  border-color: var(--navy);
   color: var(--navy);
 }
 
