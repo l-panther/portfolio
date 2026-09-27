@@ -33,4 +33,8 @@ export type Project = {
   link: string;
   github?: string | null;
   delay: string;
+  originalSite?: {
+    label: string;
+    url: string;
+  };
 };
