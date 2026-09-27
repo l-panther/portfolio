@@ -976,6 +976,12 @@ section {
 
 /* Contact / social links */
 
+.contact-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .contact-links li {
   margin-bottom: 16px;
 }
@@ -1008,15 +1014,25 @@ section {
   border-radius: 9px;
 
   color: var(--blue-brighter);
-  font-size: 16px;
 
   transition:
     color 0.2s ease,
-    border-color 0.2s ease;
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.contact-links .ic svg {
+  display: block;
+
+  width: 17px;
+  height: 17px;
+
+  fill: currentColor;
 }
 
 .contact-links a:hover .ic {
   border-color: var(--blue);
+  background: rgba(107, 163, 214, 0.06);
 }
 
 
