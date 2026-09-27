@@ -176,7 +176,11 @@
 
     "link": " https://l-panther.github.io/efexacademy/",
     "github": "https://github.com/l-panther/efexacademy.git",
-    "delay": 0.4
+    "delay": 0.4,
+    "originalSite": {
+      "label": "Efex Academy",
+      "url": "https://www.efexacademy.com/"
+    }
   },
 
   {
@@ -296,7 +300,11 @@
 
     "link": " https://l-panther.github.io/parees-taylor/",
     "github": "https://github.com/l-panther/parees-taylor.git",
-    "delay": 0.4
+    "delay": 0.4,
+    "originalSite": {
+      "label": "Parees Taylor",
+      "url": "http://pareestaylor.co.uk/"
+    }
   },
 
   {
@@ -357,7 +365,11 @@
 
     "link": "#",
     "github": "https://github.com/l-panther/slade-gardens.git",
-    "delay": 0.4
+    "delay": 0.4,
+     "originalSite": {
+      "label": "Parees Taylor",
+      "url": "http://pareestaylor.co.uk/"
+    }
   },
 
   {
