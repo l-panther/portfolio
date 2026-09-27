@@ -1027,7 +1027,7 @@ section {
   width: 17px;
   height: 17px;
 
-  fill: currentColor;
+  fill: var(--blue-brighter);
 }
 
 .contact-links a:hover .ic {
