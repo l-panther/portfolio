@@ -302,6 +302,13 @@ header {
   height: auto;
 }
 
+.card.back img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-position: center top;
+}
+
 
 /* =========================================================
    PROBLEM / SOLUTION
