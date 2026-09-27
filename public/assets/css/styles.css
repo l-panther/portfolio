@@ -1194,6 +1194,7 @@ footer .glow-blue {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 45px;
+    text-align: center;
   }
 
   .hero-visual {
