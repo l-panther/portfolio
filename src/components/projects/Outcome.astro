@@ -35,6 +35,18 @@ const { project } = Astro.props as { project: Project };
             {output}
         </p>
        ))}
+      {project.originalSite && (
+        <p class="original-site">
+          <strong>Original website:</strong>
+          <a
+            href={project.originalSite.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {project.originalSite.label}
+          </a>
+        </p>
+      )}
       <div class="outcome-actions">
         {project.link && (
             <a href={project.link} target="_blank" class="btn btn-fill">
