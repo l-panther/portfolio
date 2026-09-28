@@ -1197,6 +1197,19 @@ footer .glow-blue {
     text-align: center;
   }
 
+  .hero-grid > div:first-child {
+    text-align: center;
+  }
+
+  .hero-grid p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
   .hero-visual {
     display: block;
 
