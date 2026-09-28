@@ -1201,7 +1201,7 @@ footer .glow-blue {
     text-align: center;
   }
 
-  .hero-grid p {
+  .hero-grid p, .hero-grid span {
     margin-left: auto;
     margin-right: auto;
   }
