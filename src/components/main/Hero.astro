@@ -28,11 +28,25 @@ const base = import.meta.env.BASE_URL;
       <div class="developer-hero">
 
         <!-- Main artwork -->
-        <img
+        <picture>
+          <source
+            media="(max-width: 900px)"
+            srcset={`${base}assets/images/hero/man-and-desk-ui.png`}
+          >
+
+          <img
+            src={`${base}assets/images/hero/man-and-desk-ui.png`}
+            alt="Creative workspace representing web development, visual design and painting"
+            loading="lazy"
+            decoding="async"
+          >
+        </picture>
+
+       <!-- <img
           src={`${base}assets/images/hero/man-and-desk.png`}
           class="hero-layer hero-main"
           alt="Developer working at a desk"
-        >
+        > -->
 
         <!-- Floating interfaces -->
         <img
