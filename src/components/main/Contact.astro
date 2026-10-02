@@ -267,7 +267,8 @@
 </style>
 
 <!-- Form submit -->
- <script>
+<!-- Form submit -->
+<script>
   const form = document.getElementById("contactForm");
 
   if (form) {
@@ -284,8 +285,12 @@
     const status = document.getElementById("formStatus");
 
     const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbwhKC5vS_91Zyq8TAfRLztYldCq5VJE5cUbZiBzOK7QMhOaEsLfzEi-t7mpYNnultBq_g/exec";
+      "https://script.google.com/macros/s/AKfycbwhKC5vS_91Zyq8TAfRLztYldCq5VJE5cUbZiBzOK7QMhOaEsLfzEi-t7mpYNnultBq_g/exec";
 
+
+    // ---------------------------------
+    // CLEAR VALIDATION ERRORS
+    // ---------------------------------
     function clearErrors() {
       nameError.textContent = "";
       emailError.textContent = "";
@@ -298,6 +303,10 @@
       status.hidden = true;
     }
 
+
+    // ---------------------------------
+    // VALIDATE FORM
+    // ---------------------------------
     function validateForm() {
       clearErrors();
 
@@ -307,29 +316,26 @@
       const email = emailInput.value.trim();
       const message = messageInput.value.trim();
 
+      // Name
       if (name.length < 2) {
-        nameError.textContent =
-          "Please enter your name.";
-
+        nameError.textContent = "Please enter your name.";
         nameInput.classList.add("invalid");
         valid = false;
       }
 
+      // Email
       if (!email) {
-        emailError.textContent =
-          "Please enter your email address.";
-
+        emailError.textContent = "Please enter your email address.";
         emailInput.classList.add("invalid");
         valid = false;
 
       } else if (!emailInput.validity.valid) {
-        emailError.textContent =
-          "Please enter a valid email address.";
-
+        emailError.textContent = "Please enter a valid email address.";
         emailInput.classList.add("invalid");
         valid = false;
       }
 
+      // Message
       if (message.length < 10) {
         messageError.textContent =
           "Please enter at least 10 characters.";
@@ -341,120 +347,149 @@
       return valid;
     }
 
+
+    // ---------------------------------
+    // FORM SUBMIT
+    // ---------------------------------
     form.addEventListener("submit", async (event) => {
-  event.preventDefault();
+      event.preventDefault();
 
-  if (!validateForm()) {
-    return;
-  }
+      if (!validateForm()) {
+        return;
+      }
 
-  const originalText = button.textContent;
+      const originalText = button.textContent;
 
-  button.disabled = true;
-  button.textContent = "Sending...";
+      button.disabled = true;
+      button.textContent = "Sending...";
 
-  // Clear any previous status
-  status.hidden = true;
-  status.classList.remove("fade-out");
+      // Clear previous status
+      status.hidden = true;
+      status.classList.remove("fade-out");
 
-  try {
-    const formData = new FormData(form);
 
-    await fetch(GOOGLE_SCRIPT_URL, {
-      method: "POST",
-      body: formData,
-      mode: "no-cors"
+      try {
+        const formData = new FormData(form);
+
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors"
+        });
+
+        form.reset();
+
+
+        // -------------------------
+        // SUCCESS
+        // -------------------------
+        status.innerHTML = `
+          <span
+            class="status-icon success-icon"
+            aria-hidden="true"
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M9 12.5l2 2 4-5" />
+            </svg>
+          </span>
+
+          <span>
+            Thank you. Your message has been submitted.
+          </span>
+        `;
+
+        status.className = "form-alert success";
+        status.hidden = false;
+
+        button.textContent = "Message Sent";
+
+
+        // Fade success after 5.5 seconds
+        setTimeout(() => {
+          status.classList.add("fade-out");
+
+          setTimeout(() => {
+            status.hidden = true;
+            status.classList.remove("fade-out");
+          }, 300);
+
+        }, 5500);
+
+
+      } catch (error) {
+
+        console.error("Contact form error:", error);
+
+
+        // -------------------------
+        // ERROR
+        // -------------------------
+        status.innerHTML = `
+          <span
+            class="status-icon error-icon"
+            aria-hidden="true"
+          >
+            <svg viewBox="0 0 24 24">
+              <path d="M12 7v6" />
+              <path d="M12 17h.01" />
+            </svg>
+          </span>
+
+          <span>
+            Sorry, your message couldn't be submitted.
+            Please try again.
+          </span>
+        `;
+
+        status.className = "form-alert error";
+        status.hidden = false;
+
+        button.textContent = originalText;
+
+
+        // Fade error after 6 seconds
+        setTimeout(() => {
+          status.classList.add("fade-out");
+
+          setTimeout(() => {
+            status.hidden = true;
+            status.classList.remove("fade-out");
+          }, 300);
+
+        }, 6000);
+      }
+
+
+      // Re-enable button
+      button.disabled = false;
+
+
+      // Return button to normal
+      setTimeout(() => {
+        button.textContent = originalText;
+      }, 2200);
     });
 
-    form.reset();
 
-    // -------------------------
-    // SUCCESS MESSAGE
-    // -------------------------
-    status.innerHTML = `
-      <span class="status-icon success-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <path d="M9 12.5l2 2 4-5" />
-        </svg>
-      </span>
+    // ---------------------------------
+    // REMOVE FIELD ERROR WHILE TYPING
+    // ---------------------------------
+    [nameInput, emailInput, messageInput].forEach((input) => {
 
-      <span>Thank you. Your message has been submitted.</span>
-    `;
+      input.addEventListener("input", () => {
 
-    status.className = "form-alert success";
-    status.hidden = false;
+        input.classList.remove("invalid");
 
-    button.textContent = "Message Sent";
+        const error = input
+          .closest(".field")
+          .querySelector(".field-error");
 
-    // Fade success message after 5.5 seconds
-    setTimeout(() => {
-      status.classList.add("fade-out");
+        if (error) {
+          error.textContent = "";
+        }
+      });
 
-      setTimeout(() => {
-        status.hidden = true;
-        status.classList.remove("fade-out");
-      }, 300);
-    }, 5500);
+    });
 
-  } catch (error) {
-
-    console.error("Contact form error:", error);
-
-    // -------------------------
-    // ERROR MESSAGE
-    // -------------------------
-    status.innerHTML = `
-      <span class="status-icon error-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 7v6" />
-          <path d="M12 17h.01" />
-        </svg>
-      </span>
-
-      <span>Sorry, your message couldn't be submitted. Please try again.</span>
-    `;
-
-    status.className = "form-alert error";
-    status.hidden = false;
-
-    button.textContent = originalText;
-
-    // Fade error message after 6 seconds
-    setTimeout(() => {
-      status.classList.add("fade-out");
-
-      setTimeout(() => {
-        status.hidden = true;
-        status.classList.remove("fade-out");
-      }, 300);
-    }, 6000);
-  }
-
-  // Re-enable button
-  button.disabled = false;
-
-  // Return button text to normal
-  setTimeout(() => {
-    button.textContent = originalText;
-  }, 2200);
-});
-
-
-// ---------------------------------
-// REMOVE FIELD ERROR WHILE TYPING
-// ---------------------------------
-[nameInput, emailInput, messageInput].forEach(input => {
-  input.addEventListener("input", () => {
-
-    input.classList.remove("invalid");
-
-    const error = input
-      .closest(".field")
-      .querySelector(".field-error");
-
-    if (error) {
-      error.textContent = "";
-    }
-  });
-});
+  } // ← THIS WAS MISSING
 </script>
