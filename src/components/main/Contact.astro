@@ -178,6 +178,10 @@
   border-color: #ff7474;
 }
 
+/* =========================
+   FORM STATUS
+========================= */
+
 .form-alert {
   display: flex;
   align-items: center;
@@ -202,8 +206,8 @@
 
 .form-alert.error {
   color: #ff8585;
-  background: rgba(255, 90, 90, 0.08);
-  border: 1px solid rgba(255, 90, 90, 0.35);
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.4);
 }
 
 .form-alert.fade-out {
@@ -214,29 +218,73 @@
   display: none;
 }
 
-/* Success badge */
+
+/* =========================
+   STATUS BADGE
+========================= */
+
 .status-icon {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 24px;
-  height: 24px;
-  flex: 0 0 24px;
+  width: 26px;
+  height: 26px;
+
+  flex: 0 0 26px;
 
   border-radius: 50%;
-  background: #8b983e;
+
+  color: #fff;
+}
+
+.status-icon.success-icon {
+  background-color: #8b983e;
+}
+
+.status-icon.error-icon {
+  background-color: #dc3545;
 }
 
 .status-icon svg {
+  display: block;
+
   width: 17px;
   height: 17px;
 
-  fill: none;
-  stroke: #fff;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  overflow: visible;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.field-error {
+  display: block;
+  min-height: 18px;
+  margin-top: 6px;
+
+  font-size: 0.8rem;
+  color: #ff7474;
+}
+
+.field input.invalid,
+.field textarea.invalid {
+  border-color: #ff7474;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .btn:disabled {
@@ -283,7 +331,6 @@
 }
 </style>
 
-<!-- Form submit -->
 <!-- Form submit -->
 <script>
   const form = document.getElementById("contactForm");
@@ -396,37 +443,34 @@
 
         form.reset();
 
-
         // -------------------------
         // SUCCESS
         // -------------------------
         status.innerHTML = `
-          <span
-            class="status-icon success-icon"
-            aria-hidden="true"
-          >
+          <span class="status-icon success-icon" aria-hidden="true">
+        
             <svg
               viewBox="0 0 24 24"
               width="17"
               height="17"
-              aria-hidden="true"
             >
               <path
                 d="M6 12.5l4 4L18 8"
                 fill="none"
-                stroke="currentColor"
+                stroke="#ffffff"
                 stroke-width="2.5"
                 stroke-linecap="round"
                 stroke-linejoin="round"
               />
             </svg>
+        
           </span>
-
+        
           <span>
             Thank you. Your message has been submitted.
           </span>
         `;
-
+        
         status.className = "form-alert success";
         status.hidden = false;
 
@@ -454,38 +498,36 @@
         // ERROR
         // -------------------------
         status.innerHTML = `
-          <span
-            class="status-icon error-icon"
-            aria-hidden="true"
-          >
-           <svg
-            viewBox="0 0 24 24"
-            width="17"
-            height="17"
-            aria-hidden="true"
-          >
-            <path
-              d="M12 6v8"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-            />
-            <circle
-              cx="12"
-              cy="18"
-              r="1.3"
-              fill="currentColor"
-            />
-          </svg>
+          <span class="status-icon error-icon" aria-hidden="true">
+        
+            <svg
+              viewBox="0 0 24 24"
+              width="17"
+              height="17"
+            >
+              <path
+                d="M12 6v8"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              />
+        
+              <circle
+                cx="12"
+                cy="18"
+                r="1.3"
+                fill="#ffffff"
+              />
+            </svg>
+        
           </span>
-
+        
           <span>
-            Sorry, your message couldn't be submitted.
-            Please try again.
+            Sorry, your message couldn't be submitted. Please try again.
           </span>
         `;
-
+        
         status.className = "form-alert error";
         status.hidden = false;
 
