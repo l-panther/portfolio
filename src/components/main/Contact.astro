@@ -179,11 +179,19 @@
 }
 
 .form-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
   margin-top: 16px;
   padding: 12px 14px;
+
   border-radius: 8px;
   font-size: 0.9rem;
   line-height: 1.4;
+
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .form-alert.success {
@@ -198,13 +206,63 @@
   border: 1px solid rgba(255, 90, 90, 0.35);
 }
 
+.form-alert.fade-out {
+  opacity: 0;
+}
+
 .form-alert[hidden] {
   display: none;
+}
+
+/* Success badge */
+.status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+
+  border-radius: 50%;
+  background: #8b983e;
+}
+
+.status-icon svg {
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* Error badge */
+.status-icon.error-icon {
+  background: #dc3545;
+}
+
+.form-alert.error {
+  color: #ff8585;
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.4);
+}
+
+.status-icon.error-icon svg {
+  width: 17px;
+  height: 17px;
+
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
 }
 </style>
 
@@ -284,69 +342,119 @@
     }
 
     form.addEventListener("submit", async (event) => {
-      event.preventDefault();
+  event.preventDefault();
 
-      if (!validateForm()) {
-        return;
-      }
+  if (!validateForm()) {
+    return;
+  }
 
-      const originalText = button.textContent;
+  const originalText = button.textContent;
 
-      button.disabled = true;
-      button.textContent = "Sending...";
+  button.disabled = true;
+  button.textContent = "Sending...";
 
-      status.hidden = true;
+  // Clear any previous status
+  status.hidden = true;
+  status.classList.remove("fade-out");
 
-      try {
-        const formData = new FormData(form);
+  try {
+    const formData = new FormData(form);
 
-        await fetch(GOOGLE_SCRIPT_URL, {
-          method: "POST",
-          body: formData,
-          mode: "no-cors"
-        });
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      body: formData,
+      mode: "no-cors"
+    });
 
-        form.reset();
+    form.reset();
 
-        status.textContent =
-          "✓ Thank you. Your message has been submitted.";
+    // -------------------------
+    // SUCCESS MESSAGE
+    // -------------------------
+    status.innerHTML = `
+      <span class="status-icon success-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 12.5l2 2 4-5" />
+        </svg>
+      </span>
 
-        status.className = "form-alert success";
-        status.hidden = false;
+      <span>Thank you. Your message has been submitted.</span>
+    `;
 
-        button.textContent = "Message Sent";
+    status.className = "form-alert success";
+    status.hidden = false;
 
-      } catch (error) {
+    button.textContent = "Message Sent";
 
-        console.error("Contact form error:", error);
-
-        status.textContent =
-          "⚠ Sorry, your message couldn't be submitted. Please try again.";
-
-        status.className = "form-alert error";
-        status.hidden = false;
-
-        button.textContent = originalText;
-      }
-
-      button.disabled = false;
+    // Fade success message after 5.5 seconds
+    setTimeout(() => {
+      status.classList.add("fade-out");
 
       setTimeout(() => {
-        button.textContent = originalText;
-      }, 2200);
-    });
+        status.hidden = true;
+        status.classList.remove("fade-out");
+      }, 300);
+    }, 5500);
 
-    // Remove error as user corrects field
-    [nameInput, emailInput, messageInput].forEach(input => {
-      input.addEventListener("input", () => {
-        input.classList.remove("invalid");
+  } catch (error) {
 
-        const error =
-          input.closest(".field")
-            .querySelector(".field-error");
+    console.error("Contact form error:", error);
 
-        error.textContent = "";
-      });
-    });
+    // -------------------------
+    // ERROR MESSAGE
+    // -------------------------
+    status.innerHTML = `
+      <span class="status-icon error-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 7v6" />
+          <path d="M12 17h.01" />
+        </svg>
+      </span>
+
+      <span>Sorry, your message couldn't be submitted. Please try again.</span>
+    `;
+
+    status.className = "form-alert error";
+    status.hidden = false;
+
+    button.textContent = originalText;
+
+    // Fade error message after 6 seconds
+    setTimeout(() => {
+      status.classList.add("fade-out");
+
+      setTimeout(() => {
+        status.hidden = true;
+        status.classList.remove("fade-out");
+      }, 300);
+    }, 6000);
   }
+
+  // Re-enable button
+  button.disabled = false;
+
+  // Return button text to normal
+  setTimeout(() => {
+    button.textContent = originalText;
+  }, 2200);
+});
+
+
+// ---------------------------------
+// REMOVE FIELD ERROR WHILE TYPING
+// ---------------------------------
+[nameInput, emailInput, messageInput].forEach(input => {
+  input.addEventListener("input", () => {
+
+    input.classList.remove("invalid");
+
+    const error = input
+      .closest(".field")
+      .querySelector(".field-error");
+
+    if (error) {
+      error.textContent = "";
+    }
+  });
+});
 </script>
