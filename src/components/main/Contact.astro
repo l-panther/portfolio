@@ -69,11 +69,176 @@
       
       </ul>
     </div>
+    <!--
     <form class="reveal right" style="--d:.1s" onsubmit="event.preventDefault(); this.reset(); const b=this.querySelector('.btn'); const t=b.textContent; b.textContent='Message Sent'; setTimeout(()=>b.textContent=t,2200);">
       <div class="field"><label>Name</label><input type="text" required placeholder=""></div>
       <div class="field"><label>Email</label><input type="email" required placeholder=""></div>
       <div class="field"><label>Message</label><textarea rows="3" required></textarea></div>
       <button type="submit" class="btn btn-fill">Send Message</button>
+    </form> -->
+
+    <form
+      id="contactForm"
+      class="reveal right"
+      style="--d:.1s"
+      novalidate
+    >
+      <div class="field">
+        <label for="contactName">Name</label>
+        <input
+          id="contactName"
+          name="name"
+          type="text"
+          minlength="2"
+          maxlength="80"
+          autocomplete="name"
+          required
+        >
+        <small class="field-error"></small>
+      </div>
+    
+      <div class="field">
+        <label for="contactEmail">Email</label>
+        <input
+          id="contactEmail"
+          name="email"
+          type="email"
+          maxlength="254"
+          autocomplete="email"
+          required
+        >
+        <small class="field-error"></small>
+      </div>
+    
+      <div class="field">
+        <label for="contactMessage">Message</label>
+        <textarea
+          id="contactMessage"
+          name="message"
+          rows="3"
+          minlength="10"
+          maxlength="2000"
+          required
+        ></textarea>
+        <small class="field-error"></small>
+      </div>
+    
+      <!-- Honeypot: humans won't see this -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabindex="-1"
+          autocomplete="off"
+        >
+      </div>
+    
+      <button type="submit" class="btn btn-fill">
+        Send Message
+      </button>
+    
+      <p
+        id="formStatus"
+        class="form-status"
+        role="status"
+        aria-live="polite"
+      ></p>
     </form>
   </div>
 </section>
+
+<style>
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-status {
+  margin-top: 1rem;
+  min-height: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.form-status.success {
+  color: #8b983e;
+}
+
+.form-status.error {
+  color: #e35d6a;
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+</style>
+
+<!-- Form submit -->
+<script>
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+
+  const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbwhKC5vS_91Zyq8TAfRLztYldCq5VJE5cUbZiBzOK7QMhOaEsLfzEi-t7mpYNnultBq_g/exec";
+
+  if (form && status) {
+    const button = form.querySelector('button[type="submit"]');
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      status.textContent = "";
+      status.className = "form-status";
+
+      // Local validation
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const originalText = button.textContent;
+
+      button.disabled = true;
+      button.textContent = "Sending...";
+
+      try {
+        const formData = new FormData(form);
+
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors"
+        });
+
+        form.reset();
+
+        status.textContent = "Message sent successfully.";
+        status.className = "form-status success";
+
+        button.textContent = "Message Sent";
+
+      } catch (error) {
+        console.error("Contact form error:", error);
+
+        status.textContent =
+          "Sorry, your message could not be sent. Please try again.";
+
+        status.className = "form-status error";
+
+        button.textContent = originalText;
+
+      } finally {
+        button.disabled = false;
+
+        setTimeout(() => {
+          button.textContent = originalText;
+        }, 2200);
+      }
+    });
+  }
+</script>
