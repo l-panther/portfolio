@@ -192,70 +192,144 @@
 <style/>
 
 <!-- Form submit -->
-<script>
+ <script>
   const form = document.getElementById("contactForm");
-  const status = document.getElementById("formStatus");
 
-  const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbwhKC5vS_91Zyq8TAfRLztYldCq5VJE5cUbZiBzOK7QMhOaEsLfzEi-t7mpYNnultBq_g/exec";
-
-  if (form && status) {
+  if (form) {
     const button = form.querySelector('button[type="submit"]');
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
+    const nameInput = document.getElementById("contactName");
+    const emailInput = document.getElementById("contactEmail");
+    const messageInput = document.getElementById("contactMessage");
 
-  // Hide previous message
-  status.hidden = true;
-  status.textContent = "";
-  status.className = "form-alert";
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const messageError = document.getElementById("messageError");
 
-  // Local validation
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
+    const status = document.getElementById("formStatus");
 
-  const originalText = button.textContent;
+    const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbwhKC5vS_91Zyq8TAfRLztYldCq5VJE5cUbZiBzOK7QMhOaEsLfzEi-t7mpYNnultBq_g/exec";
 
-  button.disabled = true;
-  button.textContent = "Sending...";
+    function clearErrors() {
+      nameError.textContent = "";
+      emailError.textContent = "";
+      messageError.textContent = "";
 
-  try {
-    const formData = new FormData(form);
+      nameInput.classList.remove("invalid");
+      emailInput.classList.remove("invalid");
+      messageInput.classList.remove("invalid");
 
-    await fetch(GOOGLE_SCRIPT_URL, {
-      method: "POST",
-      body: formData,
-      mode: "no-cors"
+      status.hidden = true;
+    }
+
+    function validateForm() {
+      clearErrors();
+
+      let valid = true;
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const message = messageInput.value.trim();
+
+      if (name.length < 2) {
+        nameError.textContent =
+          "Please enter your name.";
+
+        nameInput.classList.add("invalid");
+        valid = false;
+      }
+
+      if (!email) {
+        emailError.textContent =
+          "Please enter your email address.";
+
+        emailInput.classList.add("invalid");
+        valid = false;
+
+      } else if (!emailInput.validity.valid) {
+        emailError.textContent =
+          "Please enter a valid email address.";
+
+        emailInput.classList.add("invalid");
+        valid = false;
+      }
+
+      if (message.length < 10) {
+        messageError.textContent =
+          "Please enter at least 10 characters.";
+
+        messageInput.classList.add("invalid");
+        valid = false;
+      }
+
+      return valid;
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!validateForm()) {
+        return;
+      }
+
+      const originalText = button.textContent;
+
+      button.disabled = true;
+      button.textContent = "Sending...";
+
+      status.hidden = true;
+
+      try {
+        const formData = new FormData(form);
+
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors"
+        });
+
+        form.reset();
+
+        status.textContent =
+          "✓ Thank you. Your message has been submitted.";
+
+        status.className = "form-alert success";
+        status.hidden = false;
+
+        button.textContent = "Message Sent";
+
+      } catch (error) {
+
+        console.error("Contact form error:", error);
+
+        status.textContent =
+          "⚠ Sorry, your message couldn't be submitted. Please try again.";
+
+        status.className = "form-alert error";
+        status.hidden = false;
+
+        button.textContent = originalText;
+      }
+
+      button.disabled = false;
+
+      setTimeout(() => {
+        button.textContent = originalText;
+      }, 2200);
     });
 
-    form.reset();
+    // Remove error as user corrects field
+    [nameInput, emailInput, messageInput].forEach(input => {
+      input.addEventListener("input", () => {
+        input.classList.remove("invalid");
 
-    status.textContent = "✓ Your message has been sent successfully.";
-    status.className = "form-alert success";
-    status.hidden = false;
+        const error =
+          input.closest(".field")
+            .querySelector(".field-error");
 
-    button.textContent = "Message Sent";
-
-  } catch (error) {
-    console.error("Contact form error:", error);
-
-    status.textContent =
-      "⚠ Sorry, your message could not be sent. Please try again.";
-
-    status.className = "form-alert error";
-    status.hidden = false;
-
-    button.textContent = originalText;
-
-  } finally {
-    button.disabled = false;
-
-    setTimeout(() => {
-      button.textContent = originalText;
-    }, 2200);
-  }
-});
+        error.textContent = "";
+      });
+    });
   }
 </script>
