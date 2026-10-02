@@ -255,14 +255,31 @@
   border: 1px solid rgba(220, 53, 69, 0.4);
 }
 
-.status-icon.error-icon svg {
+.status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+
+  border-radius: 50%;
+  color: #fff;
+}
+
+.success-icon {
+  background: #8b983e;
+}
+
+.error-icon {
+  background: #dc3545;
+}
+
+.status-icon svg {
+  display: block;
   width: 17px;
   height: 17px;
-
-  fill: none;
-  stroke: #fff;
-  stroke-width: 2.5;
-  stroke-linecap: round;
 }
 </style>
 
@@ -388,8 +405,20 @@
             class="status-icon success-icon"
             aria-hidden="true"
           >
-            <svg viewBox="0 0 24 24">
-              <path d="M9 12.5l2 2 4-5" />
+            <svg
+              viewBox="0 0 24 24"
+              width="17"
+              height="17"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 12.5l4 4L18 8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </span>
 
@@ -429,10 +458,26 @@
             class="status-icon error-icon"
             aria-hidden="true"
           >
-            <svg viewBox="0 0 24 24">
-              <path d="M12 7v6" />
-              <path d="M12 17h.01" />
-            </svg>
+           <svg
+            viewBox="0 0 24 24"
+            width="17"
+            height="17"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 6v8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+            <circle
+              cx="12"
+              cy="18"
+              r="1.3"
+              fill="currentColor"
+            />
+          </svg>
           </span>
 
           <span>
@@ -491,5 +536,5 @@
 
     });
 
-  } // ← THIS WAS MISSING
+  } 
 </script>
