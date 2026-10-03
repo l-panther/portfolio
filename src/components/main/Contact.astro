@@ -83,51 +83,56 @@
       style="--d:.1s"
       novalidate
     >
-    <div class="field">
-  <label for="contactName">Name</label>
+      <div class="field">
+        <label for="contactName">Name</label>
+      
+        <input
+          id="contactName"
+          name="name"
+          type="text"
+          minlength="2"
+          maxlength="80"
+          autocomplete="name"
+          required
+        >
+      
+        <small class="field-error" id="nameError"></small>
+      </div>
+      
+      <div class="field">
+        <label for="contactEmail">Email</label>
+      
+        <input
+          id="contactEmail"
+          name="email"
+          type="email"
+          maxlength="254"
+          autocomplete="email"
+          required
+        >
+      
+        <small class="field-error" id="emailError"></small>
+      </div>
 
-  <input
-    id="contactName"
-    name="name"
-    type="text"
-    minlength="2"
-    maxlength="80"
-    autocomplete="name"
-    required
-  >
-
-  <small class="field-error" id="nameError"></small>
-</div>
-
-<div class="field">
-  <label for="contactEmail">Email</label>
-
-  <input
-    id="contactEmail"
-    name="email"
-    type="email"
-    maxlength="254"
-    autocomplete="email"
-    required
-  >
-
-  <small class="field-error" id="emailError"></small>
-</div>
-
-<div class="field">
-  <label for="contactMessage">Message</label>
-
-  <textarea
-    id="contactMessage"
-    name="message"
-    rows="3"
-    minlength="10"
-    maxlength="2000"
-    required
-  ></textarea>
-
-  <small class="field-error" id="messageError"></small>
-</div>
+      <div class="field">
+        <label for="contactMessage">Message</label>
+      
+        <textarea
+          id="contactMessage"
+          name="message"
+          rows="4"
+          minlength="10"
+          maxlength="500"
+          required
+        ></textarea>
+      
+        <div class="message-meta">
+          <small class="field-error" id="messageError"></small>
+          <small class="char-count" id="charCount">
+            2000 characters remaining
+          </small>
+        </div>
+      </div>
     
       <!-- Honeypot: humans won't see this -->
       <div class="hp-field" aria-hidden="true">
@@ -328,6 +333,23 @@
   width: 17px;
   height: 17px;
 }
+
+.message-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.char-count {
+  margin-top: 6px;
+  margin-left: auto;
+  flex-shrink: 0;
+
+  font-size: 0.75rem;
+  color: var(--muted);
+  opacity: 0.75;
+}
 </style>
 
 <!-- Form submit -->
@@ -340,6 +362,19 @@
     const nameInput = document.getElementById("contactName");
     const emailInput = document.getElementById("contactEmail");
     const messageInput = document.getElementById("contactMessage");
+    const charCount = document.getElementById("charCount");
+
+    const MAX_MESSAGE_LENGTH = 500;
+    
+    function updateCharacterCount() {
+      const remaining =
+        MAX_MESSAGE_LENGTH - messageInput.value.length;
+    
+      charCount.textContent =
+        `${remaining} character${remaining === 1 ? "" : "s"} remaining`;
+    }
+    
+    messageInput.addEventListener("input", updateCharacterCount);
 
     const nameError = document.getElementById("nameError");
     const emailError = document.getElementById("emailError");
@@ -441,6 +476,7 @@
         });
 
         form.reset();
+        updateCharacterCount();
 
         // -------------------------
         // SUCCESS
