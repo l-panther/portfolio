@@ -363,12 +363,12 @@
       "Visitors can reach important information more quickly across desktop and mobile, while reusable components make the website easier to maintain and expand."
     ],
 
-    "link": "#",
+    "link": "https://l-panther.github.io/slade-garden/",
     "github": "https://github.com/l-panther/slade-gardens.git",
     "delay": 0.4,
      "originalSite": {
-      "label": "Parees Taylor",
-      "url": "http://pareestaylor.co.uk/"
+      "label": "Slade Garden",
+      "url": "https://sladeadventure.co.uk/"
     }
   },
 
@@ -427,7 +427,7 @@
       "The project demonstrates how web technologies can be used to extend the idea of a printed event flyer into an interactive, media-rich promotional experience."
     ],
 
-    "link": " https://l-panther.github.io/soulful-cellar/",
+    "link": "https://l-panther.github.io/soulful-cellar/",
     "github": "https://github.com/l-panther/soulful-cellar.git",
     "delay": 0.4
   },
