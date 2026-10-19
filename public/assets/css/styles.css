@@ -459,7 +459,7 @@ nav {
 .hero {
   position: relative;
 
-  padding: 110px 24px 30px;
+  padding: 110px 24px 0;
 
   background:
     radial-gradient(
