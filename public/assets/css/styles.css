@@ -801,6 +801,34 @@ section {
   font-size: 15px;
 }
 
+.portfolio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+  color: #6ba3d6;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.portfolio-link:hover {
+  color: #1d65b1;
+}
+
+.portfolio-link-icon {
+  font-size: 1rem;
+}
+
+.portfolio-link-arrow {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.portfolio-link:hover .portfolio-link-arrow {
+  transform: translate(2px, -2px);
+}
 
 /* =========================================================
    EXPERIENCE
