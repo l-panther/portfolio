@@ -1,32 +1,126 @@
-<section class="skills" id="skills">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Creative &amp; Technical</span>
-      <h2 class="reveal"><span class="glow-blue">Skills</span> Overview</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card reveal" style="--d:0s">
-        <div class="skill-icon">&lt;/&gt;</div>
-        <h3>Frontend</h3>
-        <div class="bar" style="--w:82%"><i></i></div>
-        <p>Designing intuitive, visually engaging interfaces with thoughtful layouts, clear navigation, and a focus on accessibility, usability, and user experience.</p>
+---
+import { CodeXml, PanelsTopLeft, Box } from "@lucide/astro";
+
+const skills = [
+  {
+    icon: CodeXml,
+    title: "Frontend Development",
+    description:
+      "Building responsive websites and interfaces using HTML, CSS, JavaScript, Astro, Vue and modern frontend tools."
+  },
+  {
+    icon: PanelsTopLeft,
+    title: "UI / UX Design",
+    description:
+      "Designing intuitive layouts with a focus on usability, accessibility, navigation and consistent experiences."
+  },
+  {
+    icon: Box,
+    title: "2D / 3D Graphics",
+    description:
+      "Creating digital artwork, visual assets and 3D models using Krita and Blender."
+  }
+];
+---
+
+<div class="skills-list">
+  {skills.map((skill) => {
+    const Icon = skill.icon;
+
+    return (
+      <div class="skill-item">
+        <div class="skill-icon" aria-hidden="true">
+          <Icon size={24} strokeWidth={1.5} />
+        </div>
+
+        <div class="skill-content">
+          <h3>{skill.title}</h3>
+          <p>{skill.description}</p>
+        </div>
       </div>
-      <div class="skill-card reveal" style="--d:.1s">
-        <div class="skill-icon">&#9783;</div>
-        <h3>UI/UX Design</h3>
-        <div class="bar" style="--w:85%"><i></i></div>
-        <p>
-          Designing intuitive, visually engaging interfaces
-          with a focus on usability, accessibility, and
-          consistent experiences across devices.
-        </p>
-      </div>
-      <div class="skill-card reveal" style="--d:.2s">
-        <div class="skill-icon">&#9998;</div>
-        <h3>2D / 3D Graphics</h3>
-        <div class="bar" style="--w:88%"><i></i></div>
-        <p>Creating 2D digital artwork in Krita and 3D models and renders in Blender, bringing original visual elements to personal projects and web experiences..</p>
-      </div>
-    </div>
-  </div>
-</section>
+    );
+  })}
+</div>
+
+<style>
+  .skills-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(107, 163, 214, 0.16);
+  }
+
+  .skill-item:first-child {
+    padding-top: 0;
+  }
+
+  .skill-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .skill-icon {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6ba3d6;
+    background: rgba(107, 163, 214, 0.08);
+    border: 1px solid rgba(107, 163, 214, 0.2);
+    border-radius: 5px;
+  }
+
+  .skill-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .skill-content h3 {
+    margin: 0 0 0.5rem;
+    color: #f1f5fa;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .skill-content p {
+    margin: 0;
+    color: #a6b4c5;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .skill-item:hover .skill-icon {
+    border-color: rgba(107, 163, 214, 0.45);
+    background: rgba(107, 163, 214, 0.16);
+  }
+
+  @media (max-width: 575px) {
+    .skill-item {
+      gap: 1rem;
+      padding: 1.25rem 0;
+    }
+
+    .skill-icon {
+      width: 42px;
+      height: 42px;
+      flex-basis: 42px;
+    }
+
+    .skill-content h3 {
+      font-size: 1rem;
+    }
+
+    .skill-content p {
+      font-size: 0.85rem;
+    }
+  }
+</style>
