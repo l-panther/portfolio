@@ -1,36 +1,28 @@
 ---
 import { COMPANY_NAME} from '../../lib/config.js';
+import Skills from "../../components/main/Skills.astro";
 ---
 
 <!-- About me -->
 <section class="about" id="about">
   <div class="about-grid">
+
+    
     <div class="reveal left">
       <span class="eyebrow">Behind the Work</span>
     
       <h2>A little bit <span class="glow-blue">About me</span></h2>
     
       <p>
-        My interest in creativity extends beyond the screen. As a <strong>painting and decorating professional</strong>,
-        I work with colour, texture, and composition to transform interior
-        spaces, taking pride in achieving clean, precise finishes that
-        bring character to every project.
+        I'm a <strong>web developer and visual creator</strong> with a passion for building modern, responsive websites and engaging digital experiences. I enjoy combining clean code, thoughtful design, and creative problem-solving to bring ideas to life.
       </p>
     
       <p>
-        Outside of my professional work, I channel that same creative
-        interest into <strong>web development, 3D modelling, and visual design</strong>.
-        I enjoy exploring new techniques, experimenting with ideas, and
-        combining technical skills with artistic expression to produce
-        work that is both functional and visually engaging.
+        My interests extend beyond <strong>web development into UI/UX design, digital artwork, and 3D modelling</strong>. I'm naturally curious and enjoy exploring new technologies, developing my skills, and experimenting with different techniques to create work that is both functional and visually appealing.
       </p>
     
       <p>
-        I'm naturally curious and enjoy learning new skills, exploring
-        different techniques, and challenging myself creatively.
-        Alongside my digital projects, I continue to take pride in my
-        work as a painter and decorator, where I apply that same
-        dedication to producing quality results.
+        Alongside my digital projects, I work professionally as a <strong>painter and decorator</strong>. This gives me another opportunity to work creatively with colour, texture, composition, and attention to detail, bringing the same care and dedication to both my digital and practical work.
       </p>
     
       <a
@@ -44,14 +36,132 @@ import { COMPANY_NAME} from '../../lib/config.js';
         <span class="portfolio-link-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
-    <div class="about-photo reveal right" style="--d:.1s">
-      <img
-        src={`${import.meta.env.BASE_URL}assets/images/main/about.png`}
-        alt="Creative workspace representing web development, visual design and painting"
-        loading="lazy"
-        decoding="async"
-      >
+  
+    <div class="about-skills reveal right" style="--d:.1s">
+      <Skills />
     </div>
   </div>
 </section>
 
+
+<style>
+
+/* =========================================================
+   ABOUT
+========================================================= */
+#about {
+  background:
+  linear-gradient(
+    rgb(10, 18, 30),
+    var(--bg)
+  );
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 60px;
+
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.about-photo {
+  min-width: 0;
+  overflow: visible;
+  border-radius: 0;
+}
+
+.about h2 {
+  margin-bottom: 26px;
+
+  color: var(--text-bright);
+
+  font-size: clamp(26px, 3.4vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.about p {
+  margin-bottom: 18px;
+
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.portfolio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+  color: #6ba3d6;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.portfolio-link:hover {
+  color: #1d65b1;
+}
+
+.portfolio-link-icon {
+  font-size: 1rem;
+}
+
+.portfolio-link-arrow {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.portfolio-link:hover .portfolio-link-arrow {
+  transform: translate(2px, -2px);
+}
+
+
+/* =========================================================
+   TABLET - STACKED
+========================================================= */
+
+@media (max-width: 860px) {
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 3rem;
+  }
+
+  .abot-skills,
+  .abot-skills .wrap {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* About */
+
+  .about-grid {
+    gap: 32px;
+  }
+
+  .about h2 {
+    margin-bottom: 20px;
+
+    font-size: 25px;
+  }
+
+  .about p {
+    margin-bottom: 16px;
+
+    font-size: 14px;
+  }
+
+  .about-photo {
+    width: 100%;
+  }
+}
+</style>
