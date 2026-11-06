@@ -2,3 +2,51 @@
   <p>© 2026 Web Development Portfolio. By <span class="glow-blue">Leroy Russell</span></p>
 </footer>
 <div class="to-top" id="toTop">&#8593;</div>
+
+
+<style>
+  
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  padding: 36px 24px;
+
+  border-top: 1px solid var(--border-soft);
+
+  text-align: left;
+}
+
+footer p {
+  max-width: 1180px;
+  margin: 0 auto;
+
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+footer .glow-blue {
+  color: var(--blue-brighter);
+
+  text-shadow:
+    0 0 4px rgba(107, 163, 214, 0.75),
+    0 0 10px rgba(107, 163, 214, 0.42),
+    0 0 18px rgba(107, 163, 214, 0.22) !important;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  footer {
+    padding: 28px 18px;
+  }
+
+  footer p {
+    font-size: 11.5px;
+  }
+}
+</style>
