@@ -161,7 +161,160 @@
   </div>
 </section>
 
+
 <style>
+  
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+  background: var(--bg-hero);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  margin-bottom: 20px;
+
+  color: var(--text-bright);
+
+  font-size: clamp(28px, 3.6vw, 40px);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.contact-left > p {
+  max-width: 340px;
+  margin-bottom: 30px;
+
+  color: var(--muted);
+  font-size: 15px;
+}
+
+
+/* Contact / social links */
+
+.contact-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-links li {
+  margin-bottom: 16px;
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  color: var(--text);
+  font-size: 14.5px;
+
+  transition: color 0.2s ease;
+}
+
+.contact-links a:hover {
+  color: var(--blue-brighter);
+}
+
+.contact-links .ic {
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 36px;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid var(--border-soft);
+  border-radius: 9px;
+
+  color: var(--blue-brighter);
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.contact-links .ic svg {
+  display: block;
+
+  width: 17px;
+  height: 17px;
+
+  fill: var(--blue-brighter);
+}
+
+.contact-links a:hover .ic {
+  border-color: var(--blue);
+  background: rgba(107, 163, 214, 0.06);
+}
+
+
+/* Contact form */
+
+.field {
+  margin-bottom: 26px;
+}
+
+.field label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 6px 2px 12px;
+
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-soft);
+  outline: none;
+
+  color: var(--text-bright);
+
+  font-family: inherit;
+  font-size: 15px;
+
+  resize: none;
+
+  transition: border-color 0.25s ease;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--blue);
+}
+
+.contact form {
+  padding: 30px;
+
+  background: rgba(12, 17, 25, 0.45);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+}
+
+.contact form .btn {
+  width: 100%;
+  margin-top: 6px;
+}
+
 .hp-field {
   position: absolute;
   left: -9999px;
@@ -222,7 +375,6 @@
 .form-alert[hidden] {
   display: none;
 }
-
 
 /* =========================
    DYNAMIC STATUS BADGES
@@ -346,10 +498,92 @@
   color: var(--muted);
   opacity: 0.75;
 }
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 860px) {
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  
+  /* Contact */
+
+  .contact-grid {
+    gap: 35px;
+  }
+
+  .contact h2 {
+    font-size: 26px;
+  }
+
+  .contact-left > p {
+    margin-bottom: 22px;
+
+    font-size: 14px;
+  }
+
+  .contact-links li {
+    margin-bottom: 11px;
+  }
+
+  .contact-links a {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 13px;
+  }
+
+  .contact-links .ic {
+    flex: 0 0 30px;
+
+    width: 30px;
+    height: 30px;
+
+    font-size: 13px;
+  }
+
+  .contact form {
+    padding: 20px 16px;
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  .field label {
+    margin-bottom: 7px;
+    font-size: 12.5px;
+  }
+
+  .field input,
+  .field textarea {
+    font-size: 14px;
+  }
+
+  .contact form .btn {
+    width: auto;
+    min-width: 130px;
+  }
+}
 </style>
 
+
 <!-- Form submit -->
-<script>
+<script is:inline>
   const form = document.getElementById("contactForm");
 
   if (form) {
