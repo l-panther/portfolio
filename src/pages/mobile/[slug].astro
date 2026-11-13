@@ -9,6 +9,7 @@ import Features from '../../components/mobile/Features.astro';
 import Design from '../../components/mobile/Design.astro';
 import Screens from '../../components/mobile/Screens.astro';
 import Outcome from '../../components/mobile/Outcome.astro';
+import Footer from '../../components/mobile/Footer.astro';
 
 // Change to your existing case study layout
 import Layout from '../../layouts/Layout.astro';
@@ -30,10 +31,11 @@ const { project, previous, next } = Astro.props as {
 <Layout title={`${project.title} | Mobile App Case Study`}>
   <main class="mobile-case-study">
     <Header />
-    <Hero project={project} />
+   <Hero project={project} />
     <Overview project={project} />
+    
     <Features project={project} />
-    <Design project={project} />
+    
     <Screens project={project} />
     
     <Outcome
@@ -41,5 +43,6 @@ const { project, previous, next } = Astro.props as {
       previous={previous}
       next={next}
     />
+    <Footer project={project} />
   </main>
 </Layout>
