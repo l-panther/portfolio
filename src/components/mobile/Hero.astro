@@ -1,36 +1,44 @@
 ---
-import type { MobileProject } from '../../types/mobile';
+import type { Mobile } from '../../types/mobile';
 
-const { project } = Astro.props as {
-  project: MobileProject;
-};
+const { project } = Astro.props as { project: Mobile };
 
 const base = import.meta.env.BASE_URL;
 ---
 
-<section class="mobile-hero" id="hero">
-  <div class="wrap">
-    <div class="mobile-hero-grid">
+<section class="mobile-hero" id="top">
+  <div class="wrap mobile-hero-grid">
 
-      <div class="mobile-hero-content reveal">
-        <span class="eyebrow">Mobile Application</span>
+    <div class="mobile-hero-content reveal">
+      <span class="eyebrow">Mobile Application</span>
 
-        <h1>{project.title}</h1>
+      <h1>{project.title}</h1>
 
-        <p>{project.description}</p>
+      <p>{project.description}</p>
 
-        {project.status === 'development' && (
-          <span class="mobile-status">In Development</span>
-        )}
+      <div class="mobile-hero-actions">
+        <a href="#design" class="btn btn-fill">
+          View Design
+        </a>
+
+        <a href="#outcome" class="btn btn-outline">
+          View Outcome
+        </a>
       </div>
 
-      <div class="mobile-hero-image reveal" style="--d:.1s">
-        <img
-          src={`${base}assets/images/projects/mobile/${project.image}.webp`}
-          alt={`${project.title} application preview`}
-        />
+      <div class="mobile-development-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>In Development</span>
       </div>
-
     </div>
+
+    <div class="mobile-hero-image reveal">
+      <img
+        src={`${base}assets/images/projects/mobile/${project.image}.webp`}
+        alt={`${project.title} application preview`}
+        loading="eager"
+      />
+    </div>
+
   </div>
 </section>
