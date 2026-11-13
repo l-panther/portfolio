@@ -237,14 +237,15 @@ a {
   }
 }
 
-/* =======================================================
-   5. DESIGN HIGHLIGHTS
+
+/* =========================================================
+   MOBILE APPLICATION DESIGN
 ========================================================= */
 
 .mobile-features {
-  padding: 95px 24px;
+  padding: 100px 24px;
   background: linear-gradient(
-    160deg,
+    155deg,
     var(--navy),
     var(--navy-deep)
   );
@@ -252,17 +253,11 @@ a {
 }
 
 .mobile-features .sec-head {
-  max-width: 760px;
-  margin: 0 auto 50px;
   text-align: center;
-}
-
-.mobile-features .eyebrow {
-  color: #a9c6e4;
+  margin-bottom: 60px;
 }
 
 .mobile-features h2 {
-  margin: 0;
   color: #fff;
   font-size: clamp(27px, 3.5vw, 38px);
   font-weight: 800;
@@ -273,85 +268,116 @@ a {
   color: var(--blue-bright2);
 }
 
+.mobile-features .eyebrow {
+  color: #a9c6e4;
+}
+
+/* Numbered highlights without cards */
+
 .mobile-features-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  gap: 35px;
 }
 
-.mobile-feature-card {
-  min-width: 0;
-  padding: 32px 28px;
-
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: var(--radius);
-
-  transition:
-    transform 0.3s ease,
-    background 0.3s ease,
-    border-color 0.3s ease;
+.mobile-feature-item {
+  padding: 0 0 25px;
+  border-bottom: 1px solid rgba(255,255,255,.25);
 }
 
-.mobile-feature-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.075);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.mobile-feature-card .feature-number {
+.mobile-feature-item .feature-number {
   display: block;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   color: var(--blue-bright2);
   font-family: 'Poppins', sans-serif;
-  font-size: 30px;
+  font-size: 34px;
   font-weight: 800;
-  line-height: 1;
 }
 
-.mobile-feature-card h3 {
-  margin: 0 0 14px;
+.mobile-feature-item h3 {
+  margin: 0 0 12px;
   color: #fff;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 15px;
   text-transform: uppercase;
 }
 
-.mobile-feature-card p {
+.mobile-feature-item p {
   margin: 0;
   color: #c3cddd;
   font-size: 14px;
   line-height: 1.85;
 }
 
-/* =========================================================
-   6. DESIGN APPROACH
-========================================================= */
+/* Design approach */
 
-.mobile-design {
-  padding: 95px 24px;
-  background: var(--bg);
+.mobile-design-approach {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 65px;
+  margin-top: 85px;
+  padding-top: 65px;
+  border-top: 1px solid rgba(255,255,255,.15);
 }
 
-.mobile-design .wrap > .reveal {
-  max-width: 850px;
-  margin-inline: auto;
+.mobile-design-content h2 {
+  margin: 0 0 25px;
 }
 
-.mobile-design h2 {
-  margin: 0 0 28px;
-  color: var(--ink);
-  font-size: clamp(27px, 3.5vw, 38px);
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.mobile-design p {
-  margin: 0 0 18px;
-  color: var(--muted);
+.mobile-design-content p {
+  color: #c3cddd;
   font-size: 15px;
   line-height: 1.9;
+  margin: 0 0 18px;
 }
+
+/* Temporary visual area */
+
+.mobile-device-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 260px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 5px;
+  color: #a9c6e4;
+  font-size: 12px;
+}
+
+.device-icon {
+  font-size: 65px;
+  line-height: 1;
+  color: var(--blue-bright2);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .mobile-design-approach {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobile-features-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .mobile-design-approach {
+    margin-top: 55px;
+    padding-top: 45px;
+  }
+
+  .mobile-device-placeholder {
+    min-height: 200px;
+  }
+}
+
 
 /* =========================================================
    7. MOBILE SCREENSHOTS
