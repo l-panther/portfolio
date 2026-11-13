@@ -7,30 +7,32 @@ interface Props {
   next?: Mobile | null;
 }
 
-const { project } = Astro.props as { project: Mobile };
-
-const base = import.meta.env.BASE_URL;
-
-const hasApp = Boolean(
-  project.link &&
-  project.link.trim() !== '#'
-);
-
-const hasGithub = Boolean(
-  project.github &&
-  project.github.trim() !== '#'
-);
-
 const {
   project,
   previous = null,
   next = null
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+
+const hasApp = Boolean(
+  project.link &&
+  project.link.trim() !== '#' &&
+  project.link.trim().toLowerCase() !== 'null'
+);
+
+const hasGithub = Boolean(
+  project.github &&
+  project.github.trim() !== '#' &&
+  project.github.trim().toLowerCase() !== 'null'
+);
 ---
 
 <section class="mobile-outcome" id="outcome">
+
   <div class="split-grid">
 
+    <!-- TECHNOLOGY USED -->
     <div class="reveal">
       <h2>Technology <span class="accent">Used</span></h2>
 
@@ -58,6 +60,7 @@ const {
       )}
     </div>
 
+    <!-- THE OUTCOME -->
     <div class="outcome-col reveal">
       <h2>The <span class="accent">Outcome</span></h2>
 
@@ -66,6 +69,7 @@ const {
       ))}
 
       <div class="outcome-actions">
+
         {hasApp ? (
           <a
             href={project.link}
@@ -95,45 +99,53 @@ const {
             GitHub
           </span>
         )}
+
       </div>
     </div>
 
-    <nav class="mobile-project-navigation wrap" aria-label="Project navigation">
+  </div>
 
-  <div class="mobile-project-navigation-links">
+  <!-- PREVIOUS / NEXT NAVIGATION -->
+  <nav
+    class="mobile-project-navigation wrap"
+    aria-label="Mobile project navigation"
+  >
 
-    {previous ? (
-      <a
-        href={`${base}mobile/${previous.slug}/`}
-        class="mobile-project-nav-link previous"
-      >
-        <span>← Previous Project</span>
-        <strong>{previous.title}</strong>
+    <div class="mobile-project-navigation-links">
+
+      {previous ? (
+        <a
+          href={`${base}mobile/${previous.slug}/`}
+          class="mobile-project-nav-link previous"
+        >
+          <span>← Previous Project</span>
+          <strong>{previous.title}</strong>
+        </a>
+      ) : (
+        <span class="mobile-project-nav-empty"></span>
+      )}
+
+      {next ? (
+        <a
+          href={`${base}mobile/${next.slug}/`}
+          class="mobile-project-nav-link next"
+        >
+          <span>Next Project →</span>
+          <strong>{next.title}</strong>
+        </a>
+      ) : (
+        <span class="mobile-project-nav-empty"></span>
+      )}
+
+    </div>
+
+    <!-- BACK TO PORTFOLIO -->
+    <div class="mobile-footer-back">
+      <a href={`${base}#projects`} class="mobile-back-link">
+        ← Back to Projects
       </a>
-    ) : (
-      <span class="mobile-project-nav-empty"></span>
-    )}
+    </div>
 
-    {next ? (
-      <a
-        href={`${base}mobile/${next.slug}/`}
-        class="mobile-project-nav-link next"
-      >
-        <span>Next Project →</span>
-        <strong>{next.title}</strong>
-      </a>
-    ) : (
-      <span class="mobile-project-nav-empty"></span>
-    )}
+  </nav>
 
-  </div>
-
-  <div class="mobile-footer-back">
-    <a href={`${base}#projects`} class="mobile-back-link">
-      ← Back to Projects
-    </a>
-  </div>
-
-</nav>
-  </div>
 </section>
