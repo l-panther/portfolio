@@ -654,6 +654,33 @@ a {
   color: #fff;
 }
 
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  padding: 30px 24px;
+
+  border-top: 1px solid var(--border);
+
+  text-align: left;
+}
+
+footer p {
+  max-width: 1180px;
+  margin: 0 auto;
+
+  color: var(--muted);
+
+  font-size: 12.5px;
+}
+
+footer span {
+  color: var(--blue);
+}
+
 /* =========================================================
    11. REVEAL FALLBACK
 ========================================================= */
