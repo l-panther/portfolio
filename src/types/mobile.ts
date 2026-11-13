@@ -1,4 +1,3 @@
-
 export interface MobileFeature {
   title: string;
   description: string;
