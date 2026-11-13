@@ -2,32 +2,9 @@
 ---
 import websites from '../../data/websites.json';
 import mobile from '../../data/mobile.json';
-import software from '../../data/software.json';
 
 const base = import.meta.env.BASE_URL;
-
-// Combine all project categories
-const allProjects = [
-  ...websites.map(item => ({
-    ...item,
-    category: 'websites'
-  })),
-  ...mobile.map(item => ({
-    ...item,
-    category: 'mobile'
-  })),
-  ...software.map(item => ({
-    ...item,
-    category: 'software'
-  }))
-];
-
-const filters = [
-  { label: 'All Projects', value: 'all' },
-  { label: 'Websites', value: 'websites' },
-  { label: 'Mobile Apps', value: 'mobile' },
-  { label: 'Software', value: 'software' }
-];
+const asset = (path: string) => `${base}${path.replace(/^\/+/, '')}`;
 ---
 
 <section class="projects" id="projects">
@@ -41,83 +18,106 @@ const filters = [
       </h2>
 
       <p class="reveal" style="--d:.06s">
-        Explore a collection of websites, mobile applications
-        and software projects, each showcasing a different
-        approach to design, functionality and creative
-        problem-solving.
+        Explore my collection of responsive websites and
+        interactive mobile applications, showcasing creative
+        design, functionality and practical development.
 
-        Completed projects include a
-        <strong>detailed case study</strong>,
-        offering insight into the development process,
-        challenges, solutions and final outcome.
+        Each completed project includes a
+        <strong>detailed case study</strong>
+        covering the development process and final outcome.
       </p>
     </div>
 
-    <!-- PROJECT FILTERS -->
-    <div class="project-filters" role="group" aria-label="Filter projects">
+    <div class="project-filters" role="group" aria-label="Project categories">
+      <button
+        type="button"
+        class="project-filter active"
+        data-filter="websites"
+        aria-pressed="true"
+      >
+        <i class="bi bi-window" aria-hidden="true"></i>
+        Websites
+      </button>
 
-      {filters.map((filter, index) => (
-        <button
-          type="button"
-          class:list={[
-            'project-filter',
-            { active: index === 0 }
-          ]}
-          data-filter={filter.value}
-          aria-pressed={index === 0 ? 'true' : 'false'}
-        >
-          {filter.label}
-        </button>
-      ))}
-
+      <button
+        type="button"
+        class="project-filter"
+        data-filter="mobile"
+        aria-pressed="false"
+      >
+        <i class="bi bi-phone" aria-hidden="true"></i>
+        Mobile Apps
+      </button>
     </div>
 
-    <!-- PROJECT GRID -->
-    <div class="proj-grid" id="projectGrid">
+    <!-- WEBSITES -->
+    <div class="project-panel" data-panel="websites">
+      <div class="proj-grid">
+        {websites.map((item) => (
+          <div class="proj-card reveal" style={item.delay}>
+            <a
+              href={`${base}projects/${item.slug}`}
+              class="project-link"
+              data-direction="enter"
+            >
+              <div class="proj-thumb">
+                <img
+                  src={asset(`assets/images/projects/screenshots/${item.image}.webp`)}
+                  alt={item.title}
+                  loading="lazy"
+                />
+              </div>
 
-      {allProjects.map((item) => (
-        <div
-          class="proj-card reveal"
-          data-category={item.category}
-          style={item.delay}
-        >
-          <a
-            href={`${base}projects/${item.slug}`}
-            class="project-link"
-            data-direction="enter"
-          >
-            <div class="proj-thumb">
-              <img
-                src={`${base}assets/images/projects/screenshots/${item.image}.webp`}
-                alt={item.title}
-                loading="lazy"
-              />
-            </div>
-
-            <h4>{item.title}</h4>
-          </a>
-        </div>
-      ))}
-
-    </div>
-
-    <!-- EMPTY CATEGORY MESSAGE -->
-    <div
-      class="projects-empty"
-      id="projectsEmpty"
-      role="status"
-      hidden
-    >
-      <div class="empty-icon">
-        <i class="bi bi-code-slash" aria-hidden="true"></i>
+              <h4>{item.title}</h4>
+            </a>
+          </div>
+        ))}
       </div>
 
-      <h3>Coming Soon</h3>
+      {websites.length === 0 && (
+        <p class="center-align">Website projects coming soon.</p>
+      )}
+    </div>
 
-      <p>
-        New projects are currently in development.
-        Check back soon to explore what's next.
-      </p>
+    <!-- MOBILE APPS -->
+    <div class="project-panel" data-panel="mobile" hidden>
+      {mobile.length > 0 ? (
+        <div class="proj-grid mobile-grid">
+          {mobile.map((item) => (
+            <article class="proj-card mobile-card">
+              <a
+                href={`${base}apps/${item.slug}`}
+                class="project-link"
+                data-direction="enter"
+              >
+                <div class="proj-thumb mobile-thumb">
+                  <img
+                    src={asset(`assets/images/projects/mobile/${item.image}.webp`)}
+                    alt={`${item.title} application preview`}
+                    loading="lazy"
+                  />
+                </div>
+
+                <h4>{item.title}</h4>
+              </a>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="projects-empty">
+          <div class="empty-icon">
+            <i class="bi bi-phone" aria-hidden="true"></i>
+          </div>
+
+          <h3>Mobile Apps Coming Soon</h3>
+
+          <p>
+            I'm currently developing interactive learning
+            applications. New projects and detailed case
+            studies will be added here as they become available.
+          </p>
+        </div>
+      )}
     </div>
 
   </div>
@@ -424,47 +424,36 @@ const filters = [
 </style>
 
 <script>
-  const filters = document.querySelectorAll('.project-filter');
-  const cards = document.querySelectorAll('.proj-card');
-  const emptyMessage = document.getElementById('projectsEmpty');
+  function initProjectFilters() {
+    const section = document.querySelector('#projects');
+    if (!section) return;
 
-  function filterProjects(category: string) {
-    let visibleCount = 0;
+    const buttons = section.querySelectorAll<HTMLButtonElement>(
+      '.project-filter'
+    );
 
-    cards.forEach(card => {
-      const projectCategory = card.getAttribute('data-category');
+    const panels = section.querySelectorAll<HTMLElement>(
+      '.project-panel'
+    );
 
-      const visible =
-        category === 'all' ||
-        projectCategory === category;
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const selected = button.dataset.filter;
 
-      card.toggleAttribute('hidden', !visible);
+        buttons.forEach(btn => {
+          const active = btn === button;
+          btn.classList.toggle('active', active);
+          btn.setAttribute('aria-pressed', String(active));
+        });
 
-      if (visible) {
-        visibleCount++;
-      }
+        panels.forEach(panel => {
+          panel.hidden = panel.dataset.panel !== selected;
+        });
+      });
     });
-
-    if (emptyMessage) {
-      emptyMessage.hidden = visibleCount > 0;
-    }
   }
 
-  filters.forEach(button => {
-    button.addEventListener('click', () => {
-      const category = button.getAttribute('data-filter') || 'all';
+  initProjectFilters();
 
-      filters.forEach(filter => {
-        const active = filter === button;
-
-        filter.classList.toggle('active', active);
-        filter.setAttribute('aria-pressed', String(active));
-      });
-
-      filterProjects(category);
-    });
-  });
-
-  // Handle initial state, including an empty project list
-  filterProjects('all');
+  document.addEventListener('astro:page-load', initProjectFilters);
 </script>
