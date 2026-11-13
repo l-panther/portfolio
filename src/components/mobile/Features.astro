@@ -14,27 +14,20 @@ const { project } = Astro.props as {
       <h2>Design <span class="accent">Highlights</span></h2>
     </div>
 
-    <div class="mobile-features-grid">
-      {project.designPoints?.map((point, index) => (
-        <div class="mobile-feature-item reveal">
-          <span class="feature-number">
-            {String(index + 1).padStart(2, '0')}
-          </span>
+    <div class="mobile-design-layout">
 
-          <h3>{point.title}</h3>
-          <p>{point.description}</p>
-        </div>
-      ))}
-    </div>
+      <div class="mobile-design-points">
+        {project.designPoints?.map((point, index) => (
+          <div class="mobile-design-point reveal">
+            <span class="feature-number">
+              {String(index + 1).padStart(2, '0')}
+            </span>
 
-    <div class="mobile-design-approach">
-      <div class="mobile-design-content reveal">
-        <span class="eyebrow">Interface & User Experience</span>
-
-        <h2>Design <span class="accent">Approach</span></h2>
-
-        {project.design?.map((paragraph) => (
-          <p>{paragraph}</p>
+            <div>
+              <h3>{point.title}</h3>
+              <p>{point.description}</p>
+            </div>
+          </div>
         ))}
       </div>
 
@@ -44,6 +37,16 @@ const { project } = Astro.props as {
           <span>Mobile Interface Preview</span>
         </div>
       </div>
+
+    </div>
+
+    <div class="mobile-design-approach reveal">
+      <span class="eyebrow">Interface & User Experience</span>
+      <h2>Design <span class="accent">Approach</span></h2>
+
+      {project.design?.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
     </div>
 
   </div>
