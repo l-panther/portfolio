@@ -1,5 +1,12 @@
 ---
 import type { Mobile } from '../../types/mobile';
+import type { Mobile } from '../../types/mobile';
+
+interface Props {
+  project: Mobile;
+  previous?: Mobile | null;
+  next?: Mobile | null;
+}
 
 const { project } = Astro.props as { project: Mobile };
 
@@ -14,6 +21,12 @@ const hasGithub = Boolean(
   project.github &&
   project.github.trim() !== '#'
 );
+
+const {
+  project,
+  previous = null,
+  next = null
+} = Astro.props;
 ---
 
 <section class="mobile-outcome" id="outcome">
@@ -86,5 +99,42 @@ const hasGithub = Boolean(
       </div>
     </div>
 
+    <nav class="mobile-project-navigation wrap" aria-label="Project navigation">
+
+  <div class="mobile-project-navigation-links">
+
+    {previous ? (
+      <a
+        href={`${base}mobile/${previous.slug}/`}
+        class="mobile-project-nav-link previous"
+      >
+        <span>← Previous Project</span>
+        <strong>{previous.title}</strong>
+      </a>
+    ) : (
+      <span class="mobile-project-nav-empty"></span>
+    )}
+
+    {next ? (
+      <a
+        href={`${base}mobile/${next.slug}/`}
+        class="mobile-project-nav-link next"
+      >
+        <span>Next Project →</span>
+        <strong>{next.title}</strong>
+      </a>
+    ) : (
+      <span class="mobile-project-nav-empty"></span>
+    )}
+
+  </div>
+
+  <div class="mobile-footer-back">
+    <a href={`${base}#projects`} class="mobile-back-link">
+      ← Back to Projects
+    </a>
+  </div>
+
+</nav>
   </div>
 </section>
