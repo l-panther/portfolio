@@ -1,0 +1,144 @@
+
+---
+import mobile from '../../data/mobile.json';
+
+// Replace with your actual portfolio layout import.
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths() {
+  return mobile.map(app => ({
+    params: { slug: app.slug },
+    props: { app }
+  }));
+}
+
+const { app } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const asset = (path: string) =>
+  `${base}${path.replace(/^\/+/, '')}`;
+
+const features = app.features ?? [];
+const screens = app.screens ?? [];
+const technologies = app.technologies ?? [];
+---
+
+<Layout title={`${app.title} | Mobile App Case Study`}>
+
+  <main class="app-case-study">
+
+    <!-- HERO -->
+    <section class="app-hero">
+      <div class="wrap app-hero-grid">
+
+        <div class="app-hero-content">
+          <a href={`${base}#projects`} class="app-back">
+            <span aria-hidden="true">←</span>
+            Back to Projects
+          </a>
+
+          <span class="eyebrow">Mobile App Case Study</span>
+
+          <h1>{app.title}</h1>
+
+          <p class="app-lead">
+            {app.description}
+          </p>
+
+          {technologies.length > 0 && (
+            <div class="app-tech-tags">
+              {technologies.map(tech => (
+                <span>{tech}</span>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div class="app-hero-image">
+          <img
+            src={asset(`assets/images/projects/mobile/${app.image}.webp`)}
+            alt={`${app.title} mobile application`}
+          />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="app-section">
+      <div class="wrap app-content-narrow">
+        <span class="eyebrow">The Application</span>
+        <h2>Project <span class="glow-blue">Overview</span></h2>
+        <p>{app.overview ?? app.description}</p>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    {features.length > 0 && (
+      <section class="app-section app-section-alt">
+        <div class="wrap">
+
+          <div class="app-section-heading">
+            <span class="eyebrow">Functionality</span>
+            <h2>Key <span class="glow-blue">Features</span></h2>
+          </div>
+
+          <div class="app-features">
+            {features.map((feature, index) => (
+              <article class="app-feature">
+                <span class="feature-number">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+              </article>
+            ))}
+          </div>
+
+        </div>
+      </section>
+    )}
+
+    <!-- APP SCREENS -->
+    {screens.length > 0 && (
+      <section class="app-section">
+        <div class="wrap">
+
+          <div class="app-section-heading">
+            <span class="eyebrow">Application Interface</span>
+            <h2>Inside the <span class="glow-blue">App</span></h2>
+          </div>
+
+          <div class="app-screens">
+            {screens.map(screen => (
+              <figure class="app-screen">
+                <div class="app-screen-image">
+                  <img
+                    src={asset(`assets/images/projects/mobile/${screen.image}.webp`)}
+                    alt={screen.title}
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>{screen.title}</figcaption>
+              </figure>
+            ))}
+          </div>
+
+        </div>
+      </section>
+    )}
+
+    <!-- FOOTER NAVIGATION -->
+    <section class="app-case-footer">
+      <div class="wrap">
+        <a href={`${base}#projects`} class="app-back">
+          <span aria-hidden="true">←</span>
+          Back to Projects
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+</Layout>
