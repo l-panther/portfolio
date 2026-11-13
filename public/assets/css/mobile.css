@@ -1,4 +1,14 @@
- :root {
+
+/* =========================================================
+   MOBILE CASE STUDY
+   public/assets/css/mobile.css
+========================================================= */
+
+/* =========================================================
+   1. VARIABLES
+========================================================= */
+
+:root {
   --bg: #eef1f6;
   --panel: #ffffff;
   --ink: #12182b;
@@ -14,11 +24,14 @@
 
   --border: #dde1ea;
 
-  --radius: 16px;
+  --radius: 5px;
 
-  --shadow:
-    0 24px 50px -24px rgba(19, 41, 75, 0.25);
+  --shadow: 0 24px 50px -24px rgba(19, 41, 75, 0.25);
 }
+
+/* =========================================================
+   2. RESET & GLOBAL
+========================================================= */
 
 *,
 *::before,
@@ -26,16 +39,33 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
   line-height: 1.7;
 }
 
-h1, h2, h3 {
-  font-family: 'Poppins', sans-serif;
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Poppins', system-ui, sans-serif;
+  line-height: 1.2;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--blue-fill-light);
 }
 
 .wrap {
@@ -47,47 +77,65 @@ h1, h2, h3 {
   color: var(--blue-fill-light);
 }
 
-/* =========================================================
-MOBILE CASE STUDY — COMPONENT STYLING
-========================================================= */
-
 .mobile-case-study {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
   background: var(--bg);
   color: var(--ink);
 }
 
-/* HERO */
+/* Section labels */
+
+.mobile-case-study .eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--blue-fill-light);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   3. HERO
+========================================================= */
 
 .mobile-hero {
-  padding: 35px 24px 80px;
+  padding: 75px 24px 90px;
+  background: var(--bg);
 }
 
 .mobile-hero-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   align-items: center;
-  gap: 60px;
+  gap: 65px;
 
+  width: 100%;
   max-width: 1180px;
-  margin: 0 auto;
+  margin-inline: auto;
+}
+
+.mobile-hero-content {
+  min-width: 0;
 }
 
 .mobile-hero h1 {
-  margin-bottom: 22px;
-
+  margin: 0 0 24px;
   color: var(--ink);
-  font-size: clamp(30px, 4vw, 44px);
+  font-size: clamp(34px, 4.5vw, 52px);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.18;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
 .mobile-hero-content > p {
-  max-width: 460px;
-  margin-bottom: 24px;
-
+  max-width: 500px;
+  margin: 0 0 26px;
   color: var(--muted);
   font-size: 16px;
+  line-height: 1.85;
 }
 
 .mobile-hero-image {
@@ -100,10 +148,12 @@ MOBILE CASE STUDY — COMPONENT STYLING
 .mobile-hero-image img {
   display: block;
   width: 100%;
-  max-width: 540px;
+  max-width: 530px;
   height: auto;
   object-fit: contain;
 }
+
+/* Development status */
 
 .mobile-status {
   display: inline-flex;
@@ -111,12 +161,12 @@ MOBILE CASE STUDY — COMPONENT STYLING
   gap: 9px;
 
   padding: 9px 15px;
-
-  background: rgba(47, 103, 152, 0.07);
-  border: 1px solid rgba(47, 103, 152, 0.2);
+  border: 1px solid rgba(47, 103, 152, 0.22);
   border-radius: 999px;
 
+  background: rgba(47, 103, 152, 0.07);
   color: var(--blue-fill-light);
+
   font-size: 12px;
   font-weight: 600;
 }
@@ -125,51 +175,59 @@ MOBILE CASE STUDY — COMPONENT STYLING
   content: "";
   width: 7px;
   height: 7px;
-  background: var(--blue-bright);
+  flex-shrink: 0;
   border-radius: 50%;
+  background: var(--blue-bright);
 }
 
-/* OVERVIEW */
+/* =========================================================
+   4. OVERVIEW — CHALLENGE & SOLUTION
+========================================================= */
 
 .mobile-overview {
-  padding: 80px 24px;
+  padding: 90px 24px;
   background: var(--panel);
 }
 
 .mobile-overview .wrap {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 70px;
+  gap: 75px;
+}
+
+.mobile-overview .wrap > div {
+  min-width: 0;
 }
 
 .mobile-overview h2 {
-  margin-bottom: 25px;
+  margin: 0 0 26px;
   color: var(--ink);
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: clamp(25px, 3vw, 34px);
   font-weight: 800;
   text-transform: uppercase;
 }
 
-.mobile-overview .accent {
-  color: var(--blue-fill-light);
-}
-
 .mobile-overview p {
-  margin-bottom: 15px;
+  margin: 0 0 17px;
   color: var(--muted);
   font-size: 15px;
+  line-height: 1.9;
 }
 
 .mobile-overview .project-statement {
+  margin-bottom: 25px;
   color: var(--ink);
   font-size: 17px;
   font-weight: 500;
+  line-height: 1.8;
 }
 
-/* DESIGN HIGHLIGHTS */
+/* =========================================================
+   5. DESIGN HIGHLIGHTS
+========================================================= */
 
 .mobile-features {
-  padding: 90px 24px;
+  padding: 95px 24px;
   background: linear-gradient(
     160deg,
     var(--navy),
@@ -180,12 +238,18 @@ MOBILE CASE STUDY — COMPONENT STYLING
 
 .mobile-features .sec-head {
   max-width: 760px;
-  margin: 0 auto 45px;
+  margin: 0 auto 50px;
   text-align: center;
 }
 
+.mobile-features .eyebrow {
+  color: #a9c6e4;
+}
+
 .mobile-features h2 {
-  font-size: clamp(26px, 3.4vw, 36px);
+  margin: 0;
+  color: #fff;
+  font-size: clamp(27px, 3.5vw, 38px);
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -202,93 +266,99 @@ MOBILE CASE STUDY — COMPONENT STYLING
 
 .mobile-feature-card {
   min-width: 0;
-  padding: 30px;
+  padding: 32px 28px;
 
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 5px;
+  border-radius: var(--radius);
 
   transition:
     transform 0.3s ease,
-    background 0.3s ease;
+    background 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .mobile-feature-card:hover {
   transform: translateY(-5px);
   background: rgba(255, 255, 255, 0.075);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .mobile-feature-card .feature-number {
   display: block;
   margin-bottom: 25px;
-
   color: var(--blue-bright2);
   font-family: 'Poppins', sans-serif;
   font-size: 30px;
   font-weight: 800;
+  line-height: 1;
 }
 
 .mobile-feature-card h3 {
-  margin-bottom: 12px;
+  margin: 0 0 14px;
   color: #fff;
   font-size: 16px;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 .mobile-feature-card p {
-  color: #b9c5d9;
+  margin: 0;
+  color: #c3cddd;
   font-size: 14px;
+  line-height: 1.85;
 }
 
-/* DESIGN APPROACH */
+/* =========================================================
+   6. DESIGN APPROACH
+========================================================= */
 
 .mobile-design {
-  padding: 90px 24px;
+  padding: 95px 24px;
   background: var(--bg);
 }
 
 .mobile-design .wrap > .reveal {
   max-width: 850px;
-  margin: 0 auto;
+  margin-inline: auto;
 }
 
 .mobile-design h2 {
-  margin-bottom: 25px;
-  font-size: clamp(26px, 3.4vw, 36px);
+  margin: 0 0 28px;
+  color: var(--ink);
+  font-size: clamp(27px, 3.5vw, 38px);
   font-weight: 800;
   text-transform: uppercase;
 }
 
-.mobile-design .accent {
-  color: var(--blue-fill-light);
-}
-
 .mobile-design p {
-  margin-bottom: 16px;
+  margin: 0 0 18px;
   color: var(--muted);
   font-size: 15px;
+  line-height: 1.9;
 }
 
-/* MOBILE SCREENSHOTS */
+/* =========================================================
+   7. MOBILE SCREENSHOTS
+========================================================= */
 
 .mobile-screens {
-  padding: 90px 24px;
+  padding: 95px 24px;
   background: var(--panel);
 }
 
 .mobile-screens .sec-head {
-  margin-bottom: 45px;
+  max-width: 760px;
+  margin: 0 auto 50px;
   text-align: center;
 }
 
 .mobile-screens h2 {
-  font-size: clamp(26px, 3.4vw, 36px);
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(27px, 3.5vw, 38px);
   font-weight: 800;
   text-transform: uppercase;
-}
-
-.mobile-screens .accent {
-  color: var(--blue-fill-light);
 }
 
 .mobile-screens-grid {
@@ -304,22 +374,22 @@ MOBILE CASE STUDY — COMPONENT STYLING
 
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 5px;
-
+  border-radius: var(--radius);
   text-align: center;
 }
 
 .mobile-screen-image {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   min-height: 350px;
 }
 
 .mobile-screen-image img {
+  display: block;
+  width: auto;
   max-width: 100%;
   max-height: 450px;
-  width: auto;
   height: auto;
   object-fit: contain;
 }
@@ -329,28 +399,190 @@ MOBILE CASE STUDY — COMPONENT STYLING
 }
 
 .mobile-screen-card h3 {
-  margin-bottom: 10px;
+  margin: 0 0 12px;
+  color: var(--ink);
   font-size: 16px;
 }
 
 .mobile-screen-card p {
+  margin: 0;
   color: var(--muted);
   font-size: 14px;
+  line-height: 1.8;
 }
 
-/* TECHNOLOGY & OUTCOME */
+/* =========================================================
+   8. TECHNOLOGY & OUTCOME
+========================================================= */
 
 .mobile-outcome {
+  padding: 95px 24px;
   background: var(--bg);
 }
 
-/* RESPONSIVE */
+.mobile-outcome .split-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 55px;
+
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.mobile-outcome .split-grid > div {
+  min-width: 0;
+}
+
+.mobile-outcome .outcome-col {
+  padding-left: 35px;
+  border-left: 1px solid var(--blue-fill-light);
+}
+
+.mobile-outcome h2 {
+  margin: 0 0 25px;
+  color: var(--ink);
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.mobile-outcome p {
+  margin: 0 0 17px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.mobile-outcome .stack-intro {
+  margin: 25px 0 15px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   9. TECHNOLOGY ICONS
+========================================================= */
+
+.mobile-outcome .stack-icons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.mobile-outcome .chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+}
+
+.mobile-outcome .chip img {
+  display: block;
+  width: 34px;
+  height: 34px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* =========================================================
+   10. BUTTONS & ACTIONS
+========================================================= */
+
+.mobile-outcome .outcome-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.mobile-outcome .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 22px;
+
+  border: 1px solid var(--blue-fill-light);
+  border-radius: 999px;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.mobile-outcome .btn-fill {
+  background: var(--blue-fill-light);
+  color: #fff;
+}
+
+.mobile-outcome .btn-outline {
+  background: transparent;
+  color: var(--blue-fill-light);
+}
+
+.mobile-outcome .btn:hover {
+  transform: translateY(-2px);
+}
+
+.mobile-outcome .btn-fill:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+.mobile-outcome .btn-outline:hover {
+  background: var(--blue-fill-light);
+  color: #fff;
+}
+
+/* =========================================================
+   11. REVEAL FALLBACK
+========================================================= */
+
+/*
+   Keep content visible until the reveal animation
+   script is connected to the mobile case study.
+*/
+
+.mobile-case-study .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* =========================================================
+   12. TABLET
+========================================================= */
 
 @media (max-width: 900px) {
+
   .mobile-hero-grid,
-  .mobile-overview .wrap {
+  .mobile-overview .wrap,
+  .mobile-outcome .split-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 45px;
+  }
+
+  .mobile-hero {
+    padding: 75px 24px;
   }
 
   .mobile-hero-content {
@@ -369,30 +601,58 @@ MOBILE CASE STUDY — COMPONENT STYLING
   .mobile-screens-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .mobile-outcome .outcome-col {
+    padding-left: 0;
+    padding-top: 35px;
+    border-left: 0;
+    border-top: 1px solid var(--blue-fill-light);
+  }
 }
 
+/* =========================================================
+   13. MOBILE
+========================================================= */
+
 @media (max-width: 600px) {
+
+  .wrap {
+    width: calc(100% - 32px);
+  }
+
   .mobile-hero,
   .mobile-overview,
   .mobile-features,
   .mobile-design,
-  .mobile-screens {
-    padding: 58px 18px;
+  .mobile-screens,
+  .mobile-outcome {
+    padding: 65px 18px;
+  }
+
+  .mobile-hero-grid {
+    gap: 35px;
   }
 
   .mobile-hero h1 {
-    font-size: 30px;
+    font-size: 34px;
   }
 
   .mobile-hero-content > p {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .mobile-overview h2,
   .mobile-features h2,
   .mobile-design h2,
-  .mobile-screens h2 {
-    font-size: 22px;
+  .mobile-screens h2,
+  .mobile-outcome h2 {
+    font-size: 24px;
+  }
+
+  .mobile-overview p,
+  .mobile-design p,
+  .mobile-outcome p {
+    font-size: 14px;
   }
 
   .mobile-features-grid,
@@ -401,6 +661,40 @@ MOBILE CASE STUDY — COMPONENT STYLING
   }
 
   .mobile-feature-card {
-    padding: 25px;
+    padding: 26px 24px;
+  }
+
+  .mobile-screen-image {
+    min-height: 280px;
+  }
+
+  .mobile-outcome .chip {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+
+  .mobile-outcome .chip img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .mobile-outcome .outcome-actions {
+    gap: 10px;
+  }
+}
+
+/* =========================================================
+   14. ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .mobile-feature-card,
+  .mobile-outcome .btn {
+    transition: none;
   }
 }
