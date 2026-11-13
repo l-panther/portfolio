@@ -1,3 +1,4 @@
+
 ---
 import type { MobileProject } from '../../types/mobile';
 
@@ -10,13 +11,25 @@ const { project } = Astro.props as {
   <div class="wrap">
 
     <div class="reveal">
-      <span class="eyebrow">About the Application</span>
+      <span class="eyebrow">Project Overview</span>
 
       <h2>
-        Project <span class="accent">Overview</span>
+        The <span class="accent">Challenge</span>
       </h2>
 
-      {project.overview.map((paragraph) => (
+      <p class="project-statement">{project.statement}</p>
+
+      {(project.problem ?? []).map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
+
+    <div class="reveal">
+      <h2>
+        The <span class="accent">Solution</span>
+      </h2>
+
+      {(project.solution ?? []).map((paragraph) => (
         <p>{paragraph}</p>
       ))}
     </div>
