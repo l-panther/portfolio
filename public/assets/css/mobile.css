@@ -1,5 +1,54 @@
+ :root {
+  --bg: #eef1f6;
+  --panel: #ffffff;
+  --ink: #12182b;
+  --muted: #5c6478;
+
+  --navy: #2c5478;
+  --navy-deep: #0c1c35;
+
+  --blue: #2f5fb0;
+  --blue-fill-light: #2f6798;
+  --blue-bright: #076db9;
+  --blue-bright2: #6ba3d6;
+
+  --border: #dde1ea;
+
+  --radius: 16px;
+
+  --shadow:
+    0 24px 50px -24px rgba(19, 41, 75, 0.25);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.wrap {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.accent {
+  color: var(--blue-fill-light);
+}
+
 /* =========================================================
-   MOBILE CASE STUDY — COMPONENT STYLING
+MOBILE CASE STUDY — COMPONENT STYLING
 ========================================================= */
 
 .mobile-case-study {
