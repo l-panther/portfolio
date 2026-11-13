@@ -1,0 +1,25 @@
+---
+import type { MobileProject } from '../../types/mobile';
+
+const { project } = Astro.props as {
+  project: MobileProject;
+};
+---
+
+<section class="mobile-overview" id="overview">
+  <div class="wrap">
+
+    <div class="reveal">
+      <span class="eyebrow">About the Application</span>
+
+      <h2>
+        Project <span class="accent">Overview</span>
+      </h2>
+
+      {project.overview.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
+
+  </div>
+</section>
