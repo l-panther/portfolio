@@ -27,12 +27,17 @@ const { project } = Astro.props as {
 
 <Layout title={`${project.title} | Mobile App Case Study`}>
   <main class="mobile-case-study">
-    <Header project={project} />
+    <Header />
     <Hero project={project} />
     <Overview project={project} />
     <Features project={project} />
     <Design project={project} />
     <Screens project={project} />
-    <Outcome project={project} />
+    
+    <Outcome
+      project={project}
+      previous={previous}
+      next={next}
+    />
   </main>
 </Layout>
