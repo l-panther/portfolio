@@ -1,65 +1,60 @@
 ---
-import type { MobileProject } from '../../types/mobile';
+import type { Mobile } from '../../types/mobile';
 
-const { project } = Astro.props as {
-  project: MobileProject;
-};
+const { project } = Astro.props as { project: Mobile };
 
 const base = import.meta.env.BASE_URL;
+
+const hasApp = Boolean(
+  project.link &&
+  project.link.trim() !== '#'
+);
+
+const hasGithub = Boolean(
+  project.github &&
+  project.github.trim() !== '#'
+);
 ---
 
-<section class="split-sec mobile-outcome" id="outcome">
+<section class="mobile-outcome" id="outcome">
   <div class="split-grid">
 
-    <!-- DEVELOPMENT -->
     <div class="reveal">
-      <h2>
-        Technology <span class="accent">Used</span>
-      </h2>
+      <h2>Technology <span class="accent">Used</span></h2>
 
-      {project.development.map((develop) => (
-        <p>{develop}</p>
+      {project.development?.map((paragraph) => (
+        <p>{paragraph}</p>
       ))}
 
-      <p class="stack-intro">
-        The core stack includes:
-      </p>
+      {project.technologies?.length > 0 && (
+        <>
+          <p class="stack-intro">The core stack includes:</p>
 
-      <div class="stack-icons">
-        {project.technologies.map((technology) => (
-          <div class="chip">
-            <img
-              src={`${base}assets/images/technologies/${technology}.png`}
-              alt={`${technology} logo`}
-              title={`${technology} logo`}
-              loading="lazy"
-            />
+          <div class="stack-icons">
+            {project.technologies.map((technology) => (
+              <div class="chip">
+                <img
+                  src={`${base}assets/images/technologies/${technology}.png`}
+                  alt={`${technology} logo`}
+                  title={technology}
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </>
+      )}
     </div>
 
-    <!-- OUTCOME -->
-    <div class="outcome-col reveal" style="--d:.1s">
+    <div class="outcome-col reveal">
+      <h2>The <span class="accent">Outcome</span></h2>
 
-      <h2>
-        The <span class="accent">Outcome</span>
-      </h2>
-
-      {project.outcome.map((output) => (
-        <p>{output}</p>
+      {project.outcome?.map((paragraph) => (
+        <p>{paragraph}</p>
       ))}
 
-      {project.status === 'development' && (
-        <span class="app-status">
-          <span class="status-dot"></span>
-          In Development
-        </span>
-      )}
-
       <div class="outcome-actions">
-
-        {project.link && (
+        {hasApp ? (
           <a
             href={project.link}
             target="_blank"
@@ -68,9 +63,13 @@ const base = import.meta.env.BASE_URL;
           >
             View App
           </a>
+        ) : (
+          <span class="btn btn-disabled" aria-disabled="true">
+            View App
+          </span>
         )}
 
-        {project.github && (
+        {hasGithub ? (
           <a
             href={project.github}
             target="_blank"
@@ -79,44 +78,13 @@ const base = import.meta.env.BASE_URL;
           >
             GitHub
           </a>
+        ) : (
+          <span class="btn btn-disabled" aria-disabled="true">
+            GitHub
+          </span>
         )}
-
       </div>
-
     </div>
 
   </div>
 </section>
-
-<style>
-  .stack-intro {
-    margin-top: 20px;
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  .app-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-
-    margin-top: 20px;
-    padding: 9px 14px;
-
-    border: 1px solid rgba(107, 163, 214, 0.3);
-    border-radius: 5px;
-
-    background: rgba(107, 163, 214, 0.08);
-    color: #6ba3d6;
-
-    font-size: 13px;
-    font-weight: 600;
-  }
-
-  .status-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: currentColor;
-  }
-</style>
