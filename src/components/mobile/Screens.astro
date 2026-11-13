@@ -1,3 +1,4 @@
+
 ---
 import type { MobileProject } from '../../types/mobile';
 
@@ -6,44 +7,45 @@ const { project } = Astro.props as {
 };
 
 const base = import.meta.env.BASE_URL;
+const screens = project.screens ?? [];
 ---
 
-<section class="mobile-screens" id="screens">
-  <div class="wrap">
+{screens.length > 0 && (
+  <section class="mobile-screens" id="screens">
+    <div class="wrap">
 
-    <div class="sec-head reveal">
-      <span class="eyebrow">Application Screens</span>
+      <div class="sec-head reveal">
+        <span class="eyebrow">Application Screens</span>
 
-      <h2>
-        Inside the <span class="accent">App</span>
-      </h2>
+        <h2>
+          Inside the <span class="accent">App</span>
+        </h2>
+      </div>
+
+      <div class="mobile-screens-grid">
+        {screens.map((screen) => (
+          <figure class="mobile-screen-card reveal">
+
+            <div class="mobile-screen-image">
+              <img
+                src={`${base}assets/images/projects/mobile/${screen.image}.webp`}
+                alt={screen.title}
+                loading="lazy"
+              />
+            </div>
+
+            <figcaption>
+              <h3>{screen.title}</h3>
+
+              {screen.description && (
+                <p>{screen.description}</p>
+              )}
+            </figcaption>
+
+          </figure>
+        ))}
+      </div>
+
     </div>
-
-    <div class="mobile-screens-grid">
-
-      {project.screens.map((screen) => (
-        <figure class="mobile-screen-card reveal">
-
-          <div class="mobile-screen-image">
-            <img
-              src={`${base}assets/images/projects/mobile/${screen.image}.webp`}
-              alt={screen.title}
-              loading="lazy"
-            />
-          </div>
-
-          <figcaption>
-            <h3>{screen.title}</h3>
-
-            {screen.description && (
-              <p>{screen.description}</p>
-            )}
-          </figcaption>
-
-        </figure>
-      ))}
-
-    </div>
-
-  </div>
-</section>
+  </section>
+)}
