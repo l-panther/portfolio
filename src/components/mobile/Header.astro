@@ -1,12 +1,16 @@
-<header>
-  <div class="head-row">
-    <div class="logo">LR</div>
+---
+const base = import.meta.env.BASE_URL;
+---
 
-    <a
-      href={`${import.meta.env.BASE_URL}#projects`}
-      class="pill"
-    >
-      &larr; Back to Projects
+<header class="mobile-header">
+  <div class="wrap mobile-header-inner">
+    <a href={base} class="mobile-logo" aria-label="Portfolio home">
+      LR
+    </a>
+
+    <a href={`${base}#projects`} class="mobile-back-link">
+      <span aria-hidden="true">←</span>
+      Back to Projects
     </a>
   </div>
 </header>
