@@ -1,28 +1,37 @@
+
 export interface MobileProject {
-  slug: string;
+  id: number;
   title: string;
+  subtitle: string;
   image: string;
+  slug: string;
+
   description: string;
+  statement: string;
 
-  overview: string[];
+  problem: string[];
+  solution: string[];
+
   design: string[];
-  development: string[];
-  outcome: string[];
 
-  technologies: string[];
-
-  features: {
+  designPoints: {
     title: string;
-    description: string;
+    text: string;
   }[];
 
-  screens: {
+  development: string[];
+  technologies: string[];
+  outcome: string[];
+
+  screens?: {
     title: string;
     image: string;
     description?: string;
   }[];
 
   status?: 'development' | 'completed';
-  link?: string;
-  github?: string;
+
+  link?: string | null;
+  github?: string | null;
+  delay?: string;
 }
