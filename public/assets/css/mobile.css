@@ -180,6 +180,70 @@ a {
   background: var(--blue-bright);
 }
 
+/* =========================================================
+   OVERVIEW — CHALLENGE & SOLUTION
+========================================================= */
+
+.mobile-overview {
+  padding: 100px 24px;
+  background: var(--bg);
+}
+
+.mobile-overview .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 85px;
+}
+
+.mobile-overview-block {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.mobile-overview-block h2 {
+  margin: 0 0 25px;
+  color: var(--ink);
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.mobile-overview-block p {
+  margin: 0 auto 18px;
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.mobile-overview-block .project-statement {
+  margin-bottom: 24px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .mobile-overview {
+    padding: 70px 18px;
+  }
+
+  .mobile-overview .wrap {
+    gap: 65px;
+  }
+
+  .mobile-overview-block h2 {
+    font-size: 25px;
+  }
+
+  .mobile-overview-block p {
+    font-size: 14px;
+  }
+}
+
 =======================================================
    5. DESIGN HIGHLIGHTS
 ========================================================= */
