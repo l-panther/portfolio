@@ -1,0 +1,37 @@
+---
+import type { MobileProject } from '../../types/mobile';
+
+const { project } = Astro.props as {
+  project: MobileProject;
+};
+---
+
+<section class="mobile-features" id="features">
+  <div class="wrap">
+
+    <div class="sec-head reveal">
+      <span class="eyebrow">Application Functionality</span>
+
+      <h2>
+        Key <span class="accent">Features</span>
+      </h2>
+    </div>
+
+    <div class="mobile-features-grid">
+      {project.features.map((feature, index) => (
+        <article class="mobile-feature-card reveal">
+
+          <span class="feature-number">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+
+          <h3>{feature.title}</h3>
+
+          <p>{feature.description}</p>
+
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
