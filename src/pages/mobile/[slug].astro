@@ -1,3 +1,4 @@
+
 ---
 import mobile from '../../data/mobile.json';
 import type { MobileProject } from '../../types/mobile';
@@ -6,43 +7,38 @@ import Header from '../../components/mobile/Header.astro';
 import Hero from '../../components/mobile/Hero.astro';
 import Overview from '../../components/mobile/Overview.astro';
 import Features from '../../components/mobile/Features.astro';
-import Design from '../../components/mobile/Design.astro';
 import Screens from '../../components/mobile/Screens.astro';
 import Outcome from '../../components/mobile/Outcome.astro';
-import Footer from '../../components/mobile/Footer.astro';
 
-// Change to your existing case study layout
 import Layout from '../../layouts/Layout.astro';
 
 export function getStaticPaths() {
-  return (mobile as MobileProject[]).map(project => ({
+  return (mobile as MobileProject[]).map((project) => ({
     params: { slug: project.slug },
     props: { project }
   }));
 }
 
-const { project, previous, next } = Astro.props as {
+const { project } = Astro.props as {
   project: MobileProject;
-  previous: MobileProject | null;
-  next: MobileProject | null;
 };
 ---
 
 <Layout title={`${project.title} | Mobile App Case Study`}>
   <main class="mobile-case-study">
+
     <Header />
-   <Hero project={project} />
+
+    <Hero project={project} />
+
     <Overview project={project} />
-    
+
     <Features project={project} />
-    
+
     <Screens project={project} />
-    
-    <Outcome
-      project={project}
-      previous={previous}
-      next={next}
-    />
-    <Footer project={project} />
+
+    <Outcome project={project} />
+
   </main>
 </Layout>
+
