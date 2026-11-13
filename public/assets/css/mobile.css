@@ -180,49 +180,7 @@ a {
   background: var(--blue-bright);
 }
 
-/* =========================================================
-   4. OVERVIEW — CHALLENGE & SOLUTION
-========================================================= */
-
-.mobile-overview {
-  padding: 90px 24px;
-  background: var(--panel);
-}
-
-.mobile-overview .wrap {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 75px;
-}
-
-.mobile-overview .wrap > div {
-  min-width: 0;
-}
-
-.mobile-overview h2 {
-  margin: 0 0 26px;
-  color: var(--ink);
-  font-size: clamp(25px, 3vw, 34px);
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.mobile-overview p {
-  margin: 0 0 17px;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.9;
-}
-
-.mobile-overview .project-statement {
-  margin-bottom: 25px;
-  color: var(--ink);
-  font-size: 17px;
-  font-weight: 500;
-  line-height: 1.8;
-}
-
-/* =========================================================
+=======================================================
    5. DESIGN HIGHLIGHTS
 ========================================================= */
 
