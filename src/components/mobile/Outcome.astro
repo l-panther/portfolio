@@ -1,3 +1,4 @@
+
 ---
 import type { MobileProject } from '../../types/mobile';
 import ProjectNavigation from './ProjectNavigation.astro';
@@ -98,49 +99,7 @@ const hasGithub = Boolean(
 
   </div>
 
-  <!-- PREVIOUS / NEXT NAVIGATION -->
-  <nav
-    class="mobile-project-navigation wrap"
-    aria-label="Mobile project navigation"
-  >
-
-    <div class="mobile-project-navigation-links">
-
-      {previous ? (
-        <a
-          href={`${base}mobile/${previous.slug}/`}
-          class="mobile-project-nav-link previous"
-        >
-          <span>← Previous Project</span>
-          <strong>{previous.title}</strong>
-        </a>
-      ) : (
-        <span class="mobile-project-nav-empty"></span>
-      )}
-
-      {next ? (
-        <a
-          href={`${base}mobile/${next.slug}/`}
-          class="mobile-project-nav-link next"
-        >
-          <span>Next Project →</span>
-          <strong>{next.title}</strong>
-        </a>
-      ) : (
-        <span class="mobile-project-nav-empty"></span>
-      )}
-
-    </div>
-
-    <ProjectNavigation currentSlug={project.slug} />
-
-    <!-- BACK TO PORTFOLIO -->
-    <div class="mobile-footer-back">
-      <a href={`${base}#projects`} class="mobile-back-link">
-        ← Back to Projects
-      </a>
-    </div>
-
-  </nav>
+  <!-- PROJECT NAVIGATION -->
+  <ProjectNavigation currentSlug={project.slug} />
 
 </section>
