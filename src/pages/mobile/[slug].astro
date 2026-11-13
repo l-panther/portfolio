@@ -20,8 +20,10 @@ export function getStaticPaths() {
   }));
 }
 
-const { project } = Astro.props as {
+const { project, previous, next } = Astro.props as {
   project: MobileProject;
+  previous: MobileProject | null;
+  next: MobileProject | null;
 };
 ---
 
