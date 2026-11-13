@@ -2,6 +2,7 @@
 import mobile from '../../data/mobile.json';
 import type { MobileProject } from '../../types/mobile';
 
+import Header from '../../components/mobile/Header.astro';
 import Hero from '../../components/mobile/Hero.astro';
 import Overview from '../../components/mobile/Overview.astro';
 import Features from '../../components/mobile/Features.astro';
@@ -26,6 +27,7 @@ const { project } = Astro.props as {
 
 <Layout title={`${project.title} | Mobile App Case Study`}>
   <main class="mobile-case-study">
+    <Header project={project} />
     <Hero project={project} />
     <Overview project={project} />
     <Features project={project} />
