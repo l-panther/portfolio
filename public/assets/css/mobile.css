@@ -590,6 +590,38 @@ a {
   transform: none;
 }
 
+/* Navigation integrated into Outcome */
+
+.mobile-outcome .mobile-project-navigation {
+  margin: 75px auto 0;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.mobile-project-navigation-links {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.mobile-footer-back {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+@media (max-width: 600px) {
+  .mobile-outcome .mobile-project-navigation {
+    margin-top: 50px;
+    padding-top: 30px;
+  }
+
+  .mobile-project-navigation-links {
+    gap: 12px;
+  }
+}
+
 /* =========================================================
    12. TABLET
 ========================================================= */
