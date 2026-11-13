@@ -123,6 +123,157 @@ const filters = [
   </div>
 </section>
 
+<style>
+
+/* ==========================================
+   PROJECT FILTERS
+========================================== */
+
+.project-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin: 0 auto 40px;
+}
+
+.project-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 22px;
+
+  background: rgba(107, 163, 214, 0.05);
+  border: 1px solid var(--border-soft);
+  border-radius: 5px;
+
+  color: var(--text-muted, #a5afc0);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.project-filter:hover {
+  background: rgba(107, 163, 214, 0.12);
+  border-color: #6ba3d6;
+  color: var(--text-bright);
+}
+
+.project-filter.active {
+  background: #6ba3d6;
+  border-color: #6ba3d6;
+  color: #08111f;
+}
+
+.project-filter:focus-visible {
+  outline: 2px solid #6ba3d6;
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   HIDDEN PROJECT CARDS
+========================================== */
+
+.proj-card[hidden] {
+  display: none !important;
+}
+
+/* ==========================================
+   EMPTY CATEGORY / COMING SOON
+========================================== */
+
+.projects-empty {
+  max-width: 520px;
+  margin: 20px auto 0;
+  padding: 55px 30px;
+
+  background: rgba(107, 163, 214, 0.04);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+.projects-empty[hidden] {
+  display: none !important;
+}
+
+.empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 22px;
+
+  background: rgba(107, 163, 214, 0.09);
+  border: 1px solid rgba(107, 163, 214, 0.25);
+  border-radius: 50%;
+
+  color: #6ba3d6;
+  font-size: 26px;
+}
+
+.projects-empty h3 {
+  margin: 0 0 12px;
+
+  color: var(--text-bright);
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.projects-empty p {
+  margin: 0;
+
+  color: var(--text-muted, #a5afc0);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 520px) {
+
+  .project-filters {
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+
+  .project-filter {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+
+  .projects-empty {
+    padding: 40px 22px;
+  }
+
+  .projects-empty h3 {
+    font-size: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-filter {
+    transition: none;
+  }
+}
+
+</style>
+
 <script>
   const filters = document.querySelectorAll('.project-filter');
   const cards = document.querySelectorAll('.proj-card');
