@@ -322,6 +322,118 @@ a {
   }
 }
 
+
+/* =========================================================
+   DESIGN SECTION — MAIN STYLING
+========================================================= */
+
+.mobile-features {
+  padding: 100px 24px;
+  background: linear-gradient(
+    155deg,
+    var(--navy),
+    var(--navy-deep)
+  );
+  color: #fff;
+}
+
+.mobile-features .sec-head {
+  max-width: 760px;
+  margin: 0 auto 65px;
+  text-align: center;
+}
+
+.mobile-features .eyebrow {
+  color: #a9c6e4;
+}
+
+.mobile-features h2 {
+  margin: 0 0 25px;
+  color: #fff;
+  font-size: clamp(27px, 3.5vw, 38px);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.mobile-features .accent {
+  color: var(--blue-bright2);
+}
+
+/* =========================================================
+   DESIGN VISUAL
+========================================================= */
+
+.mobile-design-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.mobile-device-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 100%;
+  min-height: 320px;
+  padding: 30px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+
+  color: #a9c6e4;
+  font-size: 12px;
+  text-align: center;
+}
+
+.device-icon {
+  color: var(--blue-bright2);
+  font-size: 65px;
+  line-height: 1;
+}
+
+/* =========================================================
+   DESIGN SECTION — RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .mobile-features {
+    padding: 80px 24px;
+  }
+
+  .mobile-device-placeholder {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mobile-features {
+    padding: 65px 18px;
+  }
+
+  .mobile-features .sec-head {
+    margin-bottom: 45px;
+  }
+
+  .mobile-features h2 {
+    font-size: 24px;
+  }
+
+  .mobile-device-placeholder {
+    min-height: 200px;
+  }
+
+  .mobile-design-point p,
+  .mobile-design-approach p {
+    font-size: 14px;
+  }
+}
+
+
 /* =========================================================
    7. MOBILE SCREENSHOTS
 ========================================================= */
@@ -393,6 +505,10 @@ a {
   color: var(--muted);
   font-size: 14px;
   line-height: 1.8;
+}
+
+.mobile-case-study .mobile-features .eyebrow {
+  color: #a9c6e4;
 }
 
 /* =========================================================
@@ -666,8 +782,7 @@ a {
   .mobile-outcome p {
     font-size: 14px;
   }
-
-  .mobile-features-grid,
+   
   .mobile-screens-grid {
     grid-template-columns: 1fr;
   }
