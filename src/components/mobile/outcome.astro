@@ -1,0 +1,123 @@
+
+---
+import type { MobileProject } from '../../types/mobile';
+
+const { project } = Astro.props as {
+  project: MobileProject;
+};
+
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="split-sec mobile-outcome" id="outcome">
+  <div class="split-grid">
+
+    <!-- DEVELOPMENT -->
+    <div class="reveal">
+      <h2>
+        Technology <span class="accent">Used</span>
+      </h2>
+
+      {project.development.map((develop) => (
+        <p>{develop}</p>
+      ))}
+
+      <p class="stack-intro">
+        The core stack includes:
+      </p>
+
+      <div class="stack-icons">
+        {project.technologies.map((technology) => (
+          <div class="chip">
+            <img
+              src={`${base}assets/images/technologies/${technology}.png`}
+              alt={`${technology} logo`}
+              title={`${technology} logo`}
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- OUTCOME -->
+    <div class="outcome-col reveal" style="--d:.1s">
+
+      <h2>
+        The <span class="accent">Outcome</span>
+      </h2>
+
+      {project.outcome.map((output) => (
+        <p>{output}</p>
+      ))}
+
+      {project.status === 'development' && (
+        <span class="app-status">
+          <span class="status-dot"></span>
+          In Development
+        </span>
+      )}
+
+      <div class="outcome-actions">
+
+        {project.link && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-fill"
+          >
+            View App
+          </a>
+        )}
+
+        {project.github && (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline"
+          >
+            GitHub
+          </a>
+        )}
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .stack-intro {
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .app-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-top: 20px;
+    padding: 9px 14px;
+
+    border: 1px solid rgba(107, 163, 214, 0.3);
+    border-radius: 5px;
+
+    background: rgba(107, 163, 214, 0.08);
+    color: #6ba3d6;
+
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+</style>
