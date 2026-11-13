@@ -1,18 +1,10 @@
 ---
-import type { Mobile } from '../../types/mobile';
+import type { MobileProject } from '../../types/mobile';
 import ProjectNavigation from './ProjectNavigation.astro';
 
-interface Props {
-  project: Mobile;
-  previous?: Mobile | null;
-  next?: Mobile | null;
-}
-
-const {
-  project,
-  previous = null,
-  next = null
-} = Astro.props;
+const { project } = Astro.props as {
+  project: MobileProject;
+};
 
 const base = import.meta.env.BASE_URL;
 
@@ -139,6 +131,8 @@ const hasGithub = Boolean(
       )}
 
     </div>
+
+    <ProjectNavigation currentSlug={project.slug} />
 
     <!-- BACK TO PORTFOLIO -->
     <div class="mobile-footer-back">
