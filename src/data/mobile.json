@@ -1,96 +1,108 @@
+
 [
-	{
+  {
     "id": 1,
-    "title": "Housing",
-    "subtitle": "For Students",
-    "image": "housing",
-    "slug": "housing",
-    "description": "This website provides valuable information about diabetes, including symptoms, prevention, and management tips. It features an interactive test that calculates the user's risk based on personal health data.",
-    "statement": "A simple and accessible BMI calculator designed to provide quick health insights with minimal effort.",
+    "title": "WebPro",
+    "subtitle": "Web Development Masterclass",
+    "image": "webpro",
+    "slug": "webpro",
+    "description": "An interactive educational application designed to help users learn web development through structured lessons, practical examples and guided learning.",
+    "statement": "A mobile-focused learning platform designed to make web development education accessible, organised and engaging.",
     "problem": [
-      "Many online BMI tools are cluttered with unnecessary information, forcing users to navigate through multiple steps to complete what should be a simple task. This creates friction and discourages users from engaging with the tool, especially those looking for quick answers.",
-      "Additionally, a lack of mobile optimisation makes these tools difficult to use on smaller screens. Poor input design and unclear feedback further reduce usability, making it harder for users to trust and understand the results."
+      "Learning web development can be overwhelming for beginners, particularly when information is spread across multiple websites, tutorials and documentation sources. Without a clear learning structure, users may struggle to understand which topics to study first.",
+      "Many learning resources also focus heavily on theory without providing enough practical context. This can make it difficult for learners to connect concepts and develop confidence in applying their knowledge."
     ],
     "solution": [
-      "The solution was to create a focused BMI calculator that prioritises simplicity and speed. The interface allows users to input their data quickly and receive immediate results without unnecessary steps or distractions.",
-      "By reducing complexity and improving clarity, the tool ensures a smooth experience across all devices. The design and functionality work together to provide a straightforward and accessible way for users to gain basic health insights."
+      "WebPro brings web development learning into a structured application, organising educational content into clear topics and progressive learning levels.",
+      "The application is being developed to provide detailed explanations, practical examples and an intuitive navigation system, allowing learners to explore subjects at their own pace."
     ],
     "design": [
-      "The design focuses on clarity and ease of use, ensuring that users can complete the task without confusion. A minimal layout removes distractions and keeps the user’s attention on the core functionality.",
-      "Strong contrast, clear typography, and well-spaced input fields help guide the user through the process, while responsive design ensures the experience remains consistent across all screen sizes."
+      "The interface follows a mobile-first approach, prioritising readable content, straightforward navigation and a consistent learning experience.",
+      "Clear typography, organised content sections and reusable interface components help users navigate between learning topics while maintaining a familiar visual structure."
     ],
     "designPoints": [
       {
-        "title": "Clear information hierarchy",
-        "text": "Prioritises key health information so users can quickly understand risk and guidance."
+        "title": "Structured learning",
+        "text": "Organises web development subjects into logical topics and learning levels."
       },
       {
-        "title": "Minimal interface",
-        "text": "Removes distractions to keep focus on the calculator and results."
+        "title": "Consistent navigation",
+        "text": "Uses a familiar navigation structure to make moving between learning sections straightforward."
       },
       {
-        "title": "Responsive input design",
-        "text": "Ensures usability across mobile and desktop devices with consistent spacing and layout."
+        "title": "Mobile-first interface",
+        "text": "Prioritises comfortable reading, accessible controls and clear presentation on smaller screens."
       }
     ],
     "development": [
-      "The application was built using lightweight front-end technologies to ensure fast performance and responsiveness. JavaScript handles the BMI calculation logic in real time, allowing users to receive immediate results without page reloads.",
-      "The structure and styling were implemented using semantic HTML and CSS, with a focus on responsive design to ensure usability across mobile, tablet, and desktop devices."
+      "WebPro is being developed as an interactive educational application, with an emphasis on reusable components, structured learning content and maintainable application architecture.",
+      "The development process focuses on creating a consistent interface, organising educational material and preparing the application for additional interactive learning functionality."
     ],
-    "technologies": ["HTML5", "CSS3", "JavaScript", "Materialize", "Laravel" ],
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ],
     "outcome": [
-      "The final product delivers a fast and intuitive user experience, making it easy for users to calculate and understand their BMI without unnecessary complexity. The simplified interface improves accessibility, particularly for mobile users who benefit from quick interactions.",
-      "The project demonstrates the importance of reducing friction in user interfaces, showing how small, focused tools can provide real value when designed with clarity and usability in mind."
+      "WebPro is currently in development, with the aim of providing a comprehensive and accessible environment for learning web development.",
+      "The project demonstrates an approach to building educational applications that combine structured content, interface consistency and practical learning experiences."
     ],
-    "link": "#",
+    "status": "development",
+    "link": null,
     "github": null,
     "delay": "--d:0.00s"
   },
-		{
-    "id": 1,
+  {
+    "id": 2,
     "title": "Cookbook",
-    "subtitle": "With Favourite Recipes",
+    "subtitle": "Your Favourite Recipes",
     "image": "cookbook",
     "slug": "cookbook",
-    "description": "This website provides valuable information about diabetes, including symptoms, prevention, and management tips. It features an interactive test that calculates the user's risk based on personal health data.",
-    "statement": "A simple and accessible BMI calculator designed to provide quick health insights with minimal effort.",
+    "description": "A recipe application designed to help users explore, organise and access their favourite meals through a simple and intuitive mobile interface.",
+    "statement": "A mobile-friendly recipe collection designed to make finding and following favourite recipes straightforward and enjoyable.",
     "problem": [
-      "Many online BMI tools are cluttered with unnecessary information, forcing users to navigate through multiple steps to complete what should be a simple task. This creates friction and discourages users from engaging with the tool, especially those looking for quick answers.",
-      "Additionally, a lack of mobile optimisation makes these tools difficult to use on smaller screens. Poor input design and unclear feedback further reduce usability, making it harder for users to trust and understand the results."
+      "Recipes are often scattered across websites, bookmarks and personal notes, making it difficult to locate a particular meal when needed. Many recipe websites also contain lengthy introductions and distracting elements that interrupt the cooking experience.",
+      "When using a phone in the kitchen, complicated navigation, small text and poorly organised instructions can make following recipes unnecessarily frustrating."
     ],
     "solution": [
-      "The solution was to create a focused BMI calculator that prioritises simplicity and speed. The interface allows users to input their data quickly and receive immediate results without unnecessary steps or distractions.",
-      "By reducing complexity and improving clarity, the tool ensures a smooth experience across all devices. The design and functionality work together to provide a straightforward and accessible way for users to gain basic health insights."
+      "Cookbook is designed to bring recipes together in a clear, organised interface where users can browse meals and access relevant cooking information.",
+      "The application focuses on straightforward navigation and readable recipe content, helping users move between ingredients and preparation instructions with minimal distraction."
     ],
     "design": [
-      "The design focuses on clarity and ease of use, ensuring that users can complete the task without confusion. A minimal layout removes distractions and keeps the user’s attention on the core functionality.",
-      "Strong contrast, clear typography, and well-spaced input fields help guide the user through the process, while responsive design ensures the experience remains consistent across all screen sizes."
+      "The design prioritises food imagery, clear typography and a straightforward content hierarchy, making individual recipes easy to recognise and explore.",
+      "Recipe information is organised into distinct sections, with attention to spacing, readability and mobile usability so users can comfortably follow instructions while preparing meals."
     ],
     "designPoints": [
       {
-        "title": "Clear information hierarchy",
-        "text": "Prioritises key health information so users can quickly understand risk and guidance."
+        "title": "Recipe organisation",
+        "text": "Presents recipes in a clear structure that makes meals easier to browse and discover."
       },
       {
-        "title": "Minimal interface",
-        "text": "Removes distractions to keep focus on the calculator and results."
+        "title": "Visual presentation",
+        "text": "Uses food imagery and readable typography to create an inviting recipe browsing experience."
       },
       {
-        "title": "Responsive input design",
-        "text": "Ensures usability across mobile and desktop devices with consistent spacing and layout."
+        "title": "Easy-to-follow instructions",
+        "text": "Separates ingredients and preparation steps to improve clarity during cooking."
       }
     ],
     "development": [
-      "The application was built using lightweight front-end technologies to ensure fast performance and responsiveness. JavaScript handles the BMI calculation logic in real time, allowing users to receive immediate results without page reloads.",
-      "The structure and styling were implemented using semantic HTML and CSS, with a focus on responsive design to ensure usability across mobile, tablet, and desktop devices."
+      "Cookbook is being developed with a focus on reusable interface components and structured recipe data, allowing recipe information to be presented consistently throughout the application.",
+      "The development approach prioritises responsive layouts, straightforward navigation and a maintainable foundation for future recipe management functionality."
     ],
-    "technologies": ["HTML5", "CSS3", "JavaScript", "Materialize", "Astro" ],
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Astro"
+    ],
     "outcome": [
-      "The final product delivers a fast and intuitive user experience, making it easy for users to calculate and understand their BMI without unnecessary complexity. The simplified interface improves accessibility, particularly for mobile users who benefit from quick interactions.",
-      "The project demonstrates the importance of reducing friction in user interfaces, showing how small, focused tools can provide real value when designed with clarity and usability in mind."
+      "Cookbook is currently in development, with the goal of delivering an accessible and visually engaging recipe browsing experience.",
+      "The project explores how structured content, thoughtful interface design and reusable components can make everyday information easier to access and use."
     ],
-    "link": "#",
+    "status": "development",
+    "link": null,
     "github": null,
-    "delay": "--d:0.00s"
+    "delay": "--d:0.10s"
   }
 ]
