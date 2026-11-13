@@ -1,196 +1,170 @@
+
 ---
 import websites from '../../data/websites.json';
 import mobile from '../../data/mobile.json';
 import software from '../../data/software.json';
 
 const base = import.meta.env.BASE_URL;
-const allProjects = [...websites];
+
+// Combine all project categories
+const allProjects = [
+  ...websites.map(item => ({
+    ...item,
+    category: 'websites'
+  })),
+  ...mobile.map(item => ({
+    ...item,
+    category: 'mobile'
+  })),
+  ...software.map(item => ({
+    ...item,
+    category: 'software'
+  }))
+];
+
+const filters = [
+  { label: 'All Projects', value: 'all' },
+  { label: 'Websites', value: 'websites' },
+  { label: 'Mobile Apps', value: 'mobile' },
+  { label: 'Software', value: 'software' }
+];
 ---
 
 <section class="projects" id="projects">
   <div class="wrap">
+
     <div class="sec-head">
       <span class="eyebrow">Selected Work</span>
 
       <h2 class="reveal">
-        Featured Web <span class="glow-blue">Projects</span>
+        Featured <span class="glow-blue">Projects</span>
       </h2>
 
       <p class="reveal" style="--d:.06s">
-        Explore a collection of completed web development projects, each showcasing a different approach to design, functionality, and creative problem-solving. 
-        Every project includes a <strong>detailed case study</strong>, offering insight into the development process, challenges, solutions, and final outcome.
+        Explore a collection of websites, mobile applications
+        and software projects, each showcasing a different
+        approach to design, functionality and creative
+        problem-solving.
+
+        Completed projects include a
+        <strong>detailed case study</strong>,
+        offering insight into the development process,
+        challenges, solutions and final outcome.
       </p>
     </div>
 
-    <div class="proj-grid">
-      {allProjects.length === 0 ? (
-        <p class="center-align">Projects coming soon</p>
-      ) : (
-        allProjects.map((item) => (
-          <div class="proj-card reveal" style={item.delay}>
-            <a
-              href={`${base}projects/${item.slug}`}
-              class="project-link"
-              data-direction="enter"
-            >
-              <div class="proj-thumb">
-                <img
-                  src={`${base}assets/images/projects/screenshots/${item.image}.webp`}
-                  alt={item.title}
-                  loading="lazy"
-                />
-              </div>
+    <!-- PROJECT FILTERS -->
+    <div class="project-filters" role="group" aria-label="Filter projects">
 
-              <h4>{item.title}</h4>
-            </a>
-          </div>
-        ))
-      )}
+      {filters.map((filter, index) => (
+        <button
+          type="button"
+          class:list={[
+            'project-filter',
+            { active: index === 0 }
+          ]}
+          data-filter={filter.value}
+          aria-pressed={index === 0 ? 'true' : 'false'}
+        >
+          {filter.label}
+        </button>
+      ))}
+
+    </div>
+
+    <!-- PROJECT GRID -->
+    <div class="proj-grid" id="projectGrid">
+
+      {allProjects.map((item) => (
+        <div
+          class="proj-card reveal"
+          data-category={item.category}
+          style={item.delay}
+        >
+          <a
+            href={`${base}projects/${item.slug}`}
+            class="project-link"
+            data-direction="enter"
+          >
+            <div class="proj-thumb">
+              <img
+                src={`${base}assets/images/projects/screenshots/${item.image}.webp`}
+                alt={item.title}
+                loading="lazy"
+              />
+            </div>
+
+            <h4>{item.title}</h4>
+          </a>
+        </div>
+      ))}
+
+    </div>
+
+    <!-- EMPTY CATEGORY MESSAGE -->
+    <div
+      class="projects-empty"
+      id="projectsEmpty"
+      role="status"
+      hidden
+    >
+      <div class="empty-icon">
+        <i class="bi bi-code-slash" aria-hidden="true"></i>
+      </div>
+
+      <h3>Coming Soon</h3>
+
+      <p>
+        New projects are currently in development.
+        Check back soon to explore what's next.
+      </p>
     </div>
 
   </div>
 </section>
 
+<script>
+  const filters = document.querySelectorAll('.project-filter');
+  const cards = document.querySelectorAll('.proj-card');
+  const emptyMessage = document.getElementById('projectsEmpty');
 
-<style>
+  function filterProjects(category: string) {
+    let visibleCount = 0;
 
-/* =========================================================
-   PROJECTS
-========================================================= */
+    cards.forEach(card => {
+      const projectCategory = card.getAttribute('data-category');
 
-.projects {
-  background: linear-gradient(
-    var(--bg),
-    var(--bg-hero),
-    var(--bg-hero),
-    var(--bg)
-  );
-}
+      const visible =
+        category === 'all' ||
+        projectCategory === category;
 
-.proj-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-  max-width: 1180px;
-  margin: 0 auto;
-}
+      card.toggleAttribute('hidden', !visible);
 
-/* Project card */
-.proj-card {
-  min-width: 0;
-  text-align: left;
+      if (visible) {
+        visibleCount++;
+      }
+    });
 
-  transition: transform 0.35s ease;
-}
-
-/* Screenshot */
-.proj-thumb {
-  position: relative;
-  overflow: hidden;
-
-  width: 100%;
-  aspect-ratio: 4 / 3;
-
-  margin: 0;
-
-  background: #0c0f16;
-  border: 1px solid var(--border-soft);
-  border-bottom: none;
-  border-radius: 5px 5px 0 0;
-}
-
-/* Display the complete screenshot */
-.proj-thumb {
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-}
-
-.proj-thumb img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  transition: transform 0.5s ease;
-}
-/* Integrated footer */
-.proj-card h4 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-
-  min-width: 0;
-  min-height: 54px;
-
-  margin: 0;
-  padding: 14px 16px;
-
-  background: rgba(107, 163, 214, 0.07);
-  border: 1px solid var(--border-soft);
-  border-radius: 0 0 5px 5px;
-
-  color: var(--text-bright);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.5;
-
-  overflow-wrap: anywhere;
-
-  transition:
-    background 0.3s ease,
-    border-color 0.3s ease;
-}
-
-/* Arrow */
-.proj-card h4::after {
-  content: "↗";
-
-  flex-shrink: 0;
-  align-self: center;
-
-  color: #6ba3d6;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1;
-}
-
-/* Hover */
-.proj-card:hover {
-  transform: translateY(-6px);
-}
-
-.proj-card:hover .proj-thumb {
-  border-color: var(--border);
-}
-
-.proj-card:hover .proj-thumb img {
-  transform: scale(1.02);
-}
-
-.proj-card:hover h4 {
-  background: rgba(107, 163, 214, 0.13);
-  border-color: var(--border);
-}
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 900px) {
-  .proj-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    if (emptyMessage) {
+      emptyMessage.hidden = visibleCount > 0;
+    }
   }
-}
 
-/* =========================================================
-   MOBILE
-========================================================= */
+  filters.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.getAttribute('data-filter') || 'all';
 
-@media (max-width: 520px) {
-  .proj-grid {
-    grid-template-columns: 1fr;
-  }
-}
+      filters.forEach(filter => {
+        const active = filter === button;
 
-</style>
+        filter.classList.toggle('active', active);
+        filter.setAttribute('aria-pressed', String(active));
+      });
+
+      filterProjects(category);
+    });
+  });
+
+  // Handle initial state, including an empty project list
+  filterProjects('all');
+</script>
