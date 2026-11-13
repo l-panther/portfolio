@@ -1,38 +1,99 @@
-
 ---
-import type { MobileProject } from '../../types/mobile';
+import type { Project } from '../../types/projects';
 
-const { project } = Astro.props as {
-  project: MobileProject;
-};
+const { project } = Astro.props as { project: Project };
 ---
 
 <section class="mobile-overview" id="overview">
   <div class="wrap">
 
-    <div class="reveal">
+    <div class="mobile-overview-block reveal">
       <span class="eyebrow">Project Overview</span>
 
-      <h2>
-        The <span class="accent">Challenge</span>
-      </h2>
+      <h2>The <span class="accent">Challenge</span></h2>
 
-      <p class="project-statement">{project.statement}</p>
+      {project.statement && (
+        <p class="project-statement">{project.statement}</p>
+      )}
 
-      {(project.problem ?? []).map((paragraph) => (
+      {project.problem?.map((paragraph) => (
         <p>{paragraph}</p>
       ))}
     </div>
 
-    <div class="reveal">
-      <h2>
-        The <span class="accent">Solution</span>
-      </h2>
+    <div class="mobile-overview-block reveal">
+      <h2>The <span class="accent">Solution</span></h2>
 
-      {(project.solution ?? []).map((paragraph) => (
+      {project.solution?.map((paragraph) => (
         <p>{paragraph}</p>
       ))}
     </div>
 
   </div>
 </section>
+
+<style>
+/* =========================================================
+   OVERVIEW — CHALLENGE & SOLUTION
+========================================================= */
+
+.mobile-overview {
+  padding: 100px 24px;
+  background: var(--bg);
+}
+
+.mobile-overview .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 85px;
+}
+
+.mobile-overview-block {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.mobile-overview-block h2 {
+  margin: 0 0 25px;
+  color: var(--ink);
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.mobile-overview-block p {
+  margin: 0 auto 18px;
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.mobile-overview-block .project-statement {
+  margin-bottom: 24px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .mobile-overview {
+    padding: 70px 18px;
+  }
+
+  .mobile-overview .wrap {
+    gap: 65px;
+  }
+
+  .mobile-overview-block h2 {
+    font-size: 25px;
+  }
+
+  .mobile-overview-block p {
+    font-size: 14px;
+  }
+}
+</style>
