@@ -153,31 +153,24 @@ a {
   object-fit: contain;
 }
 
-/* Development status */
-
-.mobile-status {
+/* Development status — text, not a CTA */
+.mobile-development-status {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-
-  padding: 9px 15px;
-  border: 1px solid rgba(47, 103, 152, 0.22);
-  border-radius: 999px;
-
-  background: rgba(47, 103, 152, 0.07);
-  color: var(--blue-fill-light);
-
+  margin-top: 20px;
+  color: var(--muted);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
-.mobile-status::before {
-  content: "";
+.mobile-development-status .status-dot {
+  display: inline-block;
   width: 7px;
   height: 7px;
   flex-shrink: 0;
+  background: var(--blue-fill-light);
   border-radius: 50%;
-  background: var(--blue-bright);
 }
 
 /* =========================================================
@@ -629,7 +622,6 @@ a {
 @media (max-width: 900px) {
 
   .mobile-hero-grid,
-  .mobile-overview .wrap,
   .mobile-outcome .split-grid {
     grid-template-columns: 1fr;
     gap: 45px;
@@ -675,7 +667,6 @@ a {
   }
 
   .mobile-hero,
-  .mobile-overview,
   .mobile-features,
   .mobile-design,
   .mobile-screens,
@@ -695,7 +686,6 @@ a {
     font-size: 14px;
   }
 
-  .mobile-overview h2,
   .mobile-features h2,
   .mobile-design h2,
   .mobile-screens h2,
@@ -703,7 +693,6 @@ a {
     font-size: 24px;
   }
 
-  .mobile-overview p,
   .mobile-design p,
   .mobile-outcome p {
     font-size: 14px;
@@ -751,4 +740,135 @@ a {
   .mobile-outcome .btn {
     transition: none;
   }
+}
+
+/* =========================================================
+   15. CASE STUDY HEADER
+========================================================= */
+.mobile-header {
+  padding: 25px 24px 0;
+  background: var(--bg);
+}
+.mobile-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.mobile-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background .25s ease;
+}
+.mobile-logo:hover { background: var(--blue-fill-light); color: #fff; }
+.mobile-back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 17px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--blue-fill-light);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .25s ease, color .25s ease;
+}
+.mobile-back-link:hover { background: var(--blue-fill-light); color: #fff; }
+
+/* =========================================================
+   16. HERO CTAS
+========================================================= */
+.mobile-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+.mobile-hero-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 43px;
+  padding: 11px 23px;
+  border: 1px solid var(--blue-fill-light);
+  border-radius: 999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+.mobile-hero-actions .btn-fill { background: var(--blue-fill-light); color: #fff; }
+.mobile-hero-actions .btn-outline { background: transparent; color: var(--blue-fill-light); }
+.mobile-hero-actions .btn:hover { transform: translateY(-2px); }
+.mobile-hero-actions .btn-fill:hover { background: var(--navy); color: #fff; }
+.mobile-hero-actions .btn-outline:hover { background: var(--blue-fill-light); color: #fff; }
+
+/* =========================================================
+   17. OUTCOME CTAS & PREVIOUS/NEXT NAVIGATION
+========================================================= */
+.mobile-outcome .btn-disabled,
+.mobile-outcome .btn-disabled:hover {
+  background: #e1e5ec;
+  border-color: #d5dbe5;
+  color: #8a94a5;
+  cursor: not-allowed;
+  opacity: .8;
+  transform: none;
+}
+.mobile-project-nav-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  width: 280px;
+  max-width: 100%;
+  padding: 15px 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color .25s ease, transform .25s ease;
+}
+.mobile-project-nav-link:hover { border-color: var(--blue-fill-light); transform: translateY(-3px); }
+.mobile-project-nav-link span { color: var(--blue-fill-light); font-size: 11px; font-weight: 600; }
+.mobile-project-nav-link strong { color: var(--ink); font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; }
+.mobile-project-nav-link.next { margin-left: auto; text-align: right; }
+.mobile-project-nav-empty { flex: 1; }
+
+@media (max-width: 900px) {
+  .mobile-hero-actions { justify-content: center; }
+}
+@media (max-width: 600px) {
+  .mobile-header { padding: 18px 16px 0; }
+  .mobile-logo { width: 35px; height: 35px; }
+  .mobile-back-link { padding: 9px 13px; font-size: 11px; }
+  .mobile-hero-actions { justify-content: center; gap: 10px; }
+  .mobile-hero-actions .btn { padding: 10px 18px; font-size: 11px; }
+  .mobile-project-nav-link { flex: 1; width: auto; padding: 13px 12px; }
+  .mobile-project-nav-link strong { font-size: 12px; }
+  .mobile-project-nav-link span { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-logo, .mobile-back-link, .mobile-hero-actions .btn, .mobile-project-nav-link { transition: none; }
+  .mobile-hero-actions .btn:hover, .mobile-project-nav-link:hover { transform: none; }
 }
