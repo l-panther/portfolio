@@ -1,0 +1,36 @@
+---
+import type { MobileProject } from '../../types/mobile';
+
+const { project } = Astro.props as {
+  project: MobileProject;
+};
+
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="mobile-hero" id="hero">
+  <div class="wrap">
+    <div class="mobile-hero-grid">
+
+      <div class="mobile-hero-content reveal">
+        <span class="eyebrow">Mobile Application</span>
+
+        <h1>{project.title}</h1>
+
+        <p>{project.description}</p>
+
+        {project.status === 'development' && (
+          <span class="mobile-status">In Development</span>
+        )}
+      </div>
+
+      <div class="mobile-hero-image reveal" style="--d:.1s">
+        <img
+          src={`${base}assets/images/projects/mobile/${project.image}.webp`}
+          alt={`${project.title} application preview`}
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
