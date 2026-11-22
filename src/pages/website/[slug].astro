@@ -1,0 +1,60 @@
+---
+import { getAllWebsites } from '../../utils/projects';
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/global-case-study.css';
+
+import Header from '../../components/website/Header.astro';
+import Hero from '../../components/website/Hero.astro';
+import Problem from '../../components/website/Problem.astro';
+import Design from '../../components/website/Design.astro';
+import Outcome from '../../components/website/Outcome.astro';
+import ProjectLinks from '../../components/website/ProjectLinks.astro';
+import Footer from '../../components/website/Footer.astro';
+
+import type { Website } from '../../types/website';
+
+export function getStaticPaths() {
+  const websites = getAllWebsites();
+
+  return websites
+    .filter((website) => website.slug)
+    .map((website) => ({
+      params: { slug: website.slug },
+      props: { project: website }
+    }));
+}
+
+const { project } = Astro.props as {
+  project: Website;
+};
+
+const allProjects = getAllWebsites();
+
+const currentIndex = allProjects.findIndex(
+  (website) => website.slug === project.slug
+);
+
+const prevProject =
+  currentIndex > 0
+    ? allProjects[currentIndex - 1]
+    : null;
+
+const nextProject =
+  currentIndex < allProjects.length - 1
+    ? allProjects[currentIndex + 1]
+    : null;
+---
+
+<Layout>
+  <Header project={project} />
+  <Hero project={project} />
+  <Problem project={project} />
+  <Design project={project} />
+  <Outcome project={project} />
+
+<ProjectLinks
+  prevWebsite={prevProject}
+  nextWebsite={nextProject}
+/>
+  <Footer project={project} />
+</Layout>
