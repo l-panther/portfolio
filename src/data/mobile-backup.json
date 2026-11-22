@@ -1,0 +1,108 @@
+
+[
+  {
+    "id": 1,
+    "title": "WebPro",
+    "subtitle": "Web Development Masterclass",
+    "image": "webpro",
+    "slug": "webpro",
+    "description": "An interactive educational application designed to help users learn web development through structured lessons, practical examples and guided learning.",
+    "statement": "A mobile-focused learning platform designed to make web development education accessible, organised and engaging.",
+    "problem": [
+      "Learning web development can be overwhelming for beginners, particularly when information is spread across multiple websites, tutorials and documentation sources. Without a clear learning structure, users may struggle to understand which topics to study first.",
+      "Many learning resources also focus heavily on theory without providing enough practical context. This can make it difficult for learners to connect concepts and develop confidence in applying their knowledge."
+    ],
+    "solution": [
+      "WebPro brings web development learning into a structured application, organising educational content into clear topics and progressive learning levels.",
+      "The application is being developed to provide detailed explanations, practical examples and an intuitive navigation system, allowing learners to explore subjects at their own pace."
+    ],
+    "design": [
+      "The interface follows a mobile-first approach, prioritising readable content, straightforward navigation and a consistent learning experience.",
+      "Clear typography, organised content sections and reusable interface components help users navigate between learning topics while maintaining a familiar visual structure."
+    ],
+    "designPoints": [
+      {
+        "title": "Structured learning",
+        "text": "Organises web development subjects into logical topics and learning levels."
+      },
+      {
+        "title": "Consistent navigation",
+        "text": "Uses a familiar navigation structure to make moving between learning sections straightforward."
+      },
+      {
+        "title": "Mobile-first interface",
+        "text": "Prioritises comfortable reading, accessible controls and clear presentation on smaller screens."
+      }
+    ],
+    "development": [
+      "WebPro is being developed as an interactive educational application, with an emphasis on reusable components, structured learning content and maintainable application architecture.",
+      "The development process focuses on creating a consistent interface, organising educational material and preparing the application for additional interactive learning functionality."
+    ],
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "outcome": [
+      "WebPro is currently in development, with the aim of providing a comprehensive and accessible environment for learning web development.",
+      "The project demonstrates an approach to building educational applications that combine structured content, interface consistency and practical learning experiences."
+    ],
+    "status": "development",
+    "link": null,
+    "github": null,
+    "delay": "--d:0.00s"
+  },
+  {
+    "id": 2,
+    "title": "Cookbook",
+    "subtitle": "Your Favourite Recipes",
+    "image": "cookbook",
+    "slug": "cookbook",
+    "description": "A recipe application designed to help users explore, organise and access their favourite meals through a simple and intuitive mobile interface.",
+    "statement": "A mobile-friendly recipe collection designed to make finding and following favourite recipes straightforward and enjoyable.",
+    "problem": [
+      "Recipes are often scattered across websites, bookmarks and personal notes, making it difficult to locate a particular meal when needed. Many recipe websites also contain lengthy introductions and distracting elements that interrupt the cooking experience.",
+      "When using a phone in the kitchen, complicated navigation, small text and poorly organised instructions can make following recipes unnecessarily frustrating."
+    ],
+    "solution": [
+      "Cookbook is designed to bring recipes together in a clear, organised interface where users can browse meals and access relevant cooking information.",
+      "The application focuses on straightforward navigation and readable recipe content, helping users move between ingredients and preparation instructions with minimal distraction."
+    ],
+    "design": [
+      "The design prioritises food imagery, clear typography and a straightforward content hierarchy, making individual recipes easy to recognise and explore.",
+      "Recipe information is organised into distinct sections, with attention to spacing, readability and mobile usability so users can comfortably follow instructions while preparing meals."
+    ],
+    "designPoints": [
+      {
+        "title": "Recipe organisation",
+        "text": "Presents recipes in a clear structure that makes meals easier to browse and discover."
+      },
+      {
+        "title": "Visual presentation",
+        "text": "Uses food imagery and readable typography to create an inviting recipe browsing experience."
+      },
+      {
+        "title": "Easy-to-follow instructions",
+        "text": "Separates ingredients and preparation steps to improve clarity during cooking."
+      }
+    ],
+    "development": [
+      "Cookbook is being developed with a focus on reusable interface components and structured recipe data, allowing recipe information to be presented consistently throughout the application.",
+      "The development approach prioritises responsive layouts, straightforward navigation and a maintainable foundation for future recipe management functionality."
+    ],
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Astro"
+    ],
+    "outcome": [
+      "Cookbook is currently in development, with the goal of delivering an accessible and visually engaging recipe browsing experience.",
+      "The project explores how structured content, thoughtful interface design and reusable components can make everyday information easier to access and use."
+    ],
+    "status": "development",
+    "link": null,
+    "github": null,
+    "delay": "--d:0.10s"
+  }
+]
