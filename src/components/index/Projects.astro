@@ -1,0 +1,1334 @@
+---
+import websites from '../../data/websites.json';
+import mobile from '../../data/mobile.json';
+
+const base = import.meta.env.BASE_URL;
+const asset = (path: string) => `${base}${path.replace(/^\/+/, '')}`;
+const websiteProjects = Array.isArray(websites) ? websites : [];
+const mobileProjects = Array.isArray(mobile) ? mobile : [];
+const INITIAL_COUNT = 4;
+---
+
+<section class="projects" id="projects">
+  <div class="wrap">
+
+    <!-- SECTION HEADING -->
+    <div class="sec-head">
+      <span class="eyebrow">Selected Work</span>
+
+      <h2 class="reveal">
+        Featured <span class="glow-blue">Projects</span>
+      </h2>
+
+      <p class="reveal" style="--d:.06s">
+        Explore my collection of responsive websites and
+        interactive mobile projects, showcasing creative
+        design, functionality and practical development.
+
+        Each completed project includes a
+        <strong>detailed case study</strong>
+        covering the development process and final outcome.
+      </p>
+    </div>
+
+    <!-- FILTERS -->
+
+    <div
+      class="project-filters"
+      role="group"
+      aria-label="Project categories"
+    >
+      <button
+        type="button"
+        class="project-filter active"
+        data-filter="websites"
+        aria-pressed="true"
+        aria-controls="projects-websites"
+      >
+        Websites
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="14" rx="2"/>
+          <path d="M8 22h8M12 18v4"/>
+        </svg>
+      </button>
+
+      <button
+        type="button"
+        class="project-filter"
+        data-filter="mobile"
+        aria-pressed="false"
+        aria-controls="projects-mobile"
+      >
+        Mobile
+
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="6" y="2" width="12" height="20" rx="2"/>
+          <path d="M11 18h2"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- WEBSITE PROJECTS -->
+    <div
+      class="project-panel"
+      id="projects-websites"
+      data-panel="websites"
+    >
+      {websiteProjects.length > 0 ? (
+        <>
+          <div class="projects-list">
+
+            {websiteProjects.map((item, index) => (
+              <article
+                class:list={[
+                  'project-card',
+                  { 'extra-project': index >= INITIAL_COUNT }
+                ]}
+                hidden={index >= INITIAL_COUNT}
+              >
+
+                <!-- CSS DESKTOP + PHONE MOCKUP -->
+                <div class="project-visual">
+                  <div class="mockup-scene">
+                    <div class="mockup-browser">
+                      <div class="browser-toolbar" aria-hidden="true">
+                        <span class="browser-dot red"></span>
+                        <span class="browser-dot yellow"></span>
+                        <span class="browser-dot green"></span>
+                      </div>
+                      <div class="browser-screen">
+                        <img
+                          src={asset(`assets/images/website/screenshots/${item.image}.webp`)}
+                          alt={`${item.title} desktop website screenshot`}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    </div>
+                    <div class="mockup-phone">
+                      <div class="phone-screen">
+                        <div class="phone-notch" aria-hidden="true"></div>
+                        <img
+                          src={asset(`assets/images/website/screenshots/${item.image}-mobile.webp`)}
+                          alt={`${item.title} mobile website screenshot`}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="project-content">
+
+                  <span class="project-type">
+                    Website Project
+                  </span>
+
+                  <h3>{item.title}</h3>
+
+                  <p class="project-description">
+                    {item.description}
+                  </p>
+
+                  <div class="project-actions">
+
+                    <!-- LIVE WEBSITE -->
+                    {item.link && item.link !== '#' && (
+                      <a
+                        href={item.link}
+                        class="project-btn project-btn-primary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Site
+
+                        <svg
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path d="M7 17 17 7"/>
+                          <path d="M8 7h9v9"/>
+                        </svg>
+                      </a>
+                    )}
+
+                    <!-- CASE STUDY -->
+                                      
+                    <a
+                      href={`${base}website/${item.slug}`}
+                      class="project-btn project-btn-outline"
+                      data-direction="enter"
+                    >
+                      View Case Study
+
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <path d="M14 2v6h6"/>
+                        <path d="M8 13h8M8 17h8"/>
+                      </svg>
+                    </a>
+
+
+                  </div>
+                </div>
+
+              </article>
+            ))}
+
+          </div>
+
+          <!-- VIEW MORE -->
+          {websiteProjects.length > INITIAL_COUNT && (
+            <div class="projects-more">
+              <button
+                type="button"
+                class="view-more-btn"
+                aria-expanded="false"
+                aria-controls="projects-websites"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="7" height="7" rx="1"/>
+                  <rect x="14" y="3" width="7" height="7" rx="1"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1"/>
+                  <rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+
+                <span class="view-more-label">
+                  View More Projects ({websiteProjects.length - INITIAL_COUNT})
+                </span>
+
+                <svg
+                  class="more-chevron"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </button>
+            </div>
+          )}
+        </>
+      ) : (
+        <div class="projects-empty">
+          <div class="empty-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="14" rx="2"/>
+              <path d="M8 22h8M12 18v4"/>
+            </svg>
+          </div>
+
+          <h3>Website Projects Coming Soon</h3>
+          <p>
+            New website projects and detailed case
+            studies will be added here soon.
+          </p>
+        </div>
+      )}
+    </div>
+
+    <!-- MOBILE PROJECTS -->
+    <div
+      class="project-panel"
+      id="projects-mobile"
+      data-panel="mobile"
+      hidden
+    >
+      {mobileProjects.length > 0 ? (
+        <>
+          <div class="projects-list mobile-list">
+
+            {mobileProjects.map((item, index) => (
+              <article
+                class:list={[
+                  'project-card',
+                  'mobile-card',
+                  { 'extra-project': index >= INITIAL_COUNT }
+                ]}
+                hidden={index >= INITIAL_COUNT}
+              >
+
+                <!-- TWO INWARD-FACING CSS PHONE MOCKUPS -->
+                <div class="project-visual mobile-visual">
+                  <div class="mobile-mockup-scene">
+                    {['left', 'right'].map((side) => (
+                      <div class:list={['mobile-device', `mobile-device-${side}`]}>
+                        <div class="mobile-device-screen">
+                          <span class="mobile-device-notch" aria-hidden="true"></span>
+                          <img
+                            src={asset(`assets/images/mobile/raw-mobile/${item.image}.webp`)}
+                            alt={`${item.title} mobile screenshot — ${side} view`}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="project-content">
+
+                  <span class="project-type">
+                    Mobile Project
+                  </span>
+
+                  <h3>{item.title}</h3>
+
+                  <p class="project-description">
+                    {item.description}
+                  </p>
+
+                  <div class="project-actions">
+
+                    {item.link && item.link !== '#' && (
+                      <a
+                        href={item.link}
+                        class="project-btn project-btn-primary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Project
+
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M7 17 17 7"/>
+                          <path d="M8 7h9v9"/>
+                        </svg>
+                      </a>
+                    )}
+                                      
+                    <a
+                      href={`${base}mobile/${item.slug}`}
+                      class="project-btn project-btn-outline"
+                      data-direction="enter"
+                    >
+                      View Case Study
+
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <path d="M14 2v6h6"/>
+                        <path d="M8 13h8M8 17h8"/>
+                      </svg>
+                    </a>
+
+                  </div>
+                </div>
+
+              </article>
+            ))}
+
+          </div>
+
+          {mobileProjects.length > INITIAL_COUNT && (
+            <div class="projects-more">
+              <button
+                type="button"
+                class="view-more-btn"
+                aria-expanded="false"
+                aria-controls="projects-mobile"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="7" height="7" rx="1"/>
+                  <rect x="14" y="3" width="7" height="7" rx="1"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1"/>
+                  <rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+
+                <span class="view-more-label">
+                  View More Projects ({mobileProjects.length - INITIAL_COUNT})
+                </span>
+
+                <svg
+                  class="more-chevron"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="m6 9 6 6 6-6"/>
+                </svg>
+              </button>
+            </div>
+          )}
+        </>
+      ) : (
+       <div class="projects-empty">
+
+  <div class="empty-icon">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="6" y="2" width="12" height="20" rx="2"/>
+      <path d="M11 18h2"/>
+    </svg>
+  </div>
+
+  <span class="empty-label">Coming Soon</span>
+
+  <h3>Mobile Projects</h3>
+
+  <p>
+    I'm currently developing new mobile experiences,
+    with a focus on interactive learning and intuitive
+    design. Projects and detailed case studies will
+    appear here as they're completed.
+  </p>
+
+</div>
+      )}
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* ==========================================
+   PROJECT SECTION
+========================================== */
+
+.projects {
+  background: linear-gradient(
+    var(--bg),
+    var(--bg-hero),
+    var(--bg-hero),
+    var(--bg)
+  );
+}
+
+/* ==========================================
+   SVG ICONS
+========================================== */
+
+.projects svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ==========================================
+   FILTERS
+========================================== */
+
+.project-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin: 0 auto 65px;
+}
+
+.project-filter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-width: 155px;
+  padding: 12px 24px;
+
+  background: rgba(107, 163, 214, 0.06);
+  border: 1px solid var(--border-soft);
+  border-radius: 5px;
+
+  color: #aebdd0;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.project-filter svg {
+  color: #6ba3d6;
+}
+
+.project-filter:hover {
+  background: rgba(107, 163, 214, 0.12);
+  border-color: #6ba3d6;
+  color: var(--text-bright);
+}
+
+.project-filter.active {
+  background: #6ba3d6;
+  border-color: #6ba3d6;
+  color: #08121f;
+}
+
+.project-filter.active svg {
+  color: inherit;
+}
+
+.project-filter:focus-visible,
+.project-btn:focus-visible,
+.view-more-btn:focus-visible {
+  outline: 2px solid #6ba3d6;
+  outline-offset: 4px;
+}
+
+.project-panel[hidden] {
+  display: none !important;
+}
+
+/* ==========================================
+   PROJECT LIST
+========================================== */
+/* -------------------------
+   PROJECT CARDS
+-------------------------- */
+
+.projects-list {
+  display: grid;
+  gap: 32px;
+}
+
+/* ==========================================
+   PROJECT CARD
+========================================== */
+
+.project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 64px);
+
+  padding: clamp(18px, 4vw, 18px);
+
+  overflow: visible;
+  border-bottom: 1px solid var(--border-soft);
+
+}
+
+.project-card[hidden] {
+  display: none !important;
+}
+
+.project-card:hover { border: 1px solid #6ba3d6=}
+/* ==========================================
+   ALTERNATING LAYOUT
+========================================== */
+
+/* Even rows: content left, screenshot right */
+.project-card:nth-child(even) {
+  grid-template-columns:
+    minmax(0, 55fr)
+    minmax(0, 45fr);
+}
+
+.project-card:nth-child(even) .project-visual {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.project-card:nth-child(even) .project-content {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* ==========================================
+   CSS WEBSITE MOCKUPS — ONE SOURCE OF TRUTH
+========================================== */
+.project-visual {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+  perspective: 1100px;
+}
+
+.mockup-scene {
+  --browser-angle: 13deg;
+  position: relative;
+  width: 100%;
+  padding: 0 12% 8% 2%;
+  box-sizing: border-box;
+  perspective: 1200px;
+  isolation: isolate;
+}
+
+/* Both devices share the same perspective direction. */
+.project-card:nth-child(even) .mockup-scene {
+  --browser-angle: -13deg;
+}
+
+.mockup-browser {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid rgba(151, 181, 210, .55);
+  border-radius: 5px;
+  background: #18283a;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, .38),
+              0 0 20px rgba(107, 163, 214, .10);
+  transform: rotateY(var(--browser-angle));
+  transform-origin: center;
+  transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+.mockup-browser {
+  box-shadow:
+    0 0 15px rgba(107, 163, 214, 0.18),
+    0 0 35px rgba(107, 163, 214, 0.12),
+    0 0 60px rgba(107, 163, 214, 0.06);
+
+  filter:
+    drop-shadow(0 0 8px rgba(107, 163, 214, 0.20))
+    drop-shadow(0 0 22px rgba(107, 163, 214, 0.10));
+}
+.browser-toolbar {
+  height: 27px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  background: linear-gradient(#34475c, #25374b);
+  border-bottom: 1px solid rgba(180, 202, 225, .2);
+}
+
+.browser-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: 0 0 7px;
+}
+.browser-dot.red { background: #ff605c; }
+.browser-dot.yellow { background: #ffbd44; }
+.browser-dot.green { background: #00ca4e; }
+
+.browser-screen {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #111b29;
+}
+.browser-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.mockup-phone {
+  position: absolute;
+  z-index: 2;
+  right: 4%;
+  bottom: 0;
+  width: 23%;
+  box-sizing: border-box;
+  padding: 4px;
+  border: 2px solid #7890a8;
+  border-radius: 15px;
+  background: #101a28;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, .5),
+              -10 0 14px rgba(25, 28, 31, 0.51);
+  transform: rotateY(var(--browser-angle));
+  transform-origin: center;
+  transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+.project-card:nth-child(even) .mockup-phone {
+  box-shadow: 0 18px 35px rgba(0, 0, 0, .38),
+              10 0 14px rgba(25, 28, 31, 0.566);
+}
+
+/* Rotate both devices forward together on hover. */
+.project-card:hover .mockup-browser,
+.project-card:hover .mockup-phone {
+  transform: rotateY(0deg);
+}
+
+.phone-screen {
+  position: relative;
+  aspect-ratio: 9 / 18.5;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #101a28;
+}
+.phone-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.phone-notch {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 50%;
+  width: 37%;
+  height: 8px;
+  transform: translateX(-50%);
+  border-radius: 0 0 7px 7px;
+  background: #101a28;
+}
+
+/* ==========================================
+   PROJECT CONTENT
+========================================== */
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  min-width: 0;
+}
+
+.project-type {
+  display: inline-block;
+  margin-bottom: 15px;
+
+  color: #6ba3d6;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-content h3 {
+  margin: 0 0 18px;
+
+  color: var(--text-bright);
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+
+  overflow-wrap: break-word;
+}
+
+.project-description {
+  max-width: 48ch;
+  margin: 0;
+
+  color: var(--text-muted, #a5afc0);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   CTA BUTTONS
+========================================== */
+
+.project-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 44px;
+  padding: 12px 18px;
+
+  border: 1px solid transparent;
+  border-radius: 5px;
+
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.project-btn svg {
+  width: 16px;
+  height: 16px;
+
+  transition: transform 0.25s ease;
+}
+
+/* View Site */
+
+.project-btn-primary {
+  background: #6ba3d6;
+  border-color: #6ba3d6;
+  color: #08121f;
+}
+
+.project-btn-primary:hover {
+  background: #89b9e2;
+  border-color: #89b9e2;
+  color: #08121f;
+}
+
+/* View Case Study */
+
+.project-btn-outline {
+  background: transparent;
+  border-color: rgba(107, 163, 214, 0.5);
+  color: #a9cceb;
+}
+
+.project-btn-outline:hover {
+  background: rgba(107, 163, 214, 0.1);
+  border-color: #6ba3d6;
+  color: var(--text-bright);
+}
+
+.project-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* ==========================================
+   MOBILE PROJECTS — TWO INWARD-FACING PHONES
+========================================== */
+.mobile-visual {
+  display: grid;
+  place-items: center;
+}
+
+.mobile-mockup-scene {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(12px, 5%, 30px);
+  width: 100%;
+  height: 100%;
+  padding: 4% 5%;
+  box-sizing: border-box;
+  perspective: 1200px;
+}
+
+.mobile-device {
+  flex: 0 1 30%;
+  min-width: 0;
+  max-width: 170px;
+  box-sizing: border-box;
+  padding: 5px;
+  border: 2px solid #7890a8;
+  border-radius: 20px;
+  background: #101a28;
+  box-shadow:
+    0 20px 38px rgba(0, 0, 0, .48),
+    0 0 18px rgba(107, 163, 214, .12);
+  transform-origin: center;
+  transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Opposite Y rotations make both phones face inward. */
+.mobile-device-left {
+  transform: rotateY(16deg);
+}
+
+.mobile-device-right {
+  transform: rotateY(-16deg);
+}
+
+.project-card:hover .mobile-device {
+  transform: rotateY(0deg);
+}
+
+.mobile-device-screen {
+  position: relative;
+  aspect-ratio: 9 / 18.5;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #111b29;
+}
+
+.mobile-device-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.mobile-device-notch {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 50%;
+  width: 37%;
+  height: 8px;
+  transform: translateX(-50%);
+  border-radius: 0 0 7px 7px;
+  background: #101a28;
+}
+
+/* ==========================================
+   VIEW MORE
+========================================== */
+
+.projects-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 65px;
+}
+
+.view-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 14px 24px;
+
+  background: rgba(107, 163, 214, 0.06);
+  border: 1px solid rgba(107, 163, 214, 0.45);
+  border-radius: 5px;
+
+  color: #6ba3d6;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.view-more-btn:hover {
+  background: rgba(107, 163, 214, 0.13);
+  border-color: #6ba3d6;
+  color: var(--text-bright);
+}
+
+.view-more-btn .more-chevron {
+  transition: transform 0.25s ease;
+}
+
+.view-more-btn[aria-expanded="true"] .more-chevron {
+  transform: rotate(180deg);
+}
+
+/* ==========================================
+   COMING SOON
+========================================== */
+
+.projects-empty {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 58px 32px;
+
+  border: 1px solid var(--border-soft);
+  border-radius: 5px;
+
+  background: rgba(107, 163, 214, 0.04);
+  text-align: center;
+}
+
+.empty-icon {
+  display: grid;
+  place-items: center;
+
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 22px;
+
+  border-radius: 50%;
+  background: rgba(107, 163, 214, 0.1);
+  color: #6ba3d6;
+}
+
+.empty-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.projects-empty h3 {
+  margin: 0 0 12px;
+  color: var(--text-bright);
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.projects-empty p {
+  max-width: 400px;
+  margin: 0 auto;
+  color: #aebdd0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+
+
+
+.projects-empty {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 52px 40px;
+
+  text-align: center;
+
+  background: linear-gradient(
+    180deg,
+    #0e1826 0%,
+    #0a111c 100%
+  );
+
+  border: 1px solid rgba(107, 163, 214, 0.12);
+  border-radius: 5px;
+}
+
+.projects-empty::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+
+  width: 300px;
+  height: 240px;
+
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    ellipse,
+    rgba(107, 163, 214, 0.10) 0%,
+    rgba(107, 163, 214, 0.035) 40%,
+    transparent 75%
+  );
+}
+
+.empty-icon {
+  display: grid;
+  place-items: center;
+
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 22px;
+
+  border-radius: 50%;
+  background: rgba(107, 163, 214, 0.10);
+}
+
+.empty-icon svg {
+  width: 24px;
+  height: 24px;
+
+  fill: none;
+  stroke: #6ba3d6;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.empty-label {
+  display: block;
+  margin-bottom: 10px;
+
+  color: #6ba3d6;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.projects-empty h3 {
+  margin: 0 0 14px;
+  font-size: clamp(22px, 3vw, 26px);
+  font-weight: 700;
+}
+
+.projects-empty p {
+  max-width: 650px;
+  margin: 0 auto;
+
+  color: #a5b4c7;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 991px) {
+  .projects-list {
+    gap: 70px;
+  }
+
+  .project-card {
+    column-gap: 30px;
+  }
+
+  .project-content h3 {
+    font-size: 27px;
+    margin-bottom: 15px;
+  }
+
+  .project-description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .project-actions {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .project-btn {
+    padding: 11px 14px;
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+  .project-filters {
+    margin-bottom: 45px;
+  }
+
+  .projects-list {
+    gap: 60px;
+  }
+
+  .project-card {
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .project-card,
+  .project-card:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+  }
+
+  /* Screenshot always first */
+  .project-card .project-visual,
+  .project-card:nth-child(even) .project-visual {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .project-card .project-content,
+  .project-card:nth-child(even) .project-content {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .project-content h3 {
+    font-size: 27px;
+  }
+
+
+  .project-description {
+    max-width: 100%;
+  }
+
+  .projects-more {
+    margin-top: 45px;
+  }
+}
+
+/* ==========================================
+   TABLET & MOBILE — NO 3D ROTATION
+========================================== */
+
+@media (max-width: 767px) {
+  .project-visual,
+  .mockup-scene {
+    perspective: none;
+  }
+
+  .mockup-browser,
+  .mockup-phone,
+  .project-card:hover .mockup-browser,
+  .project-card:hover .mockup-phone {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 520px) {
+  .project-filters {
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .project-filter {
+    min-width: 0;
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+
+  .projects-list {
+    gap: 55px;
+  }
+
+  .project-content h3 {
+    font-size: 25px;
+  }
+
+  .project-description {
+    font-size: 14px;
+  }
+
+  .project-actions {
+    gap: 10px;
+  }
+
+  .project-btn {
+    padding: 11px 14px;
+    font-size: 12px;
+  }
+
+  .projects-empty {
+    padding: 42px 24px;
+  }
+
+  .view-more-btn {
+    padding: 12px 18px;
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .project-filter,
+  .project-visual,
+  .mockup-browser,
+  .mockup-phone,
+  .mobile-device,
+  .project-btn,
+  .project-btn svg,
+  .view-more-btn,
+  .view-more-btn .more-chevron {
+    transition: none;
+  }
+}
+</style>
+
+<script>
+  function initProjects() {
+    const section = document.querySelector<HTMLElement>('#projects');
+    if (!section) return;
+
+    /* CATEGORY FILTERS */
+
+    const filters = section.querySelectorAll<HTMLButtonElement>(
+      '.project-filter'
+    );
+
+    const panels = section.querySelectorAll<HTMLElement>(
+      '.project-panel'
+    );
+
+    filters.forEach(button => {
+      if (button.dataset.initialized === 'true') return;
+      button.dataset.initialized = 'true';
+
+      button.addEventListener('click', () => {
+        const selected = button.dataset.filter;
+
+        filters.forEach(filter => {
+          const active = filter === button;
+
+          filter.classList.toggle('active', active);
+          filter.setAttribute('aria-pressed', String(active));
+        });
+
+        panels.forEach(panel => {
+          panel.hidden = panel.dataset.panel !== selected;
+        });
+      });
+    });
+
+    /* VIEW MORE / SHOW LESS */
+
+    const moreButtons = section.querySelectorAll<HTMLButtonElement>(
+      '.view-more-btn'
+    );
+
+    moreButtons.forEach(button => {
+      if (button.dataset.initialized === 'true') return;
+      button.dataset.initialized = 'true';
+
+      button.addEventListener('click', () => {
+        const panel = button.closest('.project-panel');
+        if (!panel) return;
+
+        const extraCards = panel.querySelectorAll<HTMLElement>(
+          '.extra-project'
+        );
+
+        const expanded =
+          button.getAttribute('aria-expanded') === 'true';
+
+        extraCards.forEach(card => {
+          card.hidden = expanded;
+        });
+
+        button.setAttribute(
+          'aria-expanded',
+          String(!expanded)
+        );
+
+        const label = button.querySelector<HTMLElement>(
+          '.view-more-label'
+        );
+
+        if (label) {
+          label.textContent = expanded
+            ? `View More Projects (${extraCards.length})`
+            : 'Show Fewer Projects';
+        }
+
+        if (expanded) {
+          const list = panel.querySelector('.projects-list');
+
+          list?.scrollIntoView({
+            behavior: 'auto',
+            block: 'start'
+          });
+        }
+      });
+    });
+  }
+
+  initProjects();
+
+  document.addEventListener(
+    'astro:page-load',
+    initProjects
+  );
+</script>

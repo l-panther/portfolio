@@ -1,0 +1,283 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-intro reveal">
+        <span class="hero-hi">Hi, I'm Leroy</span>
+        <span class="hero-role">Designer <i></i> Developer <i></i> Visual Creator</span>
+      </div>
+
+      <h1 class="reveal" style="--d:.05s">
+        Building Better <span class="glow-blue">Web Experiences</span>
+      </h1>
+
+      <p class="reveal" style="--d:.1s">
+       I design and develop modern, responsive websites and interactive web applications, combining thoughtful design, clean code, and engaging visuals to create seamless digital experiences.
+      </p>
+      <div class="hero-actions reveal" style="--d:.15s">
+        <a href="#projects" class="btn btn-fill">My Projects</a>
+        <a href="#about" class="btn btn-outline">About Me</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal zoom" style="--d:.2s">
+      <div class="developer-hero">
+        <img
+          src={`${base}assets/images/main/about.png`}
+          alt="Creative workspace representing web development, visual design and painting"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  padding: 110px 24px 0;
+
+  background:
+    radial-gradient(
+      60% 55% at 22% 25%,
+      rgba(74, 128, 181, 0.16) 0%,
+      rgba(10, 18, 30, 0) 65%
+    ),
+    var(--bg-hero);
+}
+
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.hero-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+
+  margin-bottom: 18px;
+}
+
+.hero-role {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: var(--blue-brighter);
+
+  font-size: 0.95em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-role i {
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  background: #2f6798;
+  border-radius: 50%;
+
+  box-shadow: 0 0 7px rgba(47, 103, 152, 0.65);
+}
+
+.hero-hi {
+  margin-bottom: 14px;
+
+  color: var(--text-bright);
+
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.hero h1 {
+  margin-bottom: 26px;
+
+  color: var(--text-bright);
+
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.hero p {
+  max-width: 480px;
+  margin-bottom: 34px;
+
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.hero-visual {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.hero-visual img {
+  display: block;
+
+  width: 80%;
+  max-width: 100%;
+  height: auto;
+
+  object-fit: contain;
+  margin: auto;
+}
+
+/* -------------------------
+   TABLET
+-------------------------- */
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    padding: 90px 24px 70px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    text-align: center;
+  }
+
+  .hero-grid > div:first-child {
+    text-align: center;
+  }
+
+  .hero-intro {
+    align-items: center;
+  }
+
+  .hero-grid p,
+  .hero-grid span {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .hero-visual img {
+    width: 65%;
+    max-width: 650px;
+    height: auto;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  /* Hero */
+
+  .hero {
+    padding: 65px 18px 50px;
+  }
+
+  .hero-grid {
+    gap: 32px;
+  }
+
+  .hero-intro {
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  /* Designer • Developer • Visual Creator */
+
+  .hero-role {
+    gap: 6px;
+
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-role i {
+    width: 3px;
+    height: 3px;
+  }
+
+  .hero-hi {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .hero h1 {
+    margin-bottom: 18px;
+
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+  .hero p {
+    margin-bottom: 24px;
+
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .hero-visual {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+  }
+
+  .hero-visual img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+}
+</style>

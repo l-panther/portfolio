@@ -1,0 +1,110 @@
+
+---
+interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<div class="website-thumbnail">
+  <div class="thumbnail-browser">
+    <div class="thumbnail-toolbar" aria-hidden="true">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+    </div>
+
+    <div class="thumbnail-screen">
+      <img src={src} alt={alt} loading="lazy" />
+    </div>
+  </div>
+</div>
+
+<style>
+.website-thumbnail {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  overflow: hidden;
+}
+
+.thumbnail-browser {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  background: #121314;
+  border: 1px solid #1f242a;
+  border-radius: 8px 8px 0 0;
+  box-shadow: none;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.thumbnail-toolbar {
+  height: 23px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 10px;
+
+    /* Dark metallic frame */
+  background: linear-gradient(
+    135deg,
+    #777a7d 0%,
+    #45484b 18%,
+    #66696c 38%,
+    #292c30 65%,
+    #4b4e52 85%,
+    #737679 100%
+  );
+
+
+  border-bottom: 1px solid #25282b;
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.18),
+    inset 0 -1px rgba(0, 0, 0, 0.15);
+}
+
+.thumbnail-screen {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 1px solid #404244;
+  }
+
+  .red { background: #a84846; }
+  .yellow { background: #f0bd57; }
+  .green { background: #4b8968; }
+
+
+  .thumbnail-screen img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  @media (max-width: 600px) {
+    .website-thumbnail {
+      padding: 10px;
+    }
+
+    .thumbnail-toolbar {
+      height: 20px;
+    }
+  }
+</style>

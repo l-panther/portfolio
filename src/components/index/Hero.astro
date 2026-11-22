@@ -1,0 +1,325 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-intro reveal">
+        <span class="hero-hi">Hi, I'm Leroy</span>
+        <span class="hero-role">Designer <i></i> Developer <i></i> Visual Creator</span>
+      </div>
+
+      <h1 class="reveal" style="--d:.05s">
+        Building Better <span class="glow-blue">Web Experiences</span>
+      </h1>
+
+      <p class="reveal" style="--d:.1s">
+       I design and develop modern, responsive websites and interactive web applications, combining thoughtful design, clean code, and engaging visuals to create seamless digital experiences.
+      </p>
+      <div class="hero-actions reveal" style="--d:.15s">
+        <a href="#projects" class="btn btn-fill">My Projects</a>
+        <a href="#about" class="btn btn-outline">About Me</a>
+      </div>
+    </div>
+
+    <div class="hero-mobile-art" aria-hidden="true">
+      <img
+        src={`${base}assets/images/hero/hero-mobile.webp`}
+        alt=""
+        decoding="async"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+
+/* =========================================================
+   HERO — DESKTOP
+========================================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 800px;
+  padding: 100px 24px;
+
+  color: #fff;
+  background-color: #080f1b;
+
+  background-image:
+    /* Top fade */
+    linear-gradient(
+      to bottom,
+      #080f1b 0%,
+      rgba(8, 15, 27, 0.75) 8%,
+      transparent 22%
+    ),
+
+    /* Bottom fade */
+    linear-gradient(
+      to bottom,
+      transparent 65%,
+      rgba(8, 15, 27, 0.3) 83%,
+      #0a121d 100%
+    ),
+
+    /* Right gradient */
+    linear-gradient(
+      to left,
+      rgba(8, 15, 27, 0.95) 0%,
+      rgba(8, 15, 27, 0.8) 5%,
+      rgba(8, 15, 27, 0.35) 15%,
+      transparent 70%
+    ),
+
+    /* Left text gradient */
+    linear-gradient(
+      to right,
+      rgba(8, 15, 27, 0.95) 0%,
+      rgba(8, 15, 27, 0.8) 28%,
+      rgba(8, 15, 27, 0.35) 48%,
+      transparent 70%
+    ),
+
+    url("/assets/images/hero/hero.webp");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.hero-content {
+  min-width: 0;
+}
+
+.hero-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.hero-hi {
+  margin-bottom: 14px;
+  color: var(--text-bright);
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.hero-role {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: var(--blue-brighter);
+  font-size: 0.95em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-role i {
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: #2f6798;
+  border-radius: 50%;
+  box-shadow: 0 0 7px rgba(47, 103, 152, 0.65);
+}
+
+.hero h1 {
+  margin-bottom: 26px;
+  color: var(--text-bright);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.hero p {
+  max-width: 480px;
+  margin-bottom: 34px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Desktop illustration is already in the hero background */
+.hero-mobile-art {
+  display: none;
+}
+
+/* =========================================================
+   TABLET — 900px AND BELOW
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    display: block;
+    min-height: 0;
+    padding: 75px 0 0;
+
+    /* Completely remove desktop background */
+    background: #080f1b;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .hero-content {
+    width: min(600px, calc(100% - 40px));
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hero-intro {
+    align-items: center;
+  }
+
+  .hero-role {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero p {
+    margin-inline: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  /* Separate artwork below the text */
+  .hero-mobile-art {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+
+  .hero-mobile-art img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-mobile-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background:     /* Bottom fade */
+    linear-gradient(
+      to bottom,
+      transparent 65%,
+      rgba(8, 15, 27, 0.5) 83%,
+      #0a121d 100%
+    ),
+
+    /* Left text gradient */
+    linear-gradient(
+      to left,
+      rgba(8, 15, 27, 0.95) 0%,
+      rgba(8, 15, 27, 0.8) 5%,
+      rgba(8, 15, 27, 0.35) 10%,
+      transparent 70%
+    ),
+    /* Left text gradient */
+    linear-gradient(
+      to right,
+      rgba(8, 15, 27, 0.95) 0%,
+      rgba(8, 15, 27, 0.8) 5%,
+      rgba(8, 15, 27, 0.35) 10%,
+      transparent 70%
+    ),
+  }
+}
+
+/* =========================================================
+   MOBILE — 600px AND BELOW
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding: 55px 0 0;
+  }
+
+  .hero-content {
+    width: calc(100% - 36px);
+  }
+
+  .hero-intro {
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  .hero-hi {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .hero-role {
+    gap: 6px;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-role i {
+    width: 3px;
+    height: 3px;
+  }
+
+  .hero h1 {
+    margin-bottom: 18px;
+    font-size: clamp(28px, 7.5vw, 34px);
+    line-height: 1.1;
+  }
+
+  .hero p {
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+}
+
+</style>

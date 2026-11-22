@@ -1,0 +1,847 @@
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left reveal left">
+      <h2>Let's <span class="glow-blue">Work</span> Together</h2>
+      <p>I'm open to freelance work, collaborations, or full-time roles. If you have an idea or project, let's talk.</p>
+      <ul class="contact-links">
+
+        <!-- Email -->
+        <li>
+          <a href="mailto:leroy_rus@hotmail.com">
+            <span class="ic">
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm8 7L4 6v12h16V6l-8 5zm0-2 8-5H4l8 5z"
+                />
+              </svg>
+            </span>
+      
+            <span>leroy_rus@hotmail.com</span>
+          </a>
+        </li>
+      
+        <!-- LinkedIn -->
+        <li>
+          <a
+            href="https://linkedin.com/in/leroy-russell-painter-web-2d3d"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="ic">
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9H7.12v11.452z"
+                />
+              </svg>
+            </span>
+      
+            <span>LinkedIn</span>
+          </a>
+        </li>
+      
+        <!-- GitHub -->
+        <li>
+          <a
+            href="https://github.com/l-panther/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="ic">
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 .7C5.7.7.6 5.8.6 12.1c0 5 3.3 9.3 7.8 10.8.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.2 4.7 18.2 5 18.2 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.1v3.3c0 .3.2.7.8.6a11.4 11.4 0 0 0 7.8-10.8C23.4 5.8 18.3.7 12 .7z"
+                />
+              </svg>
+            </span>
+      
+            <span>GitHub</span>
+          </a>
+        </li>
+      
+      </ul>
+    </div>
+    <!--
+    <form class="reveal right" style="--d:.1s" onsubmit="event.preventDefault(); this.reset(); const b=this.querySelector('.btn'); const t=b.textContent; b.textContent='Message Sent'; setTimeout(()=>b.textContent=t,2200);">
+      <div class="field"><label>Name</label><input type="text" required placeholder=""></div>
+      <div class="field"><label>Email</label><input type="email" required placeholder=""></div>
+      <div class="field"><label>Message</label><textarea rows="3" required></textarea></div>
+      <button type="submit" class="btn btn-fill">Send Message</button>
+    </form> -->
+
+    <form
+      id="contactForm"
+      class="reveal right"
+      style="--d:.1s"
+      novalidate
+    >
+      <div class="field">
+        <label for="contactName">Name</label>
+      
+        <input
+          id="contactName"
+          name="name"
+          type="text"
+          minlength="2"
+          maxlength="80"
+          autocomplete="name"
+          required
+        >
+      
+        <small class="field-error" id="nameError"></small>
+      </div>
+      
+      <div class="field">
+        <label for="contactEmail">Email</label>
+      
+        <input
+          id="contactEmail"
+          name="email"
+          type="email"
+          maxlength="254"
+          autocomplete="email"
+          required
+        >
+      
+        <small class="field-error" id="emailError"></small>
+      </div>
+
+      <div class="field">
+        <label for="contactMessage">Message</label>
+      
+        <textarea
+          id="contactMessage"
+          name="message"
+          rows="4"
+          minlength="10"
+          maxlength="500"
+          required
+        ></textarea>
+      
+        <div class="message-meta">
+          <small class="field-error" id="messageError"></small>
+          <small class="char-count" id="charCount">
+            2000 characters remaining
+          </small>
+        </div>
+      </div>
+    
+      <!-- Honeypot: humans won't see this -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabindex="-1"
+          autocomplete="off"
+        >
+      </div>
+    
+      <button type="submit" class="btn btn-fill">
+        Send Message
+      </button>
+    
+      <div
+        id="formStatus"
+        class="form-alert"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></div>
+    </form>
+  </div>
+</section>
+
+
+<style>
+  
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+  background: var(--bg-hero);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  margin-bottom: 20px;
+
+  color: var(--text-bright);
+
+  font-size: clamp(28px, 3.6vw, 40px);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.contact-left > p {
+  max-width: 340px;
+  margin-bottom: 30px;
+
+  color: var(--muted);
+  font-size: 15px;
+}
+
+
+/* Contact / social links */
+
+.contact-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-links li {
+  margin-bottom: 16px;
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  color: var(--text);
+  font-size: 14.5px;
+
+  transition: color 0.2s ease;
+}
+
+.contact-links a:hover {
+  color: var(--blue-brighter);
+}
+
+.contact-links .ic {
+  display: grid;
+  place-items: center;
+
+  flex: 0 0 36px;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid var(--border-soft);
+  border-radius: 9px;
+
+  color: var(--blue-brighter);
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.contact-links .ic svg {
+  display: block;
+
+  width: 17px;
+  height: 17px;
+
+  fill: var(--blue-brighter);
+}
+
+.contact-links a:hover .ic {
+  border-color: var(--blue);
+  background: rgba(107, 163, 214, 0.06);
+}
+
+
+/* Contact form */
+
+.field {
+  margin-bottom: 26px;
+}
+
+.field label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 6px 2px 12px;
+
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-soft);
+  outline: none;
+
+  color: var(--text-bright);
+
+  font-family: inherit;
+  font-size: 15px;
+
+  resize: none;
+
+  transition: border-color 0.25s ease;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--blue);
+}
+
+.contact form {
+  padding: 30px;
+
+  background: rgba(12, 17, 25, 0.45);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+}
+
+.contact form .btn {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.field-error {
+  display: block;
+  min-height: 18px;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #ff7474;
+}
+
+.field input.invalid,
+.field textarea.invalid {
+  border-color: #ff7474;
+}
+
+/* =========================
+   FORM STATUS
+========================= */
+
+.form-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 16px;
+  padding: 12px 14px;
+
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.form-alert.success {
+  color: #b8c66a;
+  background: rgba(139, 152, 62, 0.1);
+  border: 1px solid rgba(139, 152, 62, 0.45);
+}
+
+.form-alert.error {
+  color: #ff8585;
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.4);
+}
+
+.form-alert.fade-out {
+  opacity: 0;
+}
+
+.form-alert[hidden] {
+  display: none;
+}
+
+/* =========================
+   DYNAMIC STATUS BADGES
+   Must be global in Astro
+========================= */
+
+:global(.status-icon) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+
+  border-radius: 50%;
+}
+
+:global(.status-icon.success-icon) {
+  background: #8b983e;
+}
+
+:global(.status-icon.error-icon) {
+  background: #dc3545;
+}
+
+:global(.status-icon svg) {
+  display: block;
+  width: 17px;
+  height: 17px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.field-error {
+  display: block;
+  min-height: 18px;
+  margin-top: 6px;
+
+  font-size: 0.8rem;
+  color: #ff7474;
+}
+
+.field input.invalid,
+.field textarea.invalid {
+  border-color: #ff7474;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Error badge */
+.status-icon.error-icon {
+  background: #dc3545;
+}
+
+.form-alert.error {
+  color: #ff8585;
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.4);
+}
+
+.status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+
+  border-radius: 50%;
+  color: #fff;
+}
+
+.success-icon {
+  background: #8b983e;
+}
+
+.error-icon {
+  background: #dc3545;
+}
+
+.status-icon svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+}
+
+.message-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.char-count {
+  margin-top: 6px;
+  margin-left: auto;
+  flex-shrink: 0;
+
+  font-size: 0.75rem;
+  color: var(--muted);
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 860px) {
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  
+  /* Contact */
+
+  .contact-grid {
+    gap: 35px;
+  }
+
+  .contact h2 {
+    font-size: 26px;
+  }
+
+  .contact-left > p {
+    margin-bottom: 22px;
+
+    font-size: 14px;
+  }
+
+  .contact-links li {
+    margin-bottom: 11px;
+  }
+
+  .contact-links a {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 13px;
+  }
+
+  .contact-links .ic {
+    flex: 0 0 30px;
+
+    width: 30px;
+    height: 30px;
+
+    font-size: 13px;
+  }
+
+  .contact form {
+    padding: 20px 16px;
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  .field label {
+    margin-bottom: 7px;
+    font-size: 12.5px;
+  }
+
+  .field input,
+  .field textarea {
+    font-size: 14px;
+  }
+
+  .contact form .btn {
+    width: auto;
+    min-width: 130px;
+  }
+}
+</style>
+
+
+<!-- Form submit -->
+<script is:inline>
+  const form = document.getElementById("contactForm");
+
+  if (form) {
+    const button = form.querySelector('button[type="submit"]');
+
+    const nameInput = document.getElementById("contactName");
+    const emailInput = document.getElementById("contactEmail");
+    const messageInput = document.getElementById("contactMessage");
+    const charCount = document.getElementById("charCount");
+
+    const MAX_MESSAGE_LENGTH = 500;
+    
+    function updateCharacterCount() {
+      const remaining =
+        MAX_MESSAGE_LENGTH - messageInput.value.length;
+    
+      charCount.textContent =
+        `${remaining} character${remaining === 1 ? "" : "s"} remaining`;
+    }
+    
+    messageInput.addEventListener("input", updateCharacterCount);
+
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const messageError = document.getElementById("messageError");
+
+    const status = document.getElementById("formStatus");
+
+    const GOOGLE_SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbwhKC5vS_91Zyq8TAfRLztYldCq5VJE5cUbZiBzOK7QMhOaEsLfzEi-t7mpYNnultBq_g/exec";
+
+
+    // ---------------------------------
+    // CLEAR VALIDATION ERRORS
+    // ---------------------------------
+    function clearErrors() {
+      nameError.textContent = "";
+      emailError.textContent = "";
+      messageError.textContent = "";
+
+      nameInput.classList.remove("invalid");
+      emailInput.classList.remove("invalid");
+      messageInput.classList.remove("invalid");
+
+      status.hidden = true;
+    }
+
+
+    // ---------------------------------
+    // VALIDATE FORM
+    // ---------------------------------
+    function validateForm() {
+      clearErrors();
+
+      let valid = true;
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const message = messageInput.value.trim();
+
+      // Name
+      if (name.length < 2) {
+        nameError.textContent = "Please enter your name.";
+        nameInput.classList.add("invalid");
+        valid = false;
+      }
+
+      // Email
+      if (!email) {
+        emailError.textContent = "Please enter your email address.";
+        emailInput.classList.add("invalid");
+        valid = false;
+
+      } else if (!emailInput.validity.valid) {
+        emailError.textContent = "Please enter a valid email address.";
+        emailInput.classList.add("invalid");
+        valid = false;
+      }
+
+      // Message
+      if (message.length < 10) {
+        messageError.textContent =
+          "Please enter at least 10 characters.";
+
+        messageInput.classList.add("invalid");
+        valid = false;
+      }
+
+      return valid;
+    }
+
+
+    // ---------------------------------
+    // FORM SUBMIT
+    // ---------------------------------
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!validateForm()) {
+        return;
+      }
+
+      const originalText = button.textContent;
+
+      button.disabled = true;
+      button.textContent = "Sending...";
+
+      // Clear previous status
+      status.hidden = true;
+      status.classList.remove("fade-out");
+
+
+      try {
+        const formData = new FormData(form);
+
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors"
+        });
+
+        form.reset();
+        updateCharacterCount();
+
+        // -------------------------
+        // SUCCESS
+        // -------------------------
+        status.innerHTML = `
+          <span class="status-icon success-icon" aria-hidden="true">
+        
+            <svg
+              viewBox="0 0 24 24"
+              width="17"
+              height="17"
+            >
+              <path
+                d="M6 12.5l4 4L18 8"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+        
+          </span>
+        
+          <span>
+            Thank you. Your message has been submitted.
+          </span>
+        `;
+        
+        status.className = "form-alert success";
+        status.hidden = false;
+
+        button.textContent = "Message Sent";
+
+
+        // Fade success after 5.5 seconds
+        setTimeout(() => {
+          status.classList.add("fade-out");
+
+          setTimeout(() => {
+            status.hidden = true;
+            status.classList.remove("fade-out");
+          }, 300);
+
+        }, 5500);
+
+
+      } catch (error) {
+
+        console.error("Contact form error:", error);
+
+
+        // -------------------------
+        // ERROR
+        // -------------------------
+        status.innerHTML = `
+          <span class="status-icon error-icon" aria-hidden="true">
+        
+            <svg
+              viewBox="0 0 24 24"
+              width="17"
+              height="17"
+            >
+              <path
+                d="M12 6v8"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              />
+        
+              <circle
+                cx="12"
+                cy="18"
+                r="1.3"
+                fill="#ffffff"
+              />
+            </svg>
+        
+          </span>
+        
+          <span>
+            Sorry, your message couldn't be submitted. Please try again.
+          </span>
+        `;
+        
+        status.className = "form-alert error";
+        status.hidden = false;
+
+        button.textContent = originalText;
+
+
+        // Fade error after 6 seconds
+        setTimeout(() => {
+          status.classList.add("fade-out");
+
+          setTimeout(() => {
+            status.hidden = true;
+            status.classList.remove("fade-out");
+          }, 300);
+
+        }, 6000);
+      }
+
+
+      // Re-enable button
+      button.disabled = false;
+
+
+      // Return button to normal
+      setTimeout(() => {
+        button.textContent = originalText;
+      }, 2200);
+    });
+
+
+    // ---------------------------------
+    // REMOVE FIELD ERROR WHILE TYPING
+    // ---------------------------------
+    [nameInput, emailInput, messageInput].forEach((input) => {
+
+      input.addEventListener("input", () => {
+
+        input.classList.remove("invalid");
+
+        const error = input
+          .closest(".field")
+          .querySelector(".field-error");
+
+        if (error) {
+          error.textContent = "";
+        }
+      });
+
+    });
+
+  } 
+</script>

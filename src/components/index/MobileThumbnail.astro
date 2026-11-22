@@ -1,0 +1,138 @@
+---
+interface Props {
+  primary: string;
+  secondary: string;
+  title: string;
+}
+
+const { primary, secondary, title } = Astro.props;
+---
+
+<div class="mobile-thumbnail">
+  <div class="mobile-thumbnail-phones">
+
+    <div class="mobile-thumbnail-phone">
+      <div class="mobile-thumbnail-screen">
+        <img
+          src={primary}
+          alt={`${title} first screen`}
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <div class="mobile-thumbnail-phone">
+      <div class="mobile-thumbnail-screen">
+        <img
+          src={secondary}
+          alt={`${title} second screen`}
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+.mobile-thumbnail {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.mobile-thumbnail-phones {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  border: transparent !important;
+  background: transparent !important;
+}
+
+.mobile-thumbnail-phone {
+  height: 92%;
+  aspect-ratio: 9 / 19;
+  padding: 4px;
+
+  /* Dark metallic frame */
+  background: linear-gradient(
+    135deg,
+    #777a7d 0%,
+    #45484b 18%,
+    #66696c 38%,
+    #292c30 65%,
+    #4b4e52 85%,
+    #737679 100%
+  );
+
+  border: 1px solid #33373a;
+  border-radius: 17px;
+
+  box-shadow:
+    inset 1px 1px 1px rgba(255, 255, 255, 0.18),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.35),
+    0 12px 22px -14px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-thumbnail-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  background: #fff;
+  border: 2px solid #202630;
+  border-radius: 13px;
+}
+
+.mobile-thumbnail-screen::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 28%;
+  height: 7px;
+  background: #15191f;
+  border-radius: 20px;
+}
+
+.mobile-thumbnail-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (max-width: 600px) {
+  .mobile-thumbnail-phones {
+    gap: 8px;
+  }
+
+  .mobile-thumbnail-phone {
+    height: 90%;
+    padding: 3px;
+    border-radius: 14px;
+  }
+
+  .mobile-thumbnail-screen {
+    border-radius: 10px;
+  }
+}
+</style>
