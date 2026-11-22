@@ -1,0 +1,190 @@
+---
+interface Props {
+  desktop: string;
+  mobile: string;
+  title: string;
+}
+
+const { desktop, mobile, title } = Astro.props;
+---
+
+<div class="website-mockup">
+
+  <div class="website-browser">
+    <div class="website-browser-toolbar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+    </div>
+
+    <div class="website-browser-screen">
+      <img src={desktop} alt={`${title} desktop screenshot`} />
+    </div>
+  </div>
+
+  <div class="website-phone">
+    <div class="website-phone-screen">
+      <img src={mobile} alt={`${title} mobile screenshot`} />
+    </div>
+  </div>
+
+</div>
+
+<style>
+.website-mockup {
+  position: relative;
+  width: 100%;
+  max-width: 570px;
+  aspect-ratio: 1.55;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Silver metallic browser frame */
+.website-browser {
+  width: 86%;
+  background: #fff;
+
+  border: 1px solid #4d4e50;
+  border-radius: 10px;
+  overflow: hidden;
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    0 18px 32px -20px rgba(18, 35, 63, 0.3);
+}
+
+/* Brushed silver metallic toolbar */
+.website-browser-toolbar {
+  height: 25px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 10px;
+
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #e8edf1 20%,
+    #c0c9d2 55%,
+    #e4e9ed 85%,
+    #aeb9c4 100%
+  );
+
+  border-bottom: 1px solid #97a5b3;
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.9),
+    inset 0 -1px rgba(80, 95, 110, 0.12);
+}
+
+.website-browser-toolbar .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid #15191f;
+}
+
+.website-browser-toolbar .red {
+  background: #ef6b68;
+}
+
+.website-browser-toolbar .yellow {
+  background: #f0bd57;
+}
+
+.website-browser-toolbar .green {
+  background: #65ba8d;
+}
+
+.website-browser-screen {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.website-browser-screen img,
+.website-phone-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+/* Silver metallic phone frame */
+.website-phone {
+  position: absolute;
+  right: 0;
+  bottom: -4%;
+
+  width: 25%;
+  padding: 5px;
+
+  background: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #b4bec9 18%,
+    #eef2f5 38%,
+    #8e9ba9 65%,
+    #dce3e9 85%,
+    #ffffff 100%
+  );
+
+  border: 1px solid #4d4e50;
+  border-radius: 15px;
+
+  box-shadow:
+    inset 1px 1px 1px rgba(255, 255, 255, 0.9),
+    inset -1px -1px 2px rgba(55, 70, 90, 0.25),
+    0 18px 32px -16px rgba(18, 35, 63, 0.35);
+}
+
+/* Dark inner bezel */
+.website-phone-screen {
+  position: relative;
+  aspect-ratio: 9 / 19;
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 2px solid #adadad;
+  border-radius: 10px;
+}
+
+/* Camera / dynamic island */
+.website-phone-screen::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 29%;
+  height: 9px;
+
+  background: #15191f;
+  border-radius: 20px;
+}
+
+/* Screenshot */
+.website-phone-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (max-width: 600px) {
+  .website-phone {
+    width: 27%;
+    padding: 4px;
+    border-radius: 18px;
+  }
+
+  .website-phone-screen {
+    border-radius: 14px;
+  }
+}
+</style>

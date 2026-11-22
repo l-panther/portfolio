@@ -1,5 +1,5 @@
 ---
-import type { Project } from '../../types/projects';
+import type { Website } from '../../types/website';
 
 import CristianSVG from '../Design/CristianSVG.astro';
 import DiabetesSVG from '../Design/DiabetesSVG.astro';
@@ -11,7 +11,7 @@ import SladeSVG from '../Design/SladeSVG.astro';
 import SoulfulSVG from '../Design/SoulfulSVG.astro';
 import WindowCleanerSVG from '../Design/WindowCleanerSVG.astro';
 
-const { project } = Astro.props as { project: Project };
+const { project } = Astro.props as { project: Website };
 
 const svgMap = {
   cristian: CristianSVG,
