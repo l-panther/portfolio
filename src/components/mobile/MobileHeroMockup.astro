@@ -1,0 +1,119 @@
+
+---
+interface Props {
+  primary: string;
+  secondary: string;
+  title: string;
+}
+
+const { primary, secondary, title } = Astro.props;
+---
+
+<div class="mobile-mockup">
+
+  <div class="mockup-phone phone-primary">
+    <div class="phone-screen">
+      <img src={primary} alt={`${title} main screen`} />
+    </div>
+  </div>
+
+  <div class="mockup-phone phone-secondary">
+    <div class="phone-screen">
+      <img src={secondary} alt={`${title} secondary screen`} />
+    </div>
+  </div>
+
+</div>
+
+<style>
+.mobile-mockup {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1.35;
+  margin-inline: auto;
+}
+
+.mockup-phone {
+  position: absolute;
+  width: 39%;
+  padding: 5px;
+
+  /* Brushed silver metallic frame */
+  background: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #b4bec9 18%,
+    #eef2f5 38%,
+    #8e9ba9 65%,
+    #dce3e9 85%,
+    #ffffff 100%
+  );
+
+  border: 1px solid #aaacae;
+  border-radius: 22px;
+
+  box-shadow:
+    inset 1px 1px 1px rgba(255, 255, 255, 0.9),
+    inset -1px -1px 2px rgba(55, 70, 90, 0.25),
+    0 18px 32px -16px rgba(18, 35, 63, 0.35);
+}
+
+.phone-screen {
+  position: relative;
+  aspect-ratio: 9 / 19;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 17px;
+}
+
+.phone-screen::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 29%;
+  height: 9px;
+  border-radius: 20px;
+  background: #17233a;
+}
+
+.phone-screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.phone-primary {
+  left: 13%;
+  top: 0;
+  z-index: 2;
+  transform: rotate(-4deg);
+}
+
+.phone-secondary {
+  right: 10%;
+  top: 12%;
+  z-index: 1;
+  transform: rotate(5deg);
+}
+
+@media (max-width: 600px) {
+  .mobile-mockup {
+    max-width: 340px;
+  }
+
+  .mockup-phone {
+    border-radius: 18px;
+    padding: 4px;
+  }
+
+  .phone-screen {
+    border-radius: 14px;
+  }
+}
+</style>

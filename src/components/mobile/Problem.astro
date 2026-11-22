@@ -1,0 +1,33 @@
+---
+import type { Mobile } from '../../types/mobile';
+
+const { project } = Astro.props as { project: Mobile };
+---
+
+
+<section class="stat-sec">
+  <div class="wrap">
+    <h2 class="reveal">The <span class="accent">Problem</span></h2>
+    {project.statement && (
+        <p class="project-statement">{project.statement}</p>
+      )}
+
+      {project.problem?.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+  </div>
+</section>
+
+<section class="stat-sec" style="padding-top:0;">
+  <div class="wrap">
+    <h2 class="reveal">The <span class="accent">Solution</span></h2>
+    {project.solution.map((solve, index) => (
+    <p 
+        class="reveal" 
+        style={`--d:${index * 0.05}s`}
+    >
+        {solve}
+    </p>
+    ))}
+  </div>
+</section>

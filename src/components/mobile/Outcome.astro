@@ -1,9 +1,9 @@
 ---
-import type { MobileProject } from '../../types/mobile';
+import type { Mobile } from '../../types/mobile';
 import ProjectNavigation from './ProjectNavigation.astro';
 
 const { project } = Astro.props as {
-  project: MobileProject;
+  project: Mobile;
 };
 
 const base = import.meta.env.BASE_URL;
@@ -21,7 +21,7 @@ const hasGithub = Boolean(
 );
 ---
 
-<section class="mobile-outcome" id="outcome">
+<section class="split-sec" id="outcome">
 
   <div class="split-grid">
 
@@ -35,20 +35,20 @@ const hasGithub = Boolean(
 
       {project.technologies?.length > 0 && (
         <>
-          <p class="stack-intro">The core stack includes:</p>
-
-          <div class="stack-icons">
-            {project.technologies.map((technology) => (
-              <div class="chip">
-                <img
-                  src={`${base}assets/images/technologies/${technology}.png`}
-                  alt={`${technology} logo`}
-                  title={technology}
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
+        <p style="margin-top:20px;font-weight:600;color:var(--ink);">The core stack includes:</p>
+    
+        <div class="stack-icons">
+          {project.technologies.map((technology) => (
+            <div class="chip">
+              <img
+                src={`${base}assets/images/technologies/${technology}.png`}
+                alt={`${technology} logo`}
+                title={technology}
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
         </>
       )}
     </div>
@@ -97,8 +97,4 @@ const hasGithub = Boolean(
     </div>
 
   </div>
-
-  <!-- PROJECT NAVIGATION -->
-  <ProjectNavigation currentSlug={project.slug} />
-
 </section>

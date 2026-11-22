@@ -1,44 +1,37 @@
 ---
 import type { Mobile } from '../../types/mobile';
-
+import MobileHeroMockup from './MobileHeroMockup.astro';
 const { project } = Astro.props as { project: Mobile };
 
 const base = import.meta.env.BASE_URL;
 ---
 
-<section class="mobile-hero" id="top">
-  <div class="wrap mobile-hero-grid">
+<section class="case-hero">
+  <div class="case-hero-grid">
+    <div class="case-hero-content">
+      <div class="eyebrow reveal">Case Study</div>
 
-    <div class="mobile-hero-content reveal">
-      <span class="eyebrow">Mobile Application</span>
+      <h1 class="reveal" style="--d:.05s">
+        <span class="accent">{project.title}</span> {project.subtitle}
+      </h1>
 
-      <h1>{project.title}</h1>
+      <p class="reveal" style="--d:.1s">
+        {project.description}
+      </p>
 
-      <p>{project.description}</p>
-
-      <div class="mobile-hero-actions">
-        <a href="#design" class="btn btn-fill">
-          View Design
-        </a>
-
-        <a href="#outcome" class="btn btn-outline">
-          View Outcome
-        </a>
-      </div>
-
-      <div class="mobile-development-status">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span>In Development</span>
+      <div class="hero-actions reveal" style="--d:.15s">
+        <a href="#visual-design" class="btn btn-fill">View Design</a>
+        <a href="#outcome" class="btn btn-outline">View Outcome</a>
       </div>
     </div>
 
-    <div class="mobile-hero-image reveal">
-      <img
-        src={`${base}assets/images/mobile/case-study/${project.image}.png`}
-        alt={`${project.title} application preview`}
-        loading="eager"
+    <div class="reveal zoom" style="--d:.2s">
+      <MobileHeroMockup
+        primary={`${import.meta.env.BASE_URL}assets/images/mobile/case-study/${project.slug}.webp`}
+        secondary={`${import.meta.env.BASE_URL}assets/images/mobile/case-study/${project.slug}-2.webp`}
+        title={project.title}
       />
     </div>
-
   </div>
 </section>
+
