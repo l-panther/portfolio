@@ -1,44 +1,62 @@
-
 ---
-import mobile from '../../data/mobile.json';
-import type { MobileProject } from '../../types/mobile';
+import { getAllMobile } from '../../utils/projects';
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/global-case-study.css';
 
 import Header from '../../components/mobile/Header.astro';
 import Hero from '../../components/mobile/Hero.astro';
-import Overview from '../../components/mobile/Overview.astro';
+import Problem from '../../components/mobile/Problem.astro';
 import Features from '../../components/mobile/Features.astro';
-import Screens from '../../components/mobile/Screens.astro';
 import Outcome from '../../components/mobile/Outcome.astro';
+import ProjectLinks from '../../components/mobile/ProjectLinks.astro';
+import Footer from '../../components/mobile/Footer.astro';
 
-import Layout from '../../layouts/Layout.astro';
+import type { Mobile } from '../../types/mobile';
 
 export function getStaticPaths() {
-  return (mobile as MobileProject[]).map((project) => ({
-    params: { slug: project.slug },
-    props: { project }
-  }));
+  const mobile = getAllMobile();
+
+  return mobile
+    .filter((project) => project.slug)
+    .map((project) => ({
+      params: { slug: project.slug },
+      props: { project }
+    }));
 }
 
 const { project } = Astro.props as {
-  project: MobileProject;
+  project: Mobile;
 };
+
+const allProjects = getAllMobile();
+
+const currentIndex = allProjects.findIndex(
+  (mobile) => mobile.slug === project.slug
+);
+
+const prevProject =
+  currentIndex > 0
+    ? allProjects[currentIndex - 1]
+    : null;
+
+const nextProject =
+  currentIndex < allProjects.length - 1
+    ? allProjects[currentIndex + 1]
+    : null;
 ---
 
-<Layout title={`${project.title} | Mobile App Case Study`}>
-  <main class="mobile-case-study">
-
-    <Header />
-
-    <Hero project={project} />
-
-    <Overview project={project} />
-
-    <Features project={project} />
-
-    <Screens project={project} />
-
-    <Outcome project={project} />
-
-  </main>
+<Layout
+  title={`${project.title} — Mobile Case Study`}
+  description={project.description}
+>
+  <Header project={project} />
+  <Hero project={project} />
+  <Problem project={project} />
+  <Features project={project} />
+  <Outcome project={project} />
+  <ProjectLinks
+    prevMobile={prevProject}
+    nextMobile={nextProject}
+  />
+  <Footer project={project} />
 </Layout>
-
