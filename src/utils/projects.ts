@@ -4,26 +4,30 @@ import mobile from '../data/mobile.json';
 import type { Website } from '../types/website';
 import type { Mobile } from '../types/mobile';
 
+// Website projects
 export const getAllWebsites = (): Website[] => websites;
 
-const validStatuses = ['development', 'completed'] as const;
+// Mobile projects
+export const getAllMobile = (): Mobile[] => {
+  const projects = mobile as Mobile[];
 
-/*export const getAllMobile = (): Mobile[] =>
-  mobile.map((project) => {
+  return projects.map((project) => {
     if (
       project.status !== undefined &&
-      !validStatuses.some((status) => status === project.status)
+      project.status !== 'development' &&
+      project.status !== 'completed'
     ) {
-      throw new Error(`Invalid mobile status for ${project.slug}`);
+      throw new Error(
+        `Invalid mobile status for ${project.slug}`
+      );
     }
 
-    return {
-      ...project,
-      status: project.status as Mobile['status']
-    };
-  });*/
+    return project;
+  });
+};
 
+// All projects
 export const getAllProjects = (): (Website | Mobile)[] => [
   ...getAllWebsites(),
-  // ...getAllMobile(),
+  ...getAllMobile()
 ];
