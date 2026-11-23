@@ -25,8 +25,8 @@ const { project } = Astro.props as { project: Website };
 
     <div class="reveal zoom" style="--d:.2s">
       <WebsiteHeroMockup
-        desktop={`${import.meta.env.BASE_URL}assets/images/website/screenshots/${project.image}.webp`}
-        mobile={`${import.meta.env.BASE_URL}assets/images/website/screenshots/${project.image}-mobile.webp`}
+        desktop={`${import.meta.env.BASE_URL}assets/images/website/${project.image}.webp`}
+        mobile={`${import.meta.env.BASE_URL}assets/images/website/${project.image}-mobile.webp`}
         title={project.title}
       />
     </div>
