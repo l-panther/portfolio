@@ -99,7 +99,7 @@ const INITIAL_COUNT = 4;
                       </div>
                       <div class="browser-screen">
                         <img
-                          src={asset(`assets/images/website/${item.image}.webp`)}
+                          src={asset(`assets/images/website/screenshots/${item.image}.webp`)}
                           alt={`${item.title} desktop website screenshot`}
                           loading="lazy"
                           decoding="async"
@@ -110,7 +110,7 @@ const INITIAL_COUNT = 4;
                       <div class="phone-screen">
                         <div class="phone-notch" aria-hidden="true"></div>
                         <img
-                          src={asset(`assets/images/website/${item.image}-mobile.webp`)}
+                          src={asset(`assets/images/website/screenshots/${item.image}-mobile.webp`)}
                           alt={`${item.title} mobile website screenshot`}
                           loading="lazy"
                           decoding="async"
@@ -583,13 +583,13 @@ const INITIAL_COUNT = 4;
 
 .mockup-browser {
   box-shadow:
-    0 0 15px rgba(107, 163, 214, 0.18),
-    0 0 35px rgba(107, 163, 214, 0.12),
-    0 0 60px rgba(107, 163, 214, 0.06);
+    0 0 5px rgba(107, 163, 214, 0.18),
+    0 0 10px rgba(107, 163, 214, 0.12),
+    0 0 25px rgba(107, 163, 214, 0.06);
 
   filter:
-    drop-shadow(0 0 8px rgba(107, 163, 214, 0.20))
-    drop-shadow(0 0 22px rgba(107, 163, 214, 0.10));
+    drop-shadow(0 0 4px rgba(107, 163, 214, 0.20))
+    drop-shadow(0 0 28px rgba(107, 163, 214, 0.10));
 }
 .browser-toolbar {
   height: 27px;
